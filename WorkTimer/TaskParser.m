@@ -1,19 +1,18 @@
 //
 //  TaskParser2.m
-//  WorkTracker
+//  WorkTimer
 //
 //  Created by martin steel on 13/01/2014.
 //  Copyright (c) 2014 martin steel. All rights reserved.
 //
 
 #import "TaskParser.h"
-#import "WorkTimerTask.h"
 
 static NSUInteger kCountForNotification = 10;
 
 @implementation TaskParser
 
-@synthesize delegate, parsedWorkTrackerTasks, startTimeReference, downloadStartTimeReference, parseDuration, downloadDuration, totalDuration;
+@synthesize delegate, parsedWorkTimerTasks, startTimeReference, downloadStartTimeReference, parseDuration, downloadDuration, totalDuration;
 
 + (NSString *)parserName {
     NSAssert((self != [TaskParser class]), @"Class method parserName not valid for abstract base class TaskParser");
@@ -28,8 +27,14 @@ static NSUInteger kCountForNotification = 10;
 - (void)start {
     self.startTimeReference = [NSDate timeIntervalSinceReferenceDate];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    self.parsedWorkTrackerTasks = [NSMutableArray array];
-    NSURL *url = [NSURL URLWithString:@"https://spaarks.atlassian.net/plugins/servlet/tempo-getWorklog/?dateFrom=2013-12-01&dateTo=2013-12-31&format=xml&addWorklogDetails=falsel&addIssueSummary=true&diffOnly=false&userName=martin.steel@spaarks.com&tempoApiToken=c39f740a-69dd-4ccc-a21e-820ae0f9d7f2"];
+    self.parsedWorkTimerTasks = [NSMutableArray array];
+ 
+    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    NSInteger numberOfDays = 20;
+    NSString* urlString = [repo getURL:numberOfDays
+                                      :XMLParserTypeJIRAParser];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
     [NSThread detachNewThreadSelector:@selector(downloadAndParse:) toTarget:self withObject:url];
 }
 
@@ -53,10 +58,10 @@ static NSUInteger kCountForNotification = 10;
 
 - (void)parseEnded {
     NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTrackerTasks:)] && [parsedSongs count] > 0) {
-        [self.delegate parser:self didParseWorkTrackerTasks:parsedWorkTrackerTasks];    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTimerTasks:)] && [parsedSongs count] > 0) {
+        [self.delegate parser:self didParseWorkTimerTasks:parsedWorkTimerTasks];    
     }
-    [self.parsedWorkTrackerTasks removeAllObjects];
+    [self.parsedWorkTimerTasks removeAllObjects];
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parserDidEndParsingData:)]) {
         [self.delegate parserDidEndParsingData:self];
     }
@@ -65,14 +70,15 @@ static NSUInteger kCountForNotification = 10;
     //WriteStatisticToDatabase([[self class] parserType], downloadDuration, parseDuration, totalDuration);
 }
 
-- (void)parsedWorkTrackerTask:(WorkTimerTask *)workTrackerTask{
+- (void)parsedWorkTimerTask:(WorkTimerTask *)WorkTimerTask{
     NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    [self.parsedWorkTrackerTasks addObject:workTrackerTask];
-    if (self.parsedWorkTrackerTasks.count > kCountForNotification) {
-        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTrackerTasks:)]) {
-            [self.delegate parser:self didParseWorkTrackerTasks:parsedWorkTrackerTasks];
+    
+    [self.parsedWorkTimerTasks addObject:WorkTimerTask];
+    if (self.parsedWorkTimerTasks.count > kCountForNotification) {
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTimerTasks:)]) {
+            [self.delegate parser:self didParseWorkTimerTasks:parsedWorkTimerTasks];
         }
-        [self.parsedWorkTrackerTasks removeAllObjects];
+        [self.parsedWorkTimerTasks removeAllObjects];
     }
 }
 

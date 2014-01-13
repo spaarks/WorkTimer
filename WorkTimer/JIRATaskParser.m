@@ -1,6 +1,6 @@
 //
 //  JIRATasksParser.m
-//  WorkTracker
+//  WorkTimer
 //
 //  Created by martin steel on 13/01/2014.
 //  Copyright (c) 2014 martin steel. All rights reserved.
@@ -18,7 +18,7 @@
     return XMLParserTypeJIRAParser;
 }
 
-@synthesize currentString, currentWorkTrackerTask, parseFormatter, xmlData, apiConnection;
+@synthesize currentString, currentWorkTimerTask, parseFormatter, xmlData, apiConnection;
 
 - (void)downloadAndParse:(NSURL *)url {
     
@@ -44,7 +44,7 @@
     }
     self.apiConnection = nil;
     self.parseFormatter = nil;
-    self.currentWorkTrackerTask = nil;
+    self.currentWorkTimerTask = nil;
 }
 
 
@@ -107,11 +107,11 @@ static const NSUInteger kAutoreleasePoolPurgeFrequency = 20;
     // performSelectorOnMainThread: will retain the object until the selector has been performed
     // setting the local reference to nil ensures that the local reference will be released
     //
-    [self performSelectorOnMainThread:@selector(parsedWorkTrackerTask:)
-                           withObject:currentWorkTrackerTask
+    [self performSelectorOnMainThread:@selector(parsedWorkTimerTask:)
+                           withObject:currentWorkTimerTask
                         waitUntilDone:NO];
     
-    self.currentWorkTrackerTask = nil;
+    self.currentWorkTimerTask = nil;
 }
 
 
@@ -125,12 +125,14 @@ static NSString *kItem = @"worklog";
 static NSString *kIssueID = @"issue_id";
 static NSString *kIssueKey = @"issue_key";
 static NSString *kIssueDescription = @"work_description";
+static NSString *kIssueSummary = @"issue_summary";
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *) qualifiedName attributes:(NSDictionary *)attributeDict {
     
     if ([elementName isEqualToString:kItem]) {
-        self.currentWorkTrackerTask = [[WorkTimerTask alloc] init];
-    } else if ([elementName isEqualToString:kIssueID] || [elementName isEqualToString:kIssueKey] || [elementName isEqualToString:kIssueDescription]) {
+        self.currentWorkTimerTask = [[WorkTimerTask alloc] init];
+    } else if ([elementName isEqualToString:kIssueID] || [elementName isEqualToString:kIssueKey] || [elementName isEqualToString:kIssueDescription]
+               || [elementName isEqualToString:kIssueSummary]) {
         [currentString setString:@""];
         storingCharacters = YES;
     }
@@ -141,11 +143,12 @@ static NSString *kIssueDescription = @"work_description";
     if ([elementName isEqualToString:kItem]) {
         [self finishedTask];
     } else if ([elementName isEqualToString:kIssueID]) {
-        currentWorkTrackerTask.taskID = currentString;
+        currentWorkTimerTask.taskID = currentString;
     } else if ([elementName isEqualToString:kIssueKey]) {
-        currentWorkTrackerTask.taskKey = currentString;
-    } else if ([elementName isEqualToString:kIssueDescription]) {
-        currentWorkTrackerTask.taskSummary = currentString;
+        currentWorkTimerTask.taskKey = currentString;
+    }
+    else if ([elementName isEqualToString:kIssueSummary]) {
+        currentWorkTimerTask.taskSummary = currentString;
     }
     storingCharacters = NO;
 }

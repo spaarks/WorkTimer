@@ -1,5 +1,5 @@
 //
-//  ProtocolProjectRepository.h
+//  FakeProjectRepository.h
 //  WorkTimer
 //
 //  Created by martin steel on 13/01/2014.
@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ProtocolProjectRepository.h"
+#import "FakeSettingsRepository.h"
 #import "TaskParser.h"
 
-@protocol ProtocolProjectRepository <NSObject>
+@interface FakeProjectRepository : NSObject<ProtocolProjectRepository>
 
-//Fetch Tasks from the last number of days excluding today.
-- (NSMutableArray *)getMyTasks:(NSInteger)numberOfDays;
+- (NSMutableArray *)getMyTasks:(int)numberOfDays;
+
 - (NSString *)getURL:(NSInteger)numberOfDays
                     :(NSInteger)parserType;
 @end
-

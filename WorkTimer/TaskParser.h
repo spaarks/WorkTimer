@@ -1,6 +1,6 @@
 //
 //  ParseTasks.h
-//  WorkTracker
+//  WorkTimer
 //
 //  Created by martin steel on 13/01/2014.
 //  Copyright (c) 2014 martin steel. All rights reserved.
@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WorkTimerTask.h"
+#import "FakeProjectRepository.h"
 
 typedef enum {
     XMLParserTypeAbstract = -1,
@@ -25,7 +26,7 @@ typedef enum {
 // Called by the parser in the case of an error.
 - (void)parser:(TaskParser *)parser didFailWithError:(NSError *)error;
 // Called by the parser when one or more songs have been parsed. This method may be called multiple times.
-- (void)parser:(TaskParser *)parser didParseWorkTrackerTasks:(NSArray *)parsedWorkTrackerTasks;
+- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks;
 
 @end
 
@@ -43,7 +44,7 @@ typedef enum {
 }
 
 @property (nonatomic, weak) id <ProtocolTaskParserDelegate> delegate;
-@property (nonatomic, strong) NSMutableArray *parsedWorkTrackerTasks;
+@property (nonatomic, strong) NSMutableArray *parsedWorkTimerTasks;
 @property NSTimeInterval startTimeReference;
 @property NSTimeInterval downloadStartTimeReference;
 @property double parseDuration;
@@ -66,7 +67,7 @@ typedef enum {
 - (void)downloadStarted;
 - (void)downloadEnded;
 - (void)parseEnded;
-- (void)parsedWorkTrackerTask:(WorkTimerTask *)workTrackerTask;
+- (void)parsedWorkTimerTask:(WorkTimerTask *)WorkTimerTask;
 - (void)parseError:(NSError *)error;
 - (void)addToParseDuration:(NSNumber *)duration;
 

@@ -1,6 +1,6 @@
 //
 //  TasksTableViewController.m
-//  WorkTracker
+//  WorkTimer
 //
 //  Created by martin steel on 13/01/2014.
 //  Copyright (c) 2014 martin steel. All rights reserved.
@@ -13,7 +13,7 @@
 
 @implementation TasksTableViewController
 
-@synthesize workTrackerTasks = _workTrackerTasks;
+@synthesize workTimerTasks = _workTimerTasks;
 @synthesize parser = _parser;
 
 - (void)loadView {
@@ -46,10 +46,10 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     // Allocate the array for song storage, or empty the results of previous parses
-    if (self.workTrackerTasks == nil) {
-        self.workTrackerTasks = [NSMutableArray array];
+    if (self.workTimerTasks == nil) {
+        self.workTimerTasks = [NSMutableArray array];
     } else {
-        [self.workTrackerTasks removeAllObjects];
+        [self.workTimerTasks removeAllObjects];
         [self.tableView reloadData];
     }
     // Determine the Class for the parser
@@ -71,7 +71,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.workTrackerTasks count];
+    return [self.workTimerTasks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tv cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,7 +83,9 @@
         cell.textLabel.font = [UIFont boldSystemFontOfSize:14.0];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [[self.workTrackerTasks objectAtIndex:indexPath.row] taskSummary];
+    
+    WorkTimerTask* task = [self.workTimerTasks objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",[task taskKey], [task taskSummary]];
     return cell;
 }
 
@@ -107,9 +109,19 @@
     self.parser = nil;
 }
 
-- (void)parser:(TaskParser *)parser didParseWorkTrackerTasks:(NSArray *)parsedWorkTrackerTasks {
+- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks {
+    //Remove duplicates
+    NSSet *workTimerTasksSet = [NSSet setWithArray:parsedWorkTimerTasks];
+    NSArray *noDuplicates = [workTimerTasksSet allObjects];
     
-    [self.workTrackerTasks addObjectsFromArray:parsedWorkTrackerTasks];
+    
+    
+    //Sort Alphabetically
+    NSSortDescriptor *taskKeyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"taskKey" ascending:YES];
+    NSArray *sortDescriptors = @[taskKeyDescriptor];
+    noDuplicates = [noDuplicates sortedArrayUsingDescriptors:sortDescriptors];
+    
+    [self.workTimerTasks addObjectsFromArray:noDuplicates];
     
     if (!self.tableView.dragging && !self.tableView.tracking && !self.tableView.decelerating) {
         [self.tableView reloadData];
