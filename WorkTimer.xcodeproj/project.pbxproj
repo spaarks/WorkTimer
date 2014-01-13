@@ -24,6 +24,10 @@
 		EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F01884760700A68FD5 /* Foundation.framework */; };
 		EF9E22201884760700A68FD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9E221E1884760700A68FD5 /* InfoPlist.strings */; };
 		EF9E22231884760700A68FD5 /* WorkTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22221884760700A68FD5 /* WorkTimerTests.m */; };
+		EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22311884768D00A68FD5 /* JIRATaskParser.m */; };
+		EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22341884768D00A68FD5 /* TaskParser.m */; };
+		EF9E223D1884768D00A68FD5 /* TasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22361884768D00A68FD5 /* TasksTableViewController.m */; };
+		EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,15 @@
 		EF9E221F1884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EF9E22211884760700A68FD5 /* WorkTimerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkTimerTests.h; sourceTree = "<group>"; };
 		EF9E22221884760700A68FD5 /* WorkTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTests.m; sourceTree = "<group>"; };
+		EF9E22301884768D00A68FD5 /* JIRATaskParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIRATaskParser.h; sourceTree = "<group>"; };
+		EF9E22311884768D00A68FD5 /* JIRATaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIRATaskParser.m; sourceTree = "<group>"; };
+		EF9E22321884768D00A68FD5 /* ProtocolProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolProjectRepository.h; sourceTree = "<group>"; };
+		EF9E22331884768D00A68FD5 /* TaskParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskParser.h; sourceTree = "<group>"; };
+		EF9E22341884768D00A68FD5 /* TaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskParser.m; sourceTree = "<group>"; };
+		EF9E22351884768D00A68FD5 /* TasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksTableViewController.h; sourceTree = "<group>"; };
+		EF9E22361884768D00A68FD5 /* TasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksTableViewController.m; sourceTree = "<group>"; };
+		EF9E22391884768D00A68FD5 /* WorkTimerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTimerTask.h; sourceTree = "<group>"; };
+		EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,12 +132,17 @@
 		EF9E21F41884760700A68FD5 /* WorkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				EF9E22401884770B00A68FD5 /* Models */,
+				EF9E222D1884766000A68FD5 /* Domain */,
+				EF9E222C1884765400A68FD5 /* Parsers */,
 				EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */,
 				EF9E21FE1884760700A68FD5 /* spaarksAppDelegate.m */,
 				EF9E22061884760700A68FD5 /* MainStoryboard_iPhone.storyboard */,
 				EF9E22091884760700A68FD5 /* MainStoryboard_iPad.storyboard */,
 				EF9E220C1884760700A68FD5 /* spaarksViewController.h */,
 				EF9E220D1884760700A68FD5 /* spaarksViewController.m */,
+				EF9E22351884768D00A68FD5 /* TasksTableViewController.h */,
+				EF9E22361884768D00A68FD5 /* TasksTableViewController.m */,
 				EF9E21F51884760700A68FD5 /* Supporting Files */,
 			);
 			path = WorkTimer;
@@ -161,6 +179,50 @@
 				EF9E221E1884760700A68FD5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF9E222C1884765400A68FD5 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E22301884768D00A68FD5 /* JIRATaskParser.h */,
+				EF9E22311884768D00A68FD5 /* JIRATaskParser.m */,
+				EF9E22331884768D00A68FD5 /* TaskParser.h */,
+				EF9E22341884768D00A68FD5 /* TaskParser.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		EF9E222D1884766000A68FD5 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E222F1884767000A68FD5 /* Concrete */,
+				EF9E222E1884766900A68FD5 /* Abstract */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		EF9E222E1884766900A68FD5 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E22321884768D00A68FD5 /* ProtocolProjectRepository.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		EF9E222F1884767000A68FD5 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Concrete;
+			sourceTree = "<group>";
+		};
+		EF9E22401884770B00A68FD5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E22391884768D00A68FD5 /* WorkTimerTask.h */,
+				EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +340,10 @@
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
 				EF9E220E1884760700A68FD5 /* spaarksViewController.m in Sources */,
+				EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */,
+				EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */,
+				EF9E223D1884768D00A68FD5 /* TasksTableViewController.m in Sources */,
+				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
