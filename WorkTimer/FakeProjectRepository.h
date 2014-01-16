@@ -10,6 +10,7 @@
 #import "ProtocolProjectRepository.h"
 #import "FakeSettingsRepository.h"
 #import "TaskParser.h"
+#import "Helpers.h"
 
 @interface FakeProjectRepository : NSObject<ProtocolProjectRepository>
 
@@ -17,4 +18,11 @@
 
 - (NSString *)getURL:(NSInteger)numberOfDays
                     :(NSInteger)parserType;
+
+- (void)updateTask:(NSString*)taskID
+                        :(NSInteger)parserType
+                        :(NSString*)comment
+                        :(NSDate*)_timeStarted
+                        :(NSDate*)timeToLog;
+
 @end

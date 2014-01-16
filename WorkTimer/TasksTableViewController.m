@@ -16,10 +16,6 @@
 @synthesize workTimerTasks = _workTimerTasks;
 @synthesize parser = _parser;
 
-- (void)loadView {
-    [super loadView];
-}
-
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -29,6 +25,8 @@
                                                   target:self
                                                   action:@selector(refreshTable)];
     self.navigationItem.rightBarButtonItem = doneItem;
+    
+    [self refreshTable];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -104,24 +102,25 @@
 #pragma mark - TaskParserDelegate
 
 - (void)parserDidEndParsingData:(TaskParser *)parser {
-    [self.tableView reloadData];
-    self.navigationItem.rightBarButtonItem.enabled = YES;
-    self.parser = nil;
-}
-
-- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks {
     //Remove duplicates
-    NSSet *workTimerTasksSet = [NSSet setWithArray:parsedWorkTimerTasks];
+    NSSet *workTimerTasksSet = [NSSet setWithArray:self.workTimerTasks];
     NSArray *noDuplicates = [workTimerTasksSet allObjects];
-    
-    
     
     //Sort Alphabetically
     NSSortDescriptor *taskKeyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"taskKey" ascending:YES];
     NSArray *sortDescriptors = @[taskKeyDescriptor];
     noDuplicates = [noDuplicates sortedArrayUsingDescriptors:sortDescriptors];
     
+    [self.workTimerTasks removeAllObjects];
     [self.workTimerTasks addObjectsFromArray:noDuplicates];
+    
+    [self.tableView reloadData];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.parser = nil;
+}
+
+- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks {
+    [self.workTimerTasks addObjectsFromArray:parsedWorkTimerTasks];
     
     if (!self.tableView.dragging && !self.tableView.tracking && !self.tableView.decelerating) {
         [self.tableView reloadData];

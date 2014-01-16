@@ -32,16 +32,7 @@ typedef enum {
 
 #pragma mark -
 
-@interface TaskParser : NSObject {
-    id <ProtocolTaskParserDelegate> __weak delegate;
-    NSMutableArray *parsedSongs;
-    // This time interval is used to measure the overall time the parser takes to download and parse XML.
-    NSTimeInterval startTimeReference;
-    NSTimeInterval downloadStartTimeReference;
-    double parseDuration;
-    double downloadDuration;
-    double totalDuration;
-}
+@interface TaskParser : NSObject 
 
 @property (nonatomic, weak) id <ProtocolTaskParserDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *parsedWorkTimerTasks;

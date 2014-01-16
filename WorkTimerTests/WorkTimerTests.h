@@ -7,6 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "Helpers.h"
 
 @interface WorkTimerTests : SenTestCase
 

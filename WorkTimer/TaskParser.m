@@ -51,15 +51,15 @@ static NSUInteger kCountForNotification = 10;
 
 - (void)downloadEnded {
     NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - self.downloadStartTimeReference;
-    downloadDuration += duration;
+    //NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - self.downloadStartTimeReference;
+    //downloadDuration += duration;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)parseEnded {
     NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTimerTasks:)] && [parsedSongs count] > 0) {
-        [self.delegate parser:self didParseWorkTimerTasks:parsedWorkTimerTasks];    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTimerTasks:)] && [parsedWorkTimerTasks count] > 0) {
+        [self.delegate parser:self didParseWorkTimerTasks:parsedWorkTimerTasks];
     }
     [self.parsedWorkTimerTasks removeAllObjects];
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parserDidEndParsingData:)]) {

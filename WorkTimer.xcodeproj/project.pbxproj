@@ -30,6 +30,10 @@
 		EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */; };
 		EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22471884804300A68FD5 /* FakeSettingsRepository.m */; };
 		EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */; };
+		EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */; };
+		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
+		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
+		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +84,14 @@
 		EF9E22491884805400A68FD5 /* ProtocolSettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolSettingsRepository.h; sourceTree = "<group>"; };
 		EFA9AFF41884829A0091EDB1 /* FakeProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeProjectRepository.h; sourceTree = "<group>"; };
 		EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeProjectRepository.m; sourceTree = "<group>"; };
+		EFA9AFF718849FF00091EDB1 /* ButtonGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridViewController.h; sourceTree = "<group>"; };
+		EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridViewController.m; sourceTree = "<group>"; };
+		EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridCell.h; sourceTree = "<group>"; };
+		EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridCell.m; sourceTree = "<group>"; };
+		EFC470D118871B0E00FE9C75 /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
+		EFC470D218871B0F00FE9C75 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
+		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,9 +151,16 @@
 		EF9E21F41884760700A68FD5 /* WorkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				EFC470D418872F6700FE9C75 /* Generic */,
 				EF9E22401884770B00A68FD5 /* Models */,
 				EF9E222D1884766000A68FD5 /* Domain */,
 				EF9E222C1884765400A68FD5 /* Parsers */,
+				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
+				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
+				EFA9AFF718849FF00091EDB1 /* ButtonGridViewController.h */,
+				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
+				EFC470D118871B0E00FE9C75 /* ClockView.h */,
+				EFC470D218871B0F00FE9C75 /* ClockView.m */,
 				EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */,
 				EF9E21FE1884760700A68FD5 /* spaarksAppDelegate.m */,
 				EF9E22061884760700A68FD5 /* MainStoryboard_iPhone.storyboard */,
@@ -243,6 +262,15 @@
 				EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */,
 			);
 			name = Fake;
+			sourceTree = "<group>";
+		};
+		EFC470D418872F6700FE9C75 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				EFC470D518872F8600FE9C75 /* Helpers.h */,
+				EFC470D618872F8600FE9C75 /* Helpers.m */,
+			);
+			name = Generic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +394,10 @@
 				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
 				EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */,
 				EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */,
+				EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */,
+				EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */,
+				EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */,
+				EFC470D718872F8600FE9C75 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
