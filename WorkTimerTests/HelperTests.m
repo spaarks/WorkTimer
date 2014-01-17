@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 martin steel. All rights reserved.
 //
 
-#import "WorkTimerTests.h"
+#import "HelperTests.h"
 
-@implementation WorkTimerTests
+@implementation HelperTests
 
 - (void)setUp
 {
@@ -24,7 +24,7 @@
     [super tearDown];
 }
 
-- (void)testGetTimeDifference
+- (void)testGetDifferenceString
 {
     NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];
     [tempFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"];
@@ -36,7 +36,7 @@
     STAssertEqualObjects(expected, [Helpers getDifferenceString:start :end], @"Difference string should be 00:30:15");
 }
 
-- (void)testGetTimeDifferenceLongerThanADay
+- (void)testGetDifferenceStringLongerThanADay
 {
     NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];
     [tempFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"];
@@ -56,6 +56,32 @@
     
     NSString *expected = @"01:11:59";
     STAssertEqualObjects(expected, [Helpers getTimerString:date], @"Date string should be 01:11:59");
+}
+
+- (void)testGetDateString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss zzz";
+    NSDate *date  = [dateFormatter dateFromString:@"2014-01-05 13:30:11 000"];
+    
+    NSString *expected = @"2014-01-05T13:30:11.000+0000";
+    STAssertEqualObjects(expected, [Helpers getDateString:date], @"Date string should be 2014-01-05T13:30:11.000Z");
     
 }
+
+- (void)testGetJIRATimeString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss zzz";
+    NSDate *date  = [dateFormatter dateFromString:@"2014-01-05 13:30:11 000"];
+ 
+    NSString *expected = @"13h 30m";
+    STAssertEqualObjects(expected, [Helpers getJIRATimeString:date], @"Date string should be 13h 30m");
+}
+
+//TODO - figure out how to test methods which use current date
+/*
++(NSString*) getStartDateString;
++(NSString*) getEndDateString;
+ */
 @end

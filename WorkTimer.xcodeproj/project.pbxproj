@@ -23,7 +23,7 @@
 		EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21EE1884760700A68FD5 /* UIKit.framework */; };
 		EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F01884760700A68FD5 /* Foundation.framework */; };
 		EF9E22201884760700A68FD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9E221E1884760700A68FD5 /* InfoPlist.strings */; };
-		EF9E22231884760700A68FD5 /* WorkTimerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22221884760700A68FD5 /* WorkTimerTests.m */; };
+		EF9E22231884760700A68FD5 /* HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22221884760700A68FD5 /* HelperTests.m */; };
 		EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22311884768D00A68FD5 /* JIRATaskParser.m */; };
 		EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22341884768D00A68FD5 /* TaskParser.m */; };
 		EF9E223D1884768D00A68FD5 /* TasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22361884768D00A68FD5 /* TasksTableViewController.m */; };
@@ -68,8 +68,8 @@
 		EF9E22151884760700A68FD5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		EF9E221D1884760700A68FD5 /* WorkTimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorkTimerTests-Info.plist"; sourceTree = "<group>"; };
 		EF9E221F1884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EF9E22211884760700A68FD5 /* WorkTimerTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkTimerTests.h; sourceTree = "<group>"; };
-		EF9E22221884760700A68FD5 /* WorkTimerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTests.m; sourceTree = "<group>"; };
+		EF9E22211884760700A68FD5 /* HelperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperTests.h; sourceTree = "<group>"; };
+		EF9E22221884760700A68FD5 /* HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelperTests.m; sourceTree = "<group>"; };
 		EF9E22301884768D00A68FD5 /* JIRATaskParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JIRATaskParser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EF9E22311884768D00A68FD5 /* JIRATaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = JIRATaskParser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EF9E22321884768D00A68FD5 /* ProtocolProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolProjectRepository.h; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 		EF9E221B1884760700A68FD5 /* WorkTimerTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22211884760700A68FD5 /* WorkTimerTests.h */,
-				EF9E22221884760700A68FD5 /* WorkTimerTests.m */,
+				EF9E22211884760700A68FD5 /* HelperTests.h */,
+				EF9E22221884760700A68FD5 /* HelperTests.m */,
 				EF9E221C1884760700A68FD5 /* Supporting Files */,
 			);
 			path = WorkTimerTests;
@@ -405,7 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF9E22231884760700A68FD5 /* WorkTimerTests.m in Sources */,
+				EF9E22231884760700A68FD5 /* HelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +519,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -530,6 +531,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
