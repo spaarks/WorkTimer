@@ -17,6 +17,7 @@
 }
 - (NSString *)getURL:(NSInteger)numberOfDays
                     :(NSInteger)parserType{
+
     NSString *baseURL = [FakeSettingsRepository getServerPath:(parserType)];
     NSString *userName = [FakeSettingsRepository getMyUserName];
     NSString *token = [FakeSettingsRepository getToken:(parserType)];
@@ -48,7 +49,7 @@
                            @"comment":comment};
     
     NSError *error;
-    return [NSJSONSerialization dataWithJSONObject:dict options:nil error:&error];
+    return [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
 }
                                  
 - (void)updateTask:(NSString*)taskID
@@ -78,7 +79,7 @@
     
     [self SetAuthenticationType:parserType request:request];
     
-    __block NSString *html;
+    //__block NSString *html;
     
     [NSURLConnection sendAsynchronousRequest:request
                                             queue:[NSOperationQueue mainQueue]

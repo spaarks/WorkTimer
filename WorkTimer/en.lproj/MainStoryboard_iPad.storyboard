@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="FBY-2k-Zya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="FBY-2k-Zya">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Tasks Table View Controller-->
         <scene sceneID="4">
             <objects>
                 <viewController id="2" customClass="TasksTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Oj4-Rv-ll0"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Yt-MB-mA9"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JY3-L6-ssZ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JY3-L6-ssZ">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="2" id="8Or-qk-qOB"/>
@@ -22,10 +27,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="N1T-CH-gk5"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="o4F-ZV-uv4"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="sR7-Vw-PMX"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="zuz-mf-kO7"/>
+                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" id="N1T-CH-gk5"/>
+                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="top" secondItem="5" secondAttribute="top" id="o4F-ZV-uv4"/>
+                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="sR7-Vw-PMX"/>
+                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="zuz-mf-kO7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QJ2-Ba-Z26"/>
@@ -59,47 +64,45 @@
         <scene sceneID="qjK-t6-mQA">
             <objects>
                 <viewController id="HyU-Z6-AKs" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gSq-9y-4dY"/>
+                        <viewControllerLayoutGuide type="bottom" id="x3U-eQ-Vc2"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="CfX-bf-r9q">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bq-Ox-Uc5">
+                                <rect key="frame" x="213" y="242" width="73" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="hqr-Lv-KXH"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Table">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="2" kind="push" id="rM9-wi-5XN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRx-oV-Q6I">
+                                <rect key="frame" x="404" y="242" width="129" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="129" id="bp5-pO-w1D"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button Grid">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="i8B-o0-3KB" kind="push" id="eDE-I9-mGu"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KXP-WI-fp4"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KXP-WI-fp4">
+                                <rect key="frame" x="218" y="321" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PRx-oV-Q6I" firstAttribute="baseline" secondItem="6Bq-Ox-Uc5" secondAttribute="baseline" type="default" id="8ru-p7-TCz"/>
+                            <constraint firstItem="PRx-oV-Q6I" firstAttribute="baseline" secondItem="6Bq-Ox-Uc5" secondAttribute="baseline" id="8ru-p7-TCz"/>
                             <constraint firstItem="KXP-WI-fp4" firstAttribute="top" secondItem="CfX-bf-r9q" secondAttribute="top" constant="321" id="So3-It-jPC"/>
                             <constraint firstItem="6Bq-Ox-Uc5" firstAttribute="top" secondItem="CfX-bf-r9q" secondAttribute="top" constant="242" id="bAi-vs-2MP"/>
                             <constraint firstAttribute="trailing" secondItem="PRx-oV-Q6I" secondAttribute="trailing" constant="235" id="bFW-cs-Wda"/>
@@ -118,7 +121,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="i8B-o0-3KB" customClass="ButtonGridViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="8fB-bN-IcM">
-                        <rect key="frame" x="0.0" y="64" width="768" height="960"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r0Z-3h-t62">
@@ -129,13 +132,14 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonGridCelIdentifier" id="Lkd-n5-KkZ" customClass="ButtonGridCell">
-                                <rect key="frame" x="0.0" y="0.0" width="145" height="135"/>
+                                <rect key="frame" x="0.0" y="64" width="145" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="145" height="135"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tj-fs-SD1">
+                                            <rect key="frame" x="0.0" y="10" width="145" height="21"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="Ftp-Lf-V5G"/>
@@ -144,6 +148,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dN-6r-S6u">
+                                            <rect key="frame" x="0.0" y="39" width="145" height="21"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="T97-IW-Yq9"/>
@@ -152,8 +157,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2C-bQ-6jo" customClass="ClockView">
+                                            <rect key="frame" x="8" y="95" width="125" height="32"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-8a-ZnR">
+                                                    <rect key="frame" x="0.0" y="-1" width="125" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="iry-y6-s52"/>
                                                     </constraints>
@@ -162,16 +169,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6C1-cD-8u9">
+                                                    <rect key="frame" x="95" y="6" width="20" height="20"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="trailing" secondItem="v2C-bQ-6jo" secondAttribute="trailing" type="default" id="7rK-PB-S40"/>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" type="default" id="9xx-vh-T6A"/>
-                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="centerY" secondItem="v2C-bQ-6jo" secondAttribute="centerY" type="default" id="AZ8-xo-y5H"/>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="bottom" secondItem="v2C-bQ-6jo" secondAttribute="bottom" type="default" id="ItB-Hs-E7o"/>
-                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" constant="95" scoringType="5" id="IzH-Ck-N1s"/>
+                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="trailing" secondItem="v2C-bQ-6jo" secondAttribute="trailing" id="7rK-PB-S40"/>
+                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" id="9xx-vh-T6A"/>
+                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="centerY" secondItem="v2C-bQ-6jo" secondAttribute="centerY" id="AZ8-xo-y5H"/>
+                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="bottom" secondItem="v2C-bQ-6jo" secondAttribute="bottom" id="ItB-Hs-E7o"/>
+                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" constant="95" id="IzH-Ck-N1s"/>
                                                 <constraint firstAttribute="trailing" secondItem="6C1-cD-8u9" secondAttribute="trailing" constant="10" id="wZa-gc-dqD"/>
                                             </constraints>
                                             <connections>
@@ -187,12 +195,12 @@
                                     <constraint firstItem="v2C-bQ-6jo" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" constant="8" id="7mH-XS-tx5"/>
                                     <constraint firstItem="8tj-fs-SD1" firstAttribute="top" secondItem="Lkd-n5-KkZ" secondAttribute="top" constant="10" id="Dr0-YM-dwN"/>
                                     <constraint firstItem="v2C-bQ-6jo" firstAttribute="top" secondItem="Lkd-n5-KkZ" secondAttribute="top" constant="95" id="PTb-6s-axI"/>
-                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="trailing" secondItem="Lkd-n5-KkZ" secondAttribute="trailing" type="default" id="XAn-8Q-aBp"/>
-                                    <constraint firstItem="8tj-fs-SD1" firstAttribute="trailing" secondItem="Lkd-n5-KkZ" secondAttribute="trailing" type="default" id="dOH-1I-kQy"/>
-                                    <constraint firstItem="8tj-fs-SD1" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" type="default" id="egW-WH-zO9"/>
+                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="trailing" secondItem="Lkd-n5-KkZ" secondAttribute="trailing" id="XAn-8Q-aBp"/>
+                                    <constraint firstItem="8tj-fs-SD1" firstAttribute="trailing" secondItem="Lkd-n5-KkZ" secondAttribute="trailing" id="dOH-1I-kQy"/>
+                                    <constraint firstItem="8tj-fs-SD1" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" id="egW-WH-zO9"/>
                                     <constraint firstAttribute="bottom" secondItem="v2C-bQ-6jo" secondAttribute="bottom" constant="8" id="fKv-Fc-EfZ"/>
-                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" type="default" id="uyq-fp-be9"/>
-                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="top" secondItem="8tj-fs-SD1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yoI-jx-5M3"/>
+                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" id="uyq-fp-be9"/>
+                                    <constraint firstItem="2dN-6r-S6u" firstAttribute="top" secondItem="8tj-fs-SD1" secondAttribute="bottom" constant="8" symbolic="YES" id="yoI-jx-5M3"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="clockView" destination="v2C-bQ-6jo" id="vGh-X0-m4q"/>
@@ -213,49 +221,8 @@
             <point key="canvasLocation" x="1697" y="870"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ButtonGridCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButtonGridCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="clockView" candidateClass="ClockView"/>
-                <relationship kind="outlet" name="taskKeyLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="taskSummaryLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ButtonGridViewController" superclassName="UICollectionViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ButtonGridViewController.h"/>
-        </class>
-        <class className="ClockView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ClockView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="timeString" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TasksTableViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TasksTableViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
+        <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
