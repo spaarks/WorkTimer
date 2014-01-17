@@ -15,6 +15,7 @@
 @synthesize started=_started;
 @synthesize isClockRunning=_isClockRunning;
 @synthesize timeStarted=_timeStarted;
+@synthesize activityIndicator=_activityIndicator;
 
 -(id)initWithCoder:(NSCoder*)coder
 {
@@ -24,17 +25,19 @@
         _started = NO;
     }
     return self;
-    //c7
 }
 
 - (void) start
 {
+    [_activityIndicator startAnimating];
     [self tick:nil];
     _isClockRunning = YES;
 }
 
 - (void) stop
 {
+    [_activityIndicator stopAnimating];
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(tick:)  object:nil];
     _isClockRunning = NO;
 }

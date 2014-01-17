@@ -26,7 +26,6 @@
 		EF9E22231884760700A68FD5 /* HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22221884760700A68FD5 /* HelperTests.m */; };
 		EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22311884768D00A68FD5 /* JIRATaskParser.m */; };
 		EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22341884768D00A68FD5 /* TaskParser.m */; };
-		EF9E223D1884768D00A68FD5 /* TasksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22361884768D00A68FD5 /* TasksTableViewController.m */; };
 		EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */; };
 		EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22471884804300A68FD5 /* FakeSettingsRepository.m */; };
 		EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */; };
@@ -75,8 +74,6 @@
 		EF9E22321884768D00A68FD5 /* ProtocolProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolProjectRepository.h; sourceTree = "<group>"; };
 		EF9E22331884768D00A68FD5 /* TaskParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskParser.h; sourceTree = "<group>"; };
 		EF9E22341884768D00A68FD5 /* TaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskParser.m; sourceTree = "<group>"; };
-		EF9E22351884768D00A68FD5 /* TasksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksTableViewController.h; sourceTree = "<group>"; };
-		EF9E22361884768D00A68FD5 /* TasksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksTableViewController.m; sourceTree = "<group>"; };
 		EF9E22391884768D00A68FD5 /* WorkTimerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTimerTask.h; sourceTree = "<group>"; };
 		EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTask.m; sourceTree = "<group>"; };
 		EF9E22461884804300A68FD5 /* FakeSettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FakeSettingsRepository.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -167,8 +164,6 @@
 				EF9E22091884760700A68FD5 /* MainStoryboard_iPad.storyboard */,
 				EF9E220C1884760700A68FD5 /* spaarksViewController.h */,
 				EF9E220D1884760700A68FD5 /* spaarksViewController.m */,
-				EF9E22351884768D00A68FD5 /* TasksTableViewController.h */,
-				EF9E22361884768D00A68FD5 /* TasksTableViewController.m */,
 				EF9E21F51884760700A68FD5 /* Supporting Files */,
 			);
 			path = WorkTimer;
@@ -390,7 +385,6 @@
 				EF9E220E1884760700A68FD5 /* spaarksViewController.m in Sources */,
 				EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */,
 				EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */,
-				EF9E223D1884768D00A68FD5 /* TasksTableViewController.m in Sources */,
 				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
 				EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */,
 				EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */,

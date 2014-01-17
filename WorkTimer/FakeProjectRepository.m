@@ -29,14 +29,14 @@
     return urlString;
 }
 
-- (void)SetAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
+- (void)setAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
 {
     NSString* token = [FakeSettingsRepository getAuthenticationToken:(parserType)];
     NSString * headerValue = [NSString stringWithFormat:@"Basic %@", token];
     [request setValue:headerValue forHTTPHeaderField:@"Authorization"];
 }
 
-- (NSData*)GetJSONDataForRequest:(NSDate*)_timeStarted
+- (NSData*)getJSONDataForRequest:(NSDate*)_timeStarted
                                 :(NSString*)comment
                                 :(NSDate*)timeToLog
 {
@@ -58,7 +58,7 @@
                         :(NSDate*)_timeStarted
                         :(NSDate*)timeToLog
 {
-    NSData *jsonData = [self GetJSONDataForRequest:_timeStarted :comment:timeToLog];
+    NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
     NSString* serverPath = [FakeSettingsRepository getServerPath:(parserType)];
     NSString* urlPath = [NSString stringWithFormat:@"%@/rest/api/latest/issue/%@/worklog", serverPath, taskID];
@@ -77,7 +77,7 @@
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%ld", (long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     
-    [self SetAuthenticationType:parserType request:request];
+    [self setAuthenticationType:parserType request:request];
     
     //__block NSString *html;
     

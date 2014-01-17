@@ -42,14 +42,10 @@
             if(self.clockView.isClockRunning)
             {
                 [self.clockView stop];
-                [_clockView.activityIndicator stopAnimating];
             }
             //We're back from lunch so start the timer again
             else
-            {
                 [self.clockView start];
-                [_clockView.activityIndicator startAnimating];
-            }
         }
         else
             [self cellSelected];
@@ -68,8 +64,6 @@
     self.taskSummaryLabel.backgroundColor = [UIColor lightGrayColor];
     
     [self.clockView.activityIndicator setHidden:false];
-    [self.clockView.activityIndicator startAnimating];
-    
     [self.clockView start];
     
     _alreadyStarted=YES;
@@ -98,7 +92,7 @@
     
     self.taskSummaryLabel.backgroundColor = [UIColor whiteColor];
     [_clockView.activityIndicator setHidden:TRUE];
-    [_clockView.activityIndicator stopAnimating];
+    
     [self.clockView stop];
 
     [self createTimesheetLog];

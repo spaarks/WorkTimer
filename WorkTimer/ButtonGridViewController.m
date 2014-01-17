@@ -23,22 +23,26 @@ int const kCellsPerPage = 20;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        // Custom ;
     }
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    self.parentViewController.view.hidden = YES;
     
     [super viewDidLoad];
     
-    UIBarButtonItem *doneItem =
-    [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                  target:self
-                                                  action:@selector(refreshGrid)];
-    self.navigationItem.rightBarButtonItem = doneItem;
-
-    [self refreshGrid];
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [refreshButton addTarget:self
+               action:@selector(refreshGrid)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+    
+    self.navigationItem.titleView = refreshButton;
+    [self parseWithParserType:XMLParserTypeJIRAParser];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,7 +54,13 @@ int const kCellsPerPage = 20;
 - (IBAction)refreshGrid {
     //Refresh the data
     
-    [self parseWithParserType:XMLParserTypeJIRAParser];
+    [self viewDidLoad];
+}
+
+-(void)reloadCells
+{
+    [self.workTimerTasks removeAllObjects];
+    [self.collectionView reloadData];
 }
 
 // This method will be called repeatedly - once each time the user choses to parse.
@@ -62,8 +72,7 @@ int const kCellsPerPage = 20;
     if (self.workTimerTasks == nil) {
         self.workTimerTasks = [NSMutableArray array];
     } else {
-        [self.workTimerTasks removeAllObjects];
-        [self.collectionView reloadData];
+        [self reloadCells];
     }
     // Determine the Class for the parser
     Class parserClass = nil;
@@ -154,6 +163,8 @@ int const kCellsPerPage = 20;
     [self.collectionView reloadData];
     self.navigationItem.rightBarButtonItem.enabled = YES;
     self.parser = nil;
+    
+    self.parentViewController.view.hidden = NO;
 }
 
 - (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks {

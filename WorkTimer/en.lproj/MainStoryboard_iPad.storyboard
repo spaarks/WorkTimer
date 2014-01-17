@@ -4,44 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Tasks Table View Controller-->
-        <scene sceneID="4">
-            <objects>
-                <viewController id="2" customClass="TasksTableViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Oj4-Rv-ll0"/>
-                        <viewControllerLayoutGuide type="bottom" id="5Yt-MB-mA9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JY3-L6-ssZ">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="2" id="8Or-qk-qOB"/>
-                                    <outlet property="delegate" destination="2" id="cGQ-mD-zMx"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" id="N1T-CH-gk5"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="top" secondItem="5" secondAttribute="top" id="o4F-ZV-uv4"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="sR7-Vw-PMX"/>
-                            <constraint firstItem="JY3-L6-ssZ" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="zuz-mf-kO7"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="QJ2-Ba-Z26"/>
-                    <connections>
-                        <outlet property="tableView" destination="JY3-L6-ssZ" id="1jK-D3-igo"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1706" y="-577"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="eEM-nJ-oBX">
             <objects>
@@ -53,68 +15,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="HyU-Z6-AKs" kind="relationship" relationship="rootViewController" id="hM0-8T-YAQ"/>
+                        <segue destination="i8B-o0-3KB" kind="relationship" relationship="rootViewController" id="508-2o-I0A"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXz-i9-JNU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-729" y="-219"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qjK-t6-mQA">
-            <objects>
-                <viewController id="HyU-Z6-AKs" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="gSq-9y-4dY"/>
-                        <viewControllerLayoutGuide type="bottom" id="x3U-eQ-Vc2"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="CfX-bf-r9q">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bq-Ox-Uc5">
-                                <rect key="frame" x="213" y="242" width="73" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="hqr-Lv-KXH"/>
-                                </constraints>
-                                <state key="normal" title="Table">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="2" kind="push" id="rM9-wi-5XN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRx-oV-Q6I">
-                                <rect key="frame" x="404" y="242" width="129" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="bp5-pO-w1D"/>
-                                </constraints>
-                                <state key="normal" title="Button Grid">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="i8B-o0-3KB" kind="push" id="eDE-I9-mGu"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KXP-WI-fp4">
-                                <rect key="frame" x="218" y="321" width="20" height="20"/>
-                            </activityIndicatorView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PRx-oV-Q6I" firstAttribute="baseline" secondItem="6Bq-Ox-Uc5" secondAttribute="baseline" id="8ru-p7-TCz"/>
-                            <constraint firstItem="KXP-WI-fp4" firstAttribute="top" secondItem="CfX-bf-r9q" secondAttribute="top" constant="321" id="So3-It-jPC"/>
-                            <constraint firstItem="6Bq-Ox-Uc5" firstAttribute="top" secondItem="CfX-bf-r9q" secondAttribute="top" constant="242" id="bAi-vs-2MP"/>
-                            <constraint firstAttribute="trailing" secondItem="PRx-oV-Q6I" secondAttribute="trailing" constant="235" id="bFW-cs-Wda"/>
-                            <constraint firstItem="6Bq-Ox-Uc5" firstAttribute="leading" secondItem="CfX-bf-r9q" secondAttribute="leading" constant="213" id="f1s-GG-0TJ"/>
-                            <constraint firstItem="KXP-WI-fp4" firstAttribute="leading" secondItem="CfX-bf-r9q" secondAttribute="leading" constant="218" id="zhU-D1-rpT"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="Gpg-VT-TlW"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="orD-8k-rmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="388" y="366"/>
         </scene>
         <!--Button Grid View Controller-->
         <scene sceneID="6m5-Kk-eLp">
