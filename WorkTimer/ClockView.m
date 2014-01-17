@@ -24,6 +24,7 @@
         _started = NO;
     }
     return self;
+    //c
 }
 
 - (void) start
