@@ -84,4 +84,12 @@
 +(NSString*) getStartDateString;
 +(NSString*) getEndDateString;
  */
+
+-(void)testEncodeString
+{
+    NSString *data = @"martin.steel@spaarks.com:Yellow12";
+    NSString *expected = @"bWFydGluLnN0ZWVsQHNwYWFya3MuY29tOlllbGxvdzEy";
+    STAssertEqualObjects(expected, [Helpers encodeString:data],
+                         @"Encoded string should be bWFydGluLnN0ZWVsQHNwYWFya3MuY29tOlllbGxvdzEy");
+}
 @end

@@ -7,13 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Settings.h"
 
 @protocol ProtocolSettingsRepository <NSObject>
 
 + (NSString *) getMyUserName;
-+ (NSString *) getToken:(NSInteger) parserType;
-+ (NSString *) getServerPath:(NSInteger) parserType;
-+ (NSString *) getAuthenticationToken:(NSInteger) parserType;
-
++ (NSString *) getServerPath;
++ (NSString *) getAuthenticationToken;
++ (NSInteger) getParserType;
++ (void) saveSettings:(Settings*) settings;
++ (void) closeSettingsDatabase;
 @end
 

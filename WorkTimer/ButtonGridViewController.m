@@ -30,19 +30,36 @@ int const kCellsPerPage = 20;
 
 - (void)viewDidLoad
 {
-    self.parentViewController.view.hidden = YES;
-    
-    [super viewDidLoad];
-    
-    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [refreshButton addTarget:self
-               action:@selector(refreshGrid)
-     forControlEvents:UIControlEventTouchUpInside];
-    
-    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
-    
-    self.navigationItem.titleView = refreshButton;
-    [self parseWithParserType:XMLParserTypeJIRAParser];
+//    [self populateGridOrShowSettings];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self populateGridOrShowSettings];
+}
+
+- (void)populateGridOrShowSettings
+{
+    if(![SettingsRepository doSettingsExist])
+    {
+        [self performSegueWithIdentifier:@"openSettingsSegue" sender:self];
+    }
+    else
+    {
+        self.parentViewController.view.hidden = YES;
+        
+        [super viewDidLoad];
+        
+        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [refreshButton addTarget:self
+                          action:@selector(refreshGrid)
+                forControlEvents:UIControlEventTouchUpInside];
+        
+        [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+        
+        self.navigationItem.titleView = refreshButton;
+        [self parseWithParserType:XMLParserTypeJIRAParser];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,9 +69,7 @@ int const kCellsPerPage = 20;
 }
 
 - (IBAction)refreshGrid {
-    //Refresh the data
-    
-    [self viewDidLoad];
+    [self viewWillAppear:YES];
 }
 
 -(void)reloadCells
@@ -110,19 +125,16 @@ int const kCellsPerPage = 20;
 #pragma mark - UICollectionViewDataSource
 
 -(NSInteger)numberOfSectionsInCollectionView:
-(UICollectionView *)collectionView{
-    //return MIN([_workTimerTasks count], kCellsPerPage)
+(UICollectionView *)collectionView
+{
     return 1;
-    
-    //if([_workTimerTasks count] < kCellsPerPage)
-    //    return 1;
-    
-    //return [_workTimerTasks count]/kCellsPerPage;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
-    numberOfItemsInSection:(NSInteger)section{
-    return 1000;//kCellsPerPage;
+    numberOfItemsInSection:(NSInteger)section
+{
+    return [self.workTimerTasks count];
+    //return 1000;//kCellsPerPage;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -167,7 +179,8 @@ int const kCellsPerPage = 20;
     self.parentViewController.view.hidden = NO;
 }
 
-- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks {
+- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks
+{
     [self.workTimerTasks addObjectsFromArray:parsedWorkTimerTasks];
     
     [self collectionView];
@@ -177,7 +190,8 @@ int const kCellsPerPage = 20;
     }
 }
 
-- (void)parser:(TaskParser *)parser didFailWithError:(NSError *)error {
+- (void)parser:(TaskParser *)parser didFailWithError:(NSError *)error
+{
     // handle errors as appropriate to your application...
     
 }

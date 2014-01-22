@@ -12,7 +12,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // Override point for customization after app launch.
+//    ChooseTimesheetToolViewController *settingsView =
+//        [[ChooseTimesheetToolViewController alloc]init];
+//    [self.window addSubview:settingsView.view];
+//    [self.window makeKeyAndVisible];
+//    
     return YES;
 }
 							
@@ -41,6 +46,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [SettingsRepository closeSettingsDatabase];
 }
 
 @end

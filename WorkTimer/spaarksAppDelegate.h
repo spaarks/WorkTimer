@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SettingsRepository.h"
+#import "ChooseTimesheetToolViewController.h"
 
 @interface spaarksAppDelegate : UIResponder <UIApplicationDelegate>
 

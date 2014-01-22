@@ -44,15 +44,10 @@ static NSUInteger kCountForNotification = 10;
 }
 
 - (void)downloadStarted {
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    self.downloadStartTimeReference = [NSDate timeIntervalSinceReferenceDate];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
 - (void)downloadEnded {
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    //NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - self.downloadStartTimeReference;
-    //downloadDuration += duration;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
@@ -91,7 +86,6 @@ static NSUInteger kCountForNotification = 10;
 
 - (void)addToParseDuration:(NSNumber *)duration {
     NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
-    parseDuration += [duration doubleValue];
 }
 
 @end

@@ -15,4 +15,5 @@
 +(NSString*) getJIRATimeString:(NSDate*) current;
 +(NSString*) getStartDateString;
 +(NSString*) getEndDateString;
++(NSString *)encodeString:(NSString *)data;
 @end

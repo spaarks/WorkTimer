@@ -87,4 +87,35 @@ int const kSecondsInHour = 3600;
     NSString* dateString = [dateFormatter stringFromDate:endDate];
     return dateString;
 }
+static char *alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
++ (NSString *)encodeString:(NSString *)data
+{
+    const char *input = [data cStringUsingEncoding:NSUTF8StringEncoding];
+    unsigned long inputLength = [data length];
+    unsigned long modulo = inputLength % 3;
+    unsigned long outputLength = (inputLength / 3) * 4 + (modulo ? 4 : 0);
+    unsigned long j = 0;
+    
+    // Do not forget about trailing zero
+    unsigned char *output = malloc(outputLength + 1);
+    output[outputLength] = 0;
+    
+    // Here are no checks inside the loop, so it works much faster than other implementations
+    for (unsigned long i = 0; i < inputLength; i += 3) {
+        output[j++] = alphabet[ (input[i] & 0xFC) >> 2 ];
+        output[j++] = alphabet[ ((input[i] & 0x03) << 4) | ((input[i + 1] & 0xF0) >> 4) ];
+        output[j++] = alphabet[ ((input[i + 1] & 0x0F)) << 2 | ((input[i + 2] & 0xC0) >> 6) ];
+        output[j++] = alphabet[ (input[i + 2] & 0x3F) ];
+    }
+    // Padding in the end of encoded string directly depends of modulo
+    if (modulo > 0) {
+        output[outputLength - 1] = '=';
+        if (modulo == 1)
+            output[outputLength - 2] = '=';
+    }
+    NSString *s = [NSString stringWithUTF8String:(const char *)output];
+    free(output);
+    return s;
+}
 @end

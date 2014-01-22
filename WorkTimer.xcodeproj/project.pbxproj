@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EF4FFCFF188FE2EA002A1B01 /* SettingsRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */; };
+		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
+		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
+		EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* SettingsRepository.m */; };
+		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
+		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
+		EF924E2B188D2E940091426C /* ChooseTimesheetToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */; };
+		EF924E2D188D30670091426C /* logoJIRA.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2C188D30670091426C /* logoJIRA.png */; };
+		EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */; };
+		EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */; };
 		EF9E21EF1884760700A68FD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21EE1884760700A68FD5 /* UIKit.framework */; };
 		EF9E21F11884760700A68FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F01884760700A68FD5 /* Foundation.framework */; };
 		EF9E21F31884760700A68FD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F21884760700A68FD5 /* CoreGraphics.framework */; };
@@ -27,7 +37,6 @@
 		EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22311884768D00A68FD5 /* JIRATaskParser.m */; };
 		EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22341884768D00A68FD5 /* TaskParser.m */; };
 		EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */; };
-		EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22471884804300A68FD5 /* FakeSettingsRepository.m */; };
 		EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */; };
 		EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */; };
 		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
@@ -46,6 +55,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepositoryTests.h; sourceTree = "<group>"; };
+		EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepositoryTests.m; sourceTree = "<group>"; };
+		EF589C67188EE2B500D3E4BA /* SettingsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTests.h; sourceTree = "<group>"; };
+		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
+		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
+		EF871E78188D8B9500D54493 /* SettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepository.h; sourceTree = "<group>"; };
+		EF871E79188D8B9500D54493 /* SettingsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepository.m; sourceTree = "<group>"; };
+		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		EF871E7C188D8D2200D54493 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		EF871E7E188D906000D54493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		EF924E28188AD5430091426C /* ButtonGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridViewController.h; sourceTree = "<group>"; };
+		EF924E29188D2E940091426C /* ChooseTimesheetToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTimesheetToolViewController.h; sourceTree = "<group>"; };
+		EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTimesheetToolViewController.m; sourceTree = "<group>"; };
+		EF924E2C188D30670091426C /* logoJIRA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoJIRA.png; sourceTree = "<group>"; };
+		EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "harvest-logo-capsule-600px.png"; sourceTree = "<group>"; };
+		EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiraSettingsTableViewController.h; sourceTree = "<group>"; };
+		EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JiraSettingsTableViewController.m; sourceTree = "<group>"; };
 		EF9E21EB1884760700A68FD5 /* WorkTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9E21EE1884760700A68FD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EF9E21F01884760700A68FD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -76,12 +102,9 @@
 		EF9E22341884768D00A68FD5 /* TaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskParser.m; sourceTree = "<group>"; };
 		EF9E22391884768D00A68FD5 /* WorkTimerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTimerTask.h; sourceTree = "<group>"; };
 		EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTask.m; sourceTree = "<group>"; };
-		EF9E22461884804300A68FD5 /* FakeSettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = FakeSettingsRepository.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		EF9E22471884804300A68FD5 /* FakeSettingsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = FakeSettingsRepository.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		EF9E22491884805400A68FD5 /* ProtocolSettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolSettingsRepository.h; sourceTree = "<group>"; };
 		EFA9AFF41884829A0091EDB1 /* FakeProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeProjectRepository.h; sourceTree = "<group>"; };
 		EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeProjectRepository.m; sourceTree = "<group>"; };
-		EFA9AFF718849FF00091EDB1 /* ButtonGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridViewController.h; sourceTree = "<group>"; };
 		EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridViewController.m; sourceTree = "<group>"; };
 		EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridCell.h; sourceTree = "<group>"; };
 		EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridCell.m; sourceTree = "<group>"; };
@@ -96,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */,
 				EF9E21EF1884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E21F11884760700A68FD5 /* Foundation.framework in Frameworks */,
 				EF9E21F31884760700A68FD5 /* CoreGraphics.framework in Frameworks */,
@@ -115,6 +139,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EF4FFCFB188FE2A1002A1B01 /* Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E22211884760700A68FD5 /* HelperTests.h */,
+				EF9E22221884760700A68FD5 /* HelperTests.m */,
+				EF589C67188EE2B500D3E4BA /* SettingsTests.h */,
+				EF589C68188EE2B500D3E4BA /* SettingsTests.m */,
+			);
+			name = "Unit Tests";
+			sourceTree = "<group>";
+		};
+		EF4FFCFC188FE2A8002A1B01 /* Integration Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */,
+				EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */,
+			);
+			name = "Integration Tests";
+			sourceTree = "<group>";
+		};
 		EF9E21E21884760700A68FD5 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +181,7 @@
 		EF9E21ED1884760700A68FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF871E7E188D906000D54493 /* libsqlite3.dylib */,
 				EF9E21EE1884760700A68FD5 /* UIKit.framework */,
 				EF9E21F01884760700A68FD5 /* Foundation.framework */,
 				EF9E21F21884760700A68FD5 /* CoreGraphics.framework */,
@@ -154,10 +199,14 @@
 				EF9E222C1884765400A68FD5 /* Parsers */,
 				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
 				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
-				EFA9AFF718849FF00091EDB1 /* ButtonGridViewController.h */,
+				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
 				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
+				EF924E29188D2E940091426C /* ChooseTimesheetToolViewController.h */,
+				EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */,
 				EFC470D118871B0E00FE9C75 /* ClockView.h */,
 				EFC470D218871B0F00FE9C75 /* ClockView.m */,
+				EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */,
+				EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */,
 				EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */,
 				EF9E21FE1884760700A68FD5 /* spaarksAppDelegate.m */,
 				EF9E22061884760700A68FD5 /* MainStoryboard_iPhone.storyboard */,
@@ -172,6 +221,9 @@
 		EF9E21F51884760700A68FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF589C6A188F0D6700D3E4BA /* Warning.ico */,
+				EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */,
+				EF924E2C188D30670091426C /* logoJIRA.png */,
 				EF9E21F61884760700A68FD5 /* WorkTimer-Info.plist */,
 				EF9E21F71884760700A68FD5 /* InfoPlist.strings */,
 				EF9E21FA1884760700A68FD5 /* main.m */,
@@ -186,8 +238,8 @@
 		EF9E221B1884760700A68FD5 /* WorkTimerTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22211884760700A68FD5 /* HelperTests.h */,
-				EF9E22221884760700A68FD5 /* HelperTests.m */,
+				EF4FFCFC188FE2A8002A1B01 /* Integration Tests */,
+				EF4FFCFB188FE2A1002A1B01 /* Unit Tests */,
 				EF9E221C1884760700A68FD5 /* Supporting Files */,
 			);
 			path = WorkTimerTests;
@@ -235,6 +287,8 @@
 		EF9E222F1884767000A68FD5 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
+				EF871E78188D8B9500D54493 /* SettingsRepository.h */,
+				EF871E79188D8B9500D54493 /* SettingsRepository.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -244,6 +298,8 @@
 			children = (
 				EF9E22391884768D00A68FD5 /* WorkTimerTask.h */,
 				EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */,
+				EF871E7B188D8D2200D54493 /* Settings.h */,
+				EF871E7C188D8D2200D54493 /* Settings.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -251,8 +307,6 @@
 		EF9E224518847FEC00A68FD5 /* Fake */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22461884804300A68FD5 /* FakeSettingsRepository.h */,
-				EF9E22471884804300A68FD5 /* FakeSettingsRepository.m */,
 				EFA9AFF41884829A0091EDB1 /* FakeProjectRepository.h */,
 				EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */,
 			);
@@ -341,11 +395,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */,
+				EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */,
+				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
 				EF9E22011884760700A68FD5 /* Default.png in Resources */,
 				EF9E22031884760700A68FD5 /* Default@2x.png in Resources */,
 				EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */,
 				EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */,
 				EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */,
+				EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,16 +438,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
+				EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */,
+				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
 				EF9E220E1884760700A68FD5 /* spaarksViewController.m in Sources */,
 				EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */,
+				EF871E7D188D8D2200D54493 /* Settings.m in Sources */,
 				EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */,
 				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
-				EF9E22481884804300A68FD5 /* FakeSettingsRepository.m in Sources */,
 				EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */,
 				EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */,
 				EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */,
 				EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */,
+				EF924E2B188D2E940091426C /* ChooseTimesheetToolViewController.m in Sources */,
 				EFC470D718872F8600FE9C75 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +459,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */,
+				EF4FFCFF188FE2EA002A1B01 /* SettingsRepositoryTests.m in Sources */,
 				EF9E22231884760700A68FD5 /* HelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
