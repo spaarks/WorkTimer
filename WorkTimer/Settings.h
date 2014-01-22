@@ -22,4 +22,6 @@
 -(BOOL)isPasswordValid;
 -(BOOL)isServerValid;
 
+//TODO refactor this method out so that tempo token is no longer used
+- (NSString *) getToken;
 @end

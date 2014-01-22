@@ -23,6 +23,12 @@
     return _authenticationToken = encoded;
 }
 
+//TODO refactor this method out so that tempo token is no longer used
+- (NSString *) getToken
+{
+    return @"c39f740a-69dd-4ccc-a21e-820ae0f9d7f2";
+}
+
 -(BOOL)isUserNameValid
 {
     return _userName.length>0;

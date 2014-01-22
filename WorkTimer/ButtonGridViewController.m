@@ -28,11 +28,6 @@ int const kCellsPerPage = 20;
     return self;
 }
 
-- (void)viewDidLoad
-{
-//    [self populateGridOrShowSettings];
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [self populateGridOrShowSettings];
@@ -78,7 +73,7 @@ int const kCellsPerPage = 20;
     [self.collectionView reloadData];
 }
 
-// This method will be called repeatedly - once each time the user choses to parse.
+// This method will be called repeatedly
 - (void)parseWithParserType:(XMLParserType)parserType {
     
     self.navigationItem.rightBarButtonItem.enabled = NO;

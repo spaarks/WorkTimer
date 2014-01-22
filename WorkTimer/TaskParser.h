@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "WorkTimerTask.h"
 #import "FakeProjectRepository.h"
+#import "ProtocolTaskParserDelegate.h"
 
 typedef enum {
     XMLParserTypeAbstract = -1,
@@ -16,19 +17,7 @@ typedef enum {
     XMLParserTypeHarvestParser = 1
 } XMLParserType;
 
-@class TaskParser;
 
-@protocol ProtocolTaskParserDelegate <NSObject>
-
-@optional
-// Called by the parser when parsing is finished.
-- (void)parserDidEndParsingData:(TaskParser *)parser;
-// Called by the parser in the case of an error.
-- (void)parser:(TaskParser *)parser didFailWithError:(NSError *)error;
-// Called by the parser when one or more songs have been parsed. This method may be called multiple times.
-- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks;
-
-@end
 
 #pragma mark -
 
@@ -36,11 +25,6 @@ typedef enum {
 
 @property (nonatomic, weak) id <ProtocolTaskParserDelegate> delegate;
 @property (nonatomic, strong) NSMutableArray *parsedWorkTimerTasks;
-@property NSTimeInterval startTimeReference;
-@property NSTimeInterval downloadStartTimeReference;
-@property double parseDuration;
-@property double downloadDuration;
-@property double totalDuration;
 
 + (NSString *)parserName;
 + (XMLParserType)parserType;
@@ -60,6 +44,5 @@ typedef enum {
 - (void)parseEnded;
 - (void)parsedWorkTimerTask:(WorkTimerTask *)WorkTimerTask;
 - (void)parseError:(NSError *)error;
-- (void)addToParseDuration:(NSNumber *)duration;
 
 @end

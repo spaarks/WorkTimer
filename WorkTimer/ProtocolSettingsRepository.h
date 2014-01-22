@@ -11,11 +11,11 @@
 
 @protocol ProtocolSettingsRepository <NSObject>
 
-+ (NSString *) getMyUserName;
-+ (NSString *) getServerPath;
-+ (NSString *) getAuthenticationToken;
-+ (NSInteger) getParserType;
++ (Settings*) getSettings;
+
 + (void) saveSettings:(Settings*) settings;
++ (BOOL) doSettingsExist;
 + (void) closeSettingsDatabase;
++ (void) resetSettingsDatabase;
 @end
 

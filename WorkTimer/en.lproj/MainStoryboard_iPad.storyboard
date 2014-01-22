@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-729" y="-219"/>
         </scene>
-        <!--Choose Timesheet Tool View Controller-->
+        <!--View Controller-->
         <scene sceneID="H6b-ie-mS5">
             <objects>
-                <viewController id="25c-lx-mBL" customClass="ChooseTimesheetToolViewController" sceneMemberID="viewController">
+                <viewController id="25c-lx-mBL" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E13-XF-LTF"/>
                         <viewControllerLayoutGuide type="bottom" id="kLB-7V-Eio"/>

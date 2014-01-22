@@ -13,15 +13,6 @@
 
 @interface SettingsRepository : NSObject<ProtocolSettingsRepository>
 
-//TODO refactor this method out so that tempo token is no longer used
-+ (NSString *) getToken;
-
-//TODO Delete these methods once getSettings is done
-+ (NSString *) getMyUserName;
-+ (NSString *) getServerPath;
-+ (NSString *) getAuthenticationToken;
-+ (NSInteger) getParserType;
-
 + (Settings*) getSettings;
 
 + (void) saveSettings:(Settings*) settings;

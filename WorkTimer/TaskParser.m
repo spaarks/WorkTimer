@@ -12,7 +12,7 @@ static NSUInteger kCountForNotification = 10;
 
 @implementation TaskParser
 
-@synthesize delegate, parsedWorkTimerTasks, startTimeReference, downloadStartTimeReference, parseDuration, downloadDuration, totalDuration;
+@synthesize delegate, parsedWorkTimerTasks;
 
 + (NSString *)parserName {
     NSAssert((self != [TaskParser class]), @"Class method parserName not valid for abstract base class TaskParser");
@@ -25,7 +25,6 @@ static NSUInteger kCountForNotification = 10;
 }
 
 - (void)start {
-    self.startTimeReference = [NSDate timeIntervalSinceReferenceDate];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.parsedWorkTimerTasks = [NSMutableArray array];
  
@@ -52,7 +51,6 @@ static NSUInteger kCountForNotification = 10;
 }
 
 - (void)parseEnded {
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didParseWorkTimerTasks:)] && [parsedWorkTimerTasks count] > 0) {
         [self.delegate parser:self didParseWorkTimerTasks:parsedWorkTimerTasks];
     }
@@ -60,13 +58,9 @@ static NSUInteger kCountForNotification = 10;
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parserDidEndParsingData:)]) {
         [self.delegate parserDidEndParsingData:self];
     }
-    //NSTimeInterval duration = [NSDate timeIntervalSinceReferenceDate] - self.startTimeReference;
-    //totalDuration = duration;
-    //WriteStatisticToDatabase([[self class] parserType], downloadDuration, parseDuration, totalDuration);
 }
 
 - (void)parsedWorkTimerTask:(WorkTimerTask *)WorkTimerTask{
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
     
     [self.parsedWorkTimerTasks addObject:WorkTimerTask];
     if (self.parsedWorkTimerTasks.count > kCountForNotification) {
@@ -78,14 +72,9 @@ static NSUInteger kCountForNotification = 10;
 }
 
 - (void)parseError:(NSError *)error {
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(parser:didFailWithError:)]) {
         [self.delegate parser:self didFailWithError:error];
     }
-}
-
-- (void)addToParseDuration:(NSNumber *)duration {
-    NSAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
 }
 
 @end

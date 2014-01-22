@@ -17,10 +17,12 @@
 }
 - (NSString *)getURL:(NSInteger)numberOfDays
                     :(NSInteger)parserType{
-
-    NSString *baseURL = [SettingsRepository getServerPath];
-    NSString *userName = [SettingsRepository getMyUserName];
-    NSString *token = [SettingsRepository getToken];
+    
+    Settings* currentSettings = [[Settings alloc] init];
+    
+    NSString *baseURL = currentSettings.serverPath;
+    NSString *userName = currentSettings.userName;
+    NSString *token = currentSettings.getToken;
     
     NSString *startDateString = [Helpers getStartDateString];
     NSString *endDateString = [Helpers getEndDateString];
@@ -31,7 +33,9 @@
 
 - (void)setAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
 {
-    NSString* token = [SettingsRepository getAuthenticationToken];
+    Settings* currentSettings = [[Settings alloc] init];
+    NSString* token = currentSettings.getToken;
+    
     NSString * headerValue = [NSString stringWithFormat:@"Basic %@", token];
     [request setValue:headerValue forHTTPHeaderField:@"Authorization"];
 }
@@ -60,7 +64,9 @@
 {
     NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
-    NSString* serverPath = [SettingsRepository getServerPath];
+    Settings* currentSettings = [[Settings alloc] init];
+    
+    NSString* serverPath = currentSettings.serverPath;
     NSString* urlPath = [NSString stringWithFormat:@"%@/rest/api/latest/issue/%@/worklog", serverPath, taskID];
     
     NSURL *url = [NSURL URLWithString:urlPath];

@@ -13,7 +13,6 @@
 		EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* SettingsRepository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
-		EF924E2B188D2E940091426C /* ChooseTimesheetToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */; };
 		EF924E2D188D30670091426C /* logoJIRA.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2C188D30670091426C /* logoJIRA.png */; };
 		EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */; };
 		EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */; };
@@ -57,6 +56,7 @@
 /* Begin PBXFileReference section */
 		EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepositoryTests.h; sourceTree = "<group>"; };
 		EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepositoryTests.m; sourceTree = "<group>"; };
+		EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTaskParserDelegate.h; sourceTree = "<group>"; };
 		EF589C67188EE2B500D3E4BA /* SettingsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTests.h; sourceTree = "<group>"; };
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
@@ -66,8 +66,6 @@
 		EF871E7C188D8D2200D54493 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		EF871E7E188D906000D54493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		EF924E28188AD5430091426C /* ButtonGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridViewController.h; sourceTree = "<group>"; };
-		EF924E29188D2E940091426C /* ChooseTimesheetToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTimesheetToolViewController.h; sourceTree = "<group>"; };
-		EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTimesheetToolViewController.m; sourceTree = "<group>"; };
 		EF924E2C188D30670091426C /* logoJIRA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoJIRA.png; sourceTree = "<group>"; };
 		EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "harvest-logo-capsule-600px.png"; sourceTree = "<group>"; };
 		EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JiraSettingsTableViewController.h; sourceTree = "<group>"; };
@@ -201,8 +199,6 @@
 				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
 				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
 				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
-				EF924E29188D2E940091426C /* ChooseTimesheetToolViewController.h */,
-				EF924E2A188D2E940091426C /* ChooseTimesheetToolViewController.m */,
 				EFC470D118871B0E00FE9C75 /* ClockView.h */,
 				EFC470D218871B0F00FE9C75 /* ClockView.m */,
 				EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */,
@@ -261,6 +257,7 @@
 				EF9E22311884768D00A68FD5 /* JIRATaskParser.m */,
 				EF9E22331884768D00A68FD5 /* TaskParser.h */,
 				EF9E22341884768D00A68FD5 /* TaskParser.m */,
+				EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -450,7 +447,6 @@
 				EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */,
 				EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */,
 				EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */,
-				EF924E2B188D2E940091426C /* ChooseTimesheetToolViewController.m in Sources */,
 				EFC470D718872F8600FE9C75 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
