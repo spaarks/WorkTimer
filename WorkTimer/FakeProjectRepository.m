@@ -15,10 +15,9 @@
     NSMutableArray * dummy = [[NSMutableArray alloc] init];
     return dummy;
 }
-- (NSString *)getURL:(NSInteger)numberOfDays
-                    :(NSInteger)parserType{
-    
-    Settings* currentSettings = [[Settings alloc] init];
+- (NSString *)getURL:(NSInteger)parserType
+{
+    Settings* currentSettings = [SettingsRepository getSettings];
     
     NSString *baseURL = currentSettings.serverPath;
     NSString *userName = currentSettings.userName;
@@ -33,8 +32,8 @@
 
 - (void)setAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
 {
-    Settings* currentSettings = [[Settings alloc] init];
-    NSString* token = currentSettings.getToken;
+    Settings* currentSettings = [SettingsRepository getSettings];
+    NSString* token = currentSettings.authenticationToken;
     
     NSString * headerValue = [NSString stringWithFormat:@"Basic %@", token];
     [request setValue:headerValue forHTTPHeaderField:@"Authorization"];
@@ -64,7 +63,7 @@
 {
     NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
-    Settings* currentSettings = [[Settings alloc] init];
+    Settings* currentSettings = [SettingsRepository getSettings];
     
     NSString* serverPath = currentSettings.serverPath;
     NSString* urlPath = [NSString stringWithFormat:@"%@/rest/api/latest/issue/%@/worklog", serverPath, taskID];
@@ -76,22 +75,18 @@
     
     [request setHTTPBody:jsonData];
     
-    NSError *error;
-    NSArray *jsonArry = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
-    NSLog(@"%@",jsonArry);
-    
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%ld", (long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     
     [self setAuthenticationType:parserType request:request];
     
-    //__block NSString *html;
+    __block NSString *html;
     
     [NSURLConnection sendAsynchronousRequest:request
                                             queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *rsp, NSData *data, NSError *err) {
-        //NSLog(@"POST sent!");
-        //html=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSLog(@"POST sent!");
+        html=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }];
 }
 

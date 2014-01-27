@@ -29,9 +29,8 @@ static NSUInteger kCountForNotification = 10;
     self.parsedWorkTimerTasks = [NSMutableArray array];
  
     FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
-    NSInteger numberOfDays = 20;
-    NSString* urlString = [repo getURL:numberOfDays
-                                      :XMLParserTypeJIRAParser];
+    
+    NSString* urlString = [repo getURL:XMLParserTypeJIRAParser];
     
     NSURL *url = [NSURL URLWithString:urlString];
     [NSThread detachNewThreadSelector:@selector(downloadAndParse:) toTarget:self withObject:url];

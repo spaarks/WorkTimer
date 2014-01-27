@@ -17,7 +17,6 @@
 @property NSInteger parserType;
 @property (nonatomic, copy) NSString *authenticationToken;
 
--(NSString*)calculateAuthenticationToken;
 -(BOOL)isUserNameValid;
 -(BOOL)isPasswordValid;
 -(BOOL)isServerValid;

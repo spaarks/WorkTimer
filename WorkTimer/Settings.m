@@ -10,8 +10,8 @@
 
 @implementation Settings
 
-@synthesize userName = _userName;
-@synthesize password = _password;
+NSString* _userName;
+NSString* _password;
 @synthesize serverPath = _serverPath;
 @synthesize authenticationToken = _authenticationToken;
 
@@ -21,6 +21,30 @@
     NSString* encoded = [Helpers encodeString:unencoded];
     
     return _authenticationToken = encoded;
+}
+
+- (NSString*) getPassword
+{
+    return _password;
+}
+
+- (void) setPassword:(NSString *)password_
+{
+    _password=password_;
+    if(_userName != nil)
+        [self calculateAuthenticationToken];
+}
+
+- (NSString*) getUserName
+{
+    return _userName;
+}
+
+- (void) setUserName:(NSString *)userName_
+{
+    _userName=userName_;
+    if(_password != nil)
+        [self calculateAuthenticationToken];
 }
 
 //TODO refactor this method out so that tempo token is no longer used

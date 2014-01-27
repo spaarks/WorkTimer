@@ -16,6 +16,7 @@
 
 @synthesize workTimerTasks = _workTimerTasks;
 @synthesize parser = _parser;
+@synthesize selectedCellIndices = _selectedCellIndices;
 
 int const kCellsPerPage = 20;
 
@@ -30,6 +31,10 @@ int const kCellsPerPage = 20;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
+    _selectedCellIndices = [[NSMutableArray alloc] init];
+    
     [self populateGridOrShowSettings];
 }
 
@@ -41,9 +46,7 @@ int const kCellsPerPage = 20;
     }
     else
     {
-        self.parentViewController.view.hidden = YES;
-        
-        [super viewDidLoad];
+        //self.parentViewController.view.hidden = YES;
         
         UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [refreshButton addTarget:self
@@ -103,18 +106,62 @@ int const kCellsPerPage = 20;
 #pragma mark - UICollectionViewDelegate
 
 
+- (void)addIndexToSelectedCells:(NSNumber*) cellIndex {
+    NSInteger indexOfCell = [_selectedCellIndices indexOfObject:cellIndex];
+    
+    //Only add to array if it's not already there
+    if(indexOfCell == NSNotFound)
+    {
+        [_selectedCellIndices addObject:cellIndex];
+    }
+}
+
+- (void)removeIndexFromSelectedCells:(NSNumber*) cellIndex {
+     //= [NSNumber numberWithInt:[indexPath indexAtPosition:1]];
+    int indexOfCell = [_selectedCellIndices indexOfObject:cellIndex];
+    
+    [_selectedCellIndices removeObjectAtIndex:indexOfCell];
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     // If you need to use the touched cell, you can retrieve it like so
     ButtonGridCell *cell = ((ButtonGridCell*)[collectionView cellForItemAtIndexPath:indexPath]);
-    
-    [cell tapCell:YES];
+
+    [self startCell:NO:cell];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
     // If you need to use the touched cell, you can retrieve it like so
     ButtonGridCell *cell = ((ButtonGridCell*)[collectionView cellForItemAtIndexPath:indexPath]);
 
+    NSNumber* indexOfCell = [NSNumber numberWithInt:[indexPath indexAtPosition:1]];
+    [self removeIndexFromSelectedCells:indexOfCell];
+    
     [cell tapCell:NO];
+}
+
+- (void)startCell:(BOOL)isPause
+                 :(ButtonGridCell *)cell
+{
+    NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:cell];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    
+    for(NSNumber *cellIndex in _selectedCellIndices)
+    {
+        if(cellIndex!=indexOfCurrentCell)
+        {
+            [self removeIndexFromSelectedCells:cellIndex];
+            //NSIndexPath *cellToDeselectIndexPath = [NSIndexPath indexPathWithIndex:[cellIndex intValue]];
+            
+            NSIndexPath *cellToDeselectIndexPath = [NSIndexPath indexPathForRow:[cellIndex intValue] inSection:0];
+            
+            ButtonGridCell *cellToDeselect = ((ButtonGridCell*)[self.collectionView cellForItemAtIndexPath:cellToDeselectIndexPath]);
+            [cellToDeselect tapCell:NO];
+        }
+    }
+    
+    [self addIndexToSelectedCells:indexOfCurrentCell];
+    [cell tapCell:YES];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -139,6 +186,8 @@ int const kCellsPerPage = 20;
                                     dequeueReusableCellWithReuseIdentifier:@"ButtonGridCelIdentifier"
                                     forIndexPath:indexPath];
     
+    gridCell.delegate = (id<ProtocolButtonClickedInCellDelegate>)self;
+    
     int row = [indexPath row];
     
     if(row<[_workTimerTasks count]){
@@ -150,6 +199,23 @@ int const kCellsPerPage = 20;
         [gridCell.clockView.activityIndicator setHidesWhenStopped:YES];
     }
     return gridCell;
+}
+
+#pragma mark - ButtonClickedInCellDelegate
+
+- (void)startClicked:(BOOL)isPause
+                    :(ButtonGridCell*)cell
+{
+    [self startCell:isPause:cell];
+}
+
+- (void)stopClicked:(ButtonGridCell*)cell
+{
+    NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:cell];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    
+    [self removeIndexFromSelectedCells:indexOfCurrentCell];
+    [cell tapCell:NO];
 }
 
 #pragma mark - TaskParserDelegate

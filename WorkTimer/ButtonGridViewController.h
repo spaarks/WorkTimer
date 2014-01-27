@@ -10,12 +10,17 @@
 #import "TaskParser.h"
 #import "JIRATaskParser.h"
 #import "ButtonGridCell.h"
+#import "ProtocolButtonClickedInCellDelegate.h"
 
 @interface ButtonGridViewController : UICollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate>
+<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate, ProtocolButtonClickedInCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *workTimerTasks;
 @property (nonatomic, strong) TaskParser *parser;
 
+@property (nonatomic, strong) NSMutableArray *selectedCellIndices;
+
 - (void)parseWithParserType:(XMLParserType)parserType;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end

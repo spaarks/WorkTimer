@@ -16,8 +16,7 @@
 
 - (NSMutableArray *)getMyTasks:(int)numberOfDays;
 
-- (NSString *)getURL:(NSInteger)numberOfDays
-                    :(NSInteger)parserType;
+- (NSString *)getURL:(NSInteger)parserType;
 
 - (void)updateTask:(NSString*)taskID
                         :(NSInteger)parserType

@@ -24,6 +24,15 @@
     [super tearDown];
 }
 
+//- (void)testNSNotFound
+//{
+//    NSNumber* var = [NSNumber numberWithInt:5];
+//    NSInteger indexOfCell = [[NSMutableArray new] indexOfObject:var];
+//    NSLog(@"%d", indexOfCell); // some number
+//    NSLog(@"%d", NSNotFound); // the same number
+//    NSLog(@"%d", indexOfCell == NSNotFound); // 1, i.e. YES
+//}
+
 - (void)testGetDifferenceString
 {
     NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];

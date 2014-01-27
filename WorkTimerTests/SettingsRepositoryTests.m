@@ -17,7 +17,6 @@
     settings.password = @"P4ssw0rd1#";
     settings.serverPath = @"http://test.atlassian.co.uk";
     settings.parserType=0;
-    [settings calculateAuthenticationToken];
     
     return settings;
 }

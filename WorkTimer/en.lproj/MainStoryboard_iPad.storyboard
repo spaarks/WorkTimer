@@ -234,17 +234,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r0Z-3h-t62">
-                            <size key="itemSize" width="145" height="135"/>
+                            <size key="itemSize" width="145" height="144"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonGridCelIdentifier" id="Lkd-n5-KkZ" customClass="ButtonGridCell">
-                                <rect key="frame" x="0.0" y="64" width="145" height="135"/>
+                                <rect key="frame" x="0.0" y="64" width="145" height="144"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="145" height="135"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="144"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tj-fs-SD1">
@@ -257,48 +257,60 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2C-bQ-6jo" customClass="ClockView">
-                                            <rect key="frame" x="8" y="95" width="125" height="32"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2C-bQ-6jo" customClass="ClockView">
+                                            <rect key="frame" x="10" y="104" width="125" height="33"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-8a-ZnR">
-                                                    <rect key="frame" x="0.0" y="-1" width="125" height="33"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="33" id="iry-y6-s52"/>
-                                                    </constraints>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFu-8a-ZnR">
+                                                    <rect key="frame" x="11" y="0.0" width="114" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6C1-cD-8u9">
-                                                    <rect key="frame" x="95" y="6" width="20" height="20"/>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6C1-cD-8u9">
+                                                    <rect key="frame" x="95" y="7" width="20" height="20"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="trailing" secondItem="v2C-bQ-6jo" secondAttribute="trailing" id="7rK-PB-S40"/>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" id="9xx-vh-T6A"/>
-                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="centerY" secondItem="v2C-bQ-6jo" secondAttribute="centerY" id="AZ8-xo-y5H"/>
-                                                <constraint firstItem="xFu-8a-ZnR" firstAttribute="bottom" secondItem="v2C-bQ-6jo" secondAttribute="bottom" id="ItB-Hs-E7o"/>
-                                                <constraint firstItem="6C1-cD-8u9" firstAttribute="leading" secondItem="v2C-bQ-6jo" secondAttribute="leading" constant="95" id="IzH-Ck-N1s"/>
-                                                <constraint firstAttribute="trailing" secondItem="6C1-cD-8u9" secondAttribute="trailing" constant="10" id="wZa-gc-dqD"/>
-                                            </constraints>
                                             <connections>
                                                 <outlet property="activityIndicator" destination="6C1-cD-8u9" id="8Pc-w4-n8S"/>
                                                 <outlet property="timeString" destination="xFu-8a-ZnR" id="qf2-GF-K2V"/>
                                             </connections>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iie-z4-Lcq">
+                                            <rect key="frame" x="20" y="72" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                            </accessibility>
+                                            <state key="normal" title="Start">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="startPauseTouchUpInside:" destination="Lkd-n5-KkZ" eventType="touchUpInside" id="qUi-0s-fY4"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btg-ss-bbk">
+                                            <rect key="frame" x="79" y="72" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <accessibility key="accessibilityConfiguration">
+                                                <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                            </accessibility>
+                                            <state key="normal" title="Stop">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="stopTouchUpInside:" destination="Lkd-n5-KkZ" eventType="touchUpInside" id="9wh-iL-Uxg"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="v2C-bQ-6jo" firstAttribute="leading" secondItem="Lkd-n5-KkZ" secondAttribute="leading" constant="8" id="7mH-XS-tx5"/>
-                                    <constraint firstItem="v2C-bQ-6jo" firstAttribute="top" secondItem="Lkd-n5-KkZ" secondAttribute="top" constant="95" id="PTb-6s-axI"/>
-                                    <constraint firstAttribute="bottom" secondItem="v2C-bQ-6jo" secondAttribute="bottom" constant="8" id="fKv-Fc-EfZ"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="clockView" destination="v2C-bQ-6jo" id="vGh-X0-m4q"/>
+                                    <outlet property="startOrPauseButton" destination="Iie-z4-Lcq" id="z4D-k2-DDK"/>
+                                    <outlet property="stopButton" destination="btg-ss-bbk" id="Fgk-bj-aFp"/>
                                     <outlet property="taskKeyLabel" destination="8tj-fs-SD1" id="diK-Jn-1kc"/>
                                     <outlet property="taskSummaryLabel" destination="2dN-6r-S6u" id="nkW-5r-byC"/>
                                 </connections>
@@ -310,6 +322,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="X3t-CZ-xrn"/>
                     <connections>
+                        <outlet property="collectionView" destination="8fB-bN-IcM" id="xdb-eX-FG2"/>
                         <segue destination="25c-lx-mBL" kind="modal" identifier="openSettingsSegue" id="6Wp-oD-K43"/>
                     </connections>
                 </collectionViewController>

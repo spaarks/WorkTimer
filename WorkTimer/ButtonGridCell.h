@@ -9,13 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "ClockView.h"
 #import "FakeProjectRepository.h"
+#import "ProtocolButtonClickedInCellDelegate.h"
 
 @interface ButtonGridCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *taskKeyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskSummaryLabel;
 @property (weak, nonatomic) IBOutlet ClockView *clockView;
 @property BOOL alreadyStarted;
 @property (nonatomic,strong) NSString *comment;
 
+@property (weak, nonatomic) IBOutlet UIButton *startOrPauseButton;
+@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+
+@property (assign) id<ProtocolButtonClickedInCellDelegate> delegate;
+
 -(void)tapCell:(BOOL) selected;
+
+- (IBAction)startPauseTouchUpInside:(id)sender;
+- (IBAction)stopTouchUpInside:(id)sender;
+
 @end

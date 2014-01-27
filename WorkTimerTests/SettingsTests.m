@@ -79,7 +79,6 @@
     Settings* settings = [[Settings alloc] init];
     settings.userName = @"First.last@company.com";
     settings.password = @"P4ssw0rd1#";
-    [settings calculateAuthenticationToken];
     
     NSString* expected = @"Rmlyc3QubGFzdEBjb21wYW55LmNvbTpQNHNzdzByZDEj";
     

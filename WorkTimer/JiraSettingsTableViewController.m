@@ -89,7 +89,6 @@
         return;
     
     _currentSettings.parserType = XMLParserTypeJIRAParser;
-    [_currentSettings calculateAuthenticationToken];
     
     [SettingsRepository saveSettings:_currentSettings];
     

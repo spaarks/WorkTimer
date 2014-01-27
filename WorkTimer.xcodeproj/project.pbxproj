@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EF4FFCFF188FE2EA002A1B01 /* SettingsRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */; };
+		EF4FFD0418903509002A1B01 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0318903509002A1B01 /* play-icon.png */; };
+		EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0518903522002A1B01 /* stop-icon.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
 		EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* SettingsRepository.m */; };
@@ -54,9 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolButtonClickedInCellDelegate.h; sourceTree = "<group>"; };
 		EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepositoryTests.h; sourceTree = "<group>"; };
 		EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepositoryTests.m; sourceTree = "<group>"; };
 		EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTaskParserDelegate.h; sourceTree = "<group>"; };
+		EF4FFD0318903509002A1B01 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
+		EF4FFD0518903522002A1B01 /* stop-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-icon.png"; sourceTree = "<group>"; };
 		EF589C67188EE2B500D3E4BA /* SettingsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTests.h; sourceTree = "<group>"; };
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
@@ -195,6 +200,7 @@
 				EF9E22401884770B00A68FD5 /* Models */,
 				EF9E222D1884766000A68FD5 /* Domain */,
 				EF9E222C1884765400A68FD5 /* Parsers */,
+				EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */,
 				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
 				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
 				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
@@ -217,6 +223,8 @@
 		EF9E21F51884760700A68FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EF4FFD0518903522002A1B01 /* stop-icon.png */,
+				EF4FFD0318903509002A1B01 /* play-icon.png */,
 				EF589C6A188F0D6700D3E4BA /* Warning.ico */,
 				EF924E2E188D328C0091426C /* harvest-logo-capsule-600px.png */,
 				EF924E2C188D30670091426C /* logoJIRA.png */,
@@ -253,11 +261,8 @@
 		EF9E222C1884765400A68FD5 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22301884768D00A68FD5 /* JIRATaskParser.h */,
-				EF9E22311884768D00A68FD5 /* JIRATaskParser.m */,
-				EF9E22331884768D00A68FD5 /* TaskParser.h */,
-				EF9E22341884768D00A68FD5 /* TaskParser.m */,
-				EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */,
+				EFC0EED41892D4B700ECFC71 /* Concrete */,
+				EFC0EED31892D4A500ECFC71 /* Abstract */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -308,6 +313,25 @@
 				EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */,
 			);
 			name = Fake;
+			sourceTree = "<group>";
+		};
+		EFC0EED31892D4A500ECFC71 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */,
+			);
+			name = Abstract;
+			sourceTree = "<group>";
+		};
+		EFC0EED41892D4B700ECFC71 /* Concrete */ = {
+			isa = PBXGroup;
+			children = (
+				EF9E22301884768D00A68FD5 /* JIRATaskParser.h */,
+				EF9E22311884768D00A68FD5 /* JIRATaskParser.m */,
+				EF9E22331884768D00A68FD5 /* TaskParser.h */,
+				EF9E22341884768D00A68FD5 /* TaskParser.m */,
+			);
+			name = Concrete;
 			sourceTree = "<group>";
 		};
 		EFC470D418872F6700FE9C75 /* Generic */ = {
@@ -393,10 +417,12 @@
 			files = (
 				EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */,
 				EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */,
+				EF4FFD0418903509002A1B01 /* play-icon.png in Resources */,
 				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
 				EF9E22011884760700A68FD5 /* Default.png in Resources */,
 				EF9E22031884760700A68FD5 /* Default@2x.png in Resources */,
 				EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */,
+				EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */,
 				EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */,
 				EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */,
 				EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */,
