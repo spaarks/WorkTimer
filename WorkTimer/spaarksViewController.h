@@ -10,4 +10,8 @@
 
 @interface spaarksViewController : UIViewController
 
+//@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end
