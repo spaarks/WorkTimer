@@ -24,4 +24,17 @@
 {
     return [self.taskID isEqualToString:[object taskID]];
 }
+
+//Validate the time worked properly
+//Add tests for the validators
+-(BOOL)isTimeWorkedValid
+{
+    return _timeWorked.length>0;
+}
+
+-(BOOL)isDescriptionValid
+{
+    return _description.length>0;
+}
+
 @end

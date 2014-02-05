@@ -8,10 +8,6 @@
 
 #import "JiraSettingsTableViewController.h"
 
-@interface JiraSettingsTableViewController ()
-
-@end
-
 @implementation JiraSettingsTableViewController
 
 @synthesize currentSettings = _currentSettings;
@@ -23,13 +19,6 @@
             _currentSettings = [[Settings alloc] init];
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-
 }
 
 - (void)didReceiveMemoryWarning

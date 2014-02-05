@@ -19,4 +19,11 @@
 //Meeting Internal
 @property (nonatomic, copy) NSString *taskSummary;
 
+@property (nonatomic, copy) NSString *description;
+
+@property (nonatomic, copy) NSString *timeWorked;
+
+-(BOOL)isTimeWorkedValid;
+-(BOOL)isDescriptionValid;
+
 @end

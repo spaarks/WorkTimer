@@ -37,6 +37,7 @@
     //We've started the timer so pause to go for lunch
     if(self.clockView.isClockRunning)
     {
+        [self.stopButton setEnabled:NO];
         [self.clockView stop];
         
         [self.startOrPauseButton setTitle:@"Start" forState:UIControlStateNormal];
@@ -44,6 +45,8 @@
     //We're back from lunch so start the timer again
     else
     {
+        [self.stopButton setEnabled:YES];
+        
         [self.clockView start];
         
         [self.startOrPauseButton setTitle:@"Pause" forState:UIControlStateNormal];
@@ -73,29 +76,12 @@
         [self tapCell:YES];
     else
         [self.delegate startClicked:isPause:self];
-    
-//    if(!_alreadyStarted)
-//    {
-//        UICollectionView* collectionView = [(ButtonGridViewController*)self.superview collectionView];
-//        NSIndexPath *indexPath = [collectionView indexPathForCell:self];
-//        NSNumber* cellIndex = [NSNumber numberWithInt:[indexPath indexAtPosition:1]];
-//        
-//        //If we are clicking start for the first time then remove any deselected cells from the selection list
-//        //and call cellDeselected for them
-//    }
-//    
-//    [self tapCell:true];
 }
 
 
 - (IBAction)stopTouchUpInside:(id)sender
 {
     [self.delegate stopClicked:self];
-    
-    //UICollectionView* collectionView = [(ButtonGridViewController*)self.superview collectionView];
-    //[collectionView selectItemAtIndexPath:<#(NSIndexPath *)#> animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-    
-    //[self.nextResponder touchesBegan:touches withEvent:event];
 }
 
 - (void)cellSelected
@@ -113,20 +99,6 @@
     [self showCommentPrompt];
 }
 
-- (void)createTimesheetLog
-{
-    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
-    
-    NSDate * start = _clockView.timeStarted;
-    NSDate * logTime = _clockView.currentTime;
-    
-    [repo updateTask:_taskKeyLabel.text
-                    :XMLParserTypeJIRAParser
-                    :_comment
-                    :start
-                    :logTime];
-}
-
 - (void)cellDeselected
 {
     self.backgroundColor = [UIColor whiteColor];
@@ -136,12 +108,12 @@
     [_clockView.activityIndicator setHidden:TRUE];
     
     [self.clockView stop];
-
-    [self createTimesheetLog];
-    
     [self.clockView reset];
     
     _alreadyStarted=false;
+    
+    [self.startOrPauseButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.stopButton setEnabled:NO];
 }
 
 - (void)showCommentPrompt

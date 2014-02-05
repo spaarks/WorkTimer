@@ -41,25 +41,38 @@
 
 - (NSData*)getJSONDataForRequest:(NSDate*)_timeStarted
                                 :(NSString*)comment
-                                :(NSDate*)timeToLog
+                                :(NSString*)timeToLog
 {
     NSString *timeStartedString = [Helpers getDateString:_timeStarted];
-    NSString *timeTakenString = [Helpers getJIRATimeString:timeToLog];
     
     NSDictionary *dict = @{
-                           @"timeSpent":timeTakenString,
+                           @"timeSpent":timeToLog,
                            @"started":timeStartedString,
                            @"comment":comment};
     
     NSError *error;
     return [NSJSONSerialization dataWithJSONObject:dict options:0 error:&error];
 }
+
+- (void)createTimesheetLog:(NSDate*) timeStarted
+                          :(NSString*) logTime
+                          :(NSString*) comment
+                          :(NSString*) taskKey
+{
+    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    
+    [repo updateTask:taskKey
+                    :XMLParserTypeJIRAParser
+                    :comment
+                    :timeStarted
+                    :logTime];
+}
                                  
 - (void)updateTask:(NSString*)taskID
                         :(NSInteger)parserType
                         :(NSString*)comment
                         :(NSDate*)_timeStarted
-                        :(NSDate*)timeToLog
+                        :(NSString*)timeToLog
 {
     NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
@@ -85,7 +98,6 @@
     [NSURLConnection sendAsynchronousRequest:request
                                             queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *rsp, NSData *data, NSError *err) {
-        NSLog(@"POST sent!");
         html=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }];
 }

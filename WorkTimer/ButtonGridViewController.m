@@ -8,10 +8,6 @@
 
 #import "ButtonGridViewController.h"
 
-@interface ButtonGridViewController ()
-
-@end
-
 @implementation ButtonGridViewController
 
 @synthesize workTimerTasks = _workTimerTasks;
@@ -138,6 +134,17 @@ int const kCellsPerPage = 20;
     [self removeIndexFromSelectedCells:indexOfCell];
     
     [cell tapCell:NO];
+    
+    NSDate * start = cell.clockView.timeStarted;
+    
+    NSDate *logTime = cell.clockView.currentTime;
+    NSString *logTimeString = [Helpers getJIRATimeString:logTime];
+    
+    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    [repo createTimesheetLog:start
+                            :logTimeString
+                            :cell.comment
+                            :cell.taskKeyLabel.text];
 }
 
 - (void)startCell:(BOOL)isPause
@@ -148,20 +155,69 @@ int const kCellsPerPage = 20;
     
     for(NSNumber *cellIndex in _selectedCellIndices)
     {
-        if(cellIndex!=indexOfCurrentCell)
+        if([cellIndex intValue]!=[indexOfCurrentCell intValue])
         {
             [self removeIndexFromSelectedCells:cellIndex];
-            //NSIndexPath *cellToDeselectIndexPath = [NSIndexPath indexPathWithIndex:[cellIndex intValue]];
             
             NSIndexPath *cellToDeselectIndexPath = [NSIndexPath indexPathForRow:[cellIndex intValue] inSection:0];
             
             ButtonGridCell *cellToDeselect = ((ButtonGridCell*)[self.collectionView cellForItemAtIndexPath:cellToDeselectIndexPath]);
             [cellToDeselect tapCell:NO];
+            
+            NSDate * start = cellToDeselect.clockView.timeStarted;
+            
+            NSDate *logTime = cellToDeselect.clockView.currentTime;
+            NSString *logTimeString = [Helpers getJIRATimeString:logTime];
+            
+            FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+            [repo createTimesheetLog:start
+                                    :logTimeString
+                                    :cellToDeselect.comment
+                                    :cellToDeselect.taskKeyLabel.text];
         }
     }
     
     [self addIndexToSelectedCells:indexOfCurrentCell];
     [cell tapCell:YES];
+}
+
+#pragma mark - EditWorkLogButtonClickedDelegate
+
+-(void)commitClicked:(WorkTimerTask*)task
+                    :(ButtonGridCell*)currentCell
+{
+    NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:currentCell];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    
+    [self removeIndexFromSelectedCells:indexOfCurrentCell];
+
+    NSDate * start = currentCell.clockView.timeStarted;
+    
+    NSString *logTimeString = task.timeWorked;
+    
+    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    [repo createTimesheetLog:start
+                            :logTimeString
+                            :task.description
+                            :task.taskKey];
+    
+    [currentCell tapCell:NO];
+}
+
+-(void)cancelClicked:(ButtonGridCell*)currentCell
+{
+    [currentCell tapCell:YES];
+}
+
+-(void)deleteClicked:(WorkTimerTask*)task
+                    :(ButtonGridCell*)currentCell
+{
+    NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:currentCell];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    
+    [self removeIndexFromSelectedCells:indexOfCurrentCell];
+    
+    [currentCell tapCell:NO];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -211,11 +267,37 @@ int const kCellsPerPage = 20;
 
 - (void)stopClicked:(ButtonGridCell*)cell
 {
-    NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:cell];
-    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    [self performSegueWithIdentifier:@"OpenStopSegue" sender:cell];
+}
+
+// This will get called too before the view appears
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ButtonGridCell* _currentCell = sender;
     
-    [self removeIndexFromSelectedCells:indexOfCurrentCell];
-    [cell tapCell:NO];
+    if ([[segue identifier] isEqualToString:@"OpenStopSegue"] && _currentCell!=nil)
+    {
+        EditWorkLogViewController *editView = [segue destinationViewController];
+
+        editView.currentCell = _currentCell;
+        
+        editView.delegate = (id<ProtocolEditWorkLogButtonClickedDelegate>)self;
+        
+        WorkTimerTask *taskToEdit = [[WorkTimerTask alloc] init];
+        
+        NSDate *currentTime = _currentCell.clockView.currentTime;
+        NSString *currentTimeString = [Helpers getJIRATimeString:currentTime];
+        
+        taskToEdit.timeWorked = currentTimeString;
+        taskToEdit.description = _currentCell.comment;
+        
+        taskToEdit.taskKey = _currentCell.taskKeyLabel.text;
+        taskToEdit.taskSummary = _currentCell.taskSummaryLabel.text;
+        
+        [editView setCurrentWorkTimerTask:taskToEdit];
+        
+        [_currentCell tapCell:YES];
+    }
 }
 
 #pragma mark - TaskParserDelegate

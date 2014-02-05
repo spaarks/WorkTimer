@@ -11,9 +11,11 @@
 #import "JIRATaskParser.h"
 #import "ButtonGridCell.h"
 #import "ProtocolButtonClickedInCellDelegate.h"
+#import "EditWorkLogViewController.h"
+#import "JiraSettingsTableViewController.h"
 
 @interface ButtonGridViewController : UICollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate, ProtocolButtonClickedInCellDelegate>
+<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate, ProtocolButtonClickedInCellDelegate,ProtocolEditWorkLogButtonClickedDelegate>
 
 @property (nonatomic, strong) NSMutableArray *workTimerTasks;
 @property (nonatomic, strong) TaskParser *parser;

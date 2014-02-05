@@ -18,10 +18,9 @@
 
 - (NSString *)getURL:(NSInteger)parserType;
 
-- (void)updateTask:(NSString*)taskID
-                        :(NSInteger)parserType
-                        :(NSString*)comment
-                        :(NSDate*)_timeStarted
-                        :(NSDate*)timeToLog;
+- (void)createTimesheetLog:(NSDate*) timeStarted
+                          :(NSString*) logTime
+                          :(NSString*) comment
+                          :(NSString*) taskKey;
 
 @end

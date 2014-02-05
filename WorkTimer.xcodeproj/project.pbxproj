@@ -43,6 +43,7 @@
 		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
 		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
 		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
+		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		EF589C67188EE2B500D3E4BA /* SettingsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTests.h; sourceTree = "<group>"; };
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
+		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
 		EF871E78188D8B9500D54493 /* SettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepository.h; sourceTree = "<group>"; };
 		EF871E79188D8B9500D54493 /* SettingsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -115,6 +117,8 @@
 		EFC470D218871B0F00FE9C75 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
+		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
+		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,12 +205,15 @@
 				EF9E222D1884766000A68FD5 /* Domain */,
 				EF9E222C1884765400A68FD5 /* Parsers */,
 				EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */,
+				EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */,
 				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
 				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
 				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
 				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
 				EFC470D118871B0E00FE9C75 /* ClockView.h */,
 				EFC470D218871B0F00FE9C75 /* ClockView.m */,
+				EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */,
+				EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */,
 				EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */,
 				EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */,
 				EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */,
@@ -469,6 +476,7 @@
 				EF871E7D188D8D2200D54493 /* Settings.m in Sources */,
 				EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */,
 				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
+				EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */,
 				EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */,
 				EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */,
 				EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */,

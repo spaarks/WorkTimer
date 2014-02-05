@@ -45,6 +45,7 @@
 - (void) reset
 {
     _timeString.text=@"";
+    _started=NO;
 }
 
 - (void)initializeTimer
@@ -72,4 +73,5 @@
                afterDelay: 1.0
      ];
 }
+
 @end
