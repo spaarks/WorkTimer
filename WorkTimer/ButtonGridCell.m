@@ -84,12 +84,17 @@
     [self.delegate stopClicked:self];
 }
 
+- (void)paintCell:(UIColor*)color
+{
+    self.backgroundColor = color;
+    self.taskKeyLabel.backgroundColor = color;
+    
+    self.taskSummaryLabel.backgroundColor = color;
+}
+
 - (void)cellSelected
 {
-    self.backgroundColor = [UIColor lightGrayColor];
-    self.taskKeyLabel.backgroundColor = [UIColor lightGrayColor];
-    
-    self.taskSummaryLabel.backgroundColor = [UIColor lightGrayColor];
+    [self paintCell:[UIColor lightGrayColor]];
     
     [self.clockView.activityIndicator setHidden:false];
     [self startOrPause];
@@ -101,10 +106,8 @@
 
 - (void)cellDeselected
 {
-    self.backgroundColor = [UIColor whiteColor];
-    self.taskKeyLabel.backgroundColor = [UIColor whiteColor];
+    [self paintCell:[UIColor whiteColor]];
     
-    self.taskSummaryLabel.backgroundColor = [UIColor whiteColor];
     [_clockView.activityIndicator setHidden:TRUE];
     
     [self.clockView stop];
@@ -125,6 +128,24 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    _comment = [[alertView textFieldAtIndex:0] text];}
+    _comment = [[alertView textFieldAtIndex:0] text];
+}
+
+#pragma NSCoder
+
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [coder encodeBool:self.alreadyStarted forKey:@"Selected"];
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+    BOOL selected = [coder decodeBoolForKey:@"Selected"];
+    
+    if(selected)
+        [self paintCell:[UIColor lightGrayColor]];
+}
 
 @end

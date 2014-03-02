@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Helpers.h"
 
-@interface ClockView : UIView
+@interface ClockView : UIView<NSCoding>
 
 @property (weak, nonatomic) IBOutlet UILabel *timeString;
 @property (nonatomic,strong) NSDate *currentTime;

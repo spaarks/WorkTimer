@@ -28,7 +28,7 @@
     
     //self.projectTextField.text = _currentWorkTimerTask.
     self.taskTextField.text = [NSString stringWithFormat:@"%@ - %@",_currentWorkTimerTask.taskKey,_currentWorkTimerTask.taskSummary];
-    self.descriptionTextField.text = _currentWorkTimerTask.description;
+    self.descriptionTextField.text = _currentWorkTimerTask.taskDescription;
     self.timeWorkedTextField.text = _currentWorkTimerTask.timeWorked;
 }
 
@@ -52,7 +52,7 @@
 
 -(void)checkDescription
 {
-    _currentWorkTimerTask.description = self.descriptionTextField.text;
+    _currentWorkTimerTask.taskDescription = self.descriptionTextField.text;
     self.descriptionInvalidImage.hidden = [_currentWorkTimerTask isDescriptionValid];
 }
 

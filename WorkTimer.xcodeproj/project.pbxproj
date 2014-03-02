@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EF4FFCFF188FE2EA002A1B01 /* SettingsRepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */; };
+		EF4FFCFF188FE2EA002A1B01 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */; };
 		EF4FFD0418903509002A1B01 /* play-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0318903509002A1B01 /* play-icon.png */; };
 		EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0518903522002A1B01 /* stop-icon.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
-		EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* SettingsRepository.m */; };
+		EF871E7A188D8B9500D54493 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* Repository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
 		EF924E2D188D30670091426C /* logoJIRA.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2C188D30670091426C /* logoJIRA.png */; };
@@ -43,7 +43,9 @@
 		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
 		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
 		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
+		EFC992AE18A97E040028F367 /* WorkTimerTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */; };
 		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
+		EFF6505D18BE93680004D881 /* countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFF6505C18BE93680004D881 /* countries.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +60,8 @@
 
 /* Begin PBXFileReference section */
 		EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolButtonClickedInCellDelegate.h; sourceTree = "<group>"; };
-		EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepositoryTests.h; sourceTree = "<group>"; };
-		EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepositoryTests.m; sourceTree = "<group>"; };
+		EF4FFCFD188FE2EA002A1B01 /* RepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryTests.h; sourceTree = "<group>"; };
+		EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTests.m; sourceTree = "<group>"; };
 		EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTaskParserDelegate.h; sourceTree = "<group>"; };
 		EF4FFD0318903509002A1B01 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
 		EF4FFD0518903522002A1B01 /* stop-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-icon.png"; sourceTree = "<group>"; };
@@ -67,8 +69,8 @@
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
-		EF871E78188D8B9500D54493 /* SettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepository.h; sourceTree = "<group>"; };
-		EF871E79188D8B9500D54493 /* SettingsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepository.m; sourceTree = "<group>"; };
+		EF871E78188D8B9500D54493 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
+		EF871E79188D8B9500D54493 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		EF871E7C188D8D2200D54493 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		EF871E7E188D906000D54493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -117,8 +119,10 @@
 		EFC470D218871B0F00FE9C75 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
+		EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTaskTests.m; sourceTree = "<group>"; };
 		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
 		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
+		EFF6505C18BE93680004D881 /* countries.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = countries.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				EF9E22221884760700A68FD5 /* HelperTests.m */,
 				EF589C67188EE2B500D3E4BA /* SettingsTests.h */,
 				EF589C68188EE2B500D3E4BA /* SettingsTests.m */,
+				EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -160,8 +165,8 @@
 		EF4FFCFC188FE2A8002A1B01 /* Integration Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EF4FFCFD188FE2EA002A1B01 /* SettingsRepositoryTests.h */,
-				EF4FFCFE188FE2EA002A1B01 /* SettingsRepositoryTests.m */,
+				EF4FFCFD188FE2EA002A1B01 /* RepositoryTests.h */,
+				EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */,
 			);
 			name = "Integration Tests";
 			sourceTree = "<group>";
@@ -230,6 +235,7 @@
 		EF9E21F51884760700A68FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EFF6505C18BE93680004D881 /* countries.plist */,
 				EF4FFD0518903522002A1B01 /* stop-icon.png */,
 				EF4FFD0318903509002A1B01 /* play-icon.png */,
 				EF589C6A188F0D6700D3E4BA /* Warning.ico */,
@@ -296,8 +302,8 @@
 		EF9E222F1884767000A68FD5 /* Concrete */ = {
 			isa = PBXGroup;
 			children = (
-				EF871E78188D8B9500D54493 /* SettingsRepository.h */,
-				EF871E79188D8B9500D54493 /* SettingsRepository.m */,
+				EF871E78188D8B9500D54493 /* Repository.h */,
+				EF871E79188D8B9500D54493 /* Repository.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 				EF4FFD0418903509002A1B01 /* play-icon.png in Resources */,
 				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
 				EF9E22011884760700A68FD5 /* Default.png in Resources */,
+				EFF6505D18BE93680004D881 /* countries.plist in Resources */,
 				EF9E22031884760700A68FD5 /* Default@2x.png in Resources */,
 				EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */,
 				EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */,
@@ -468,7 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
-				EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */,
+				EF871E7A188D8B9500D54493 /* Repository.m in Sources */,
 				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
 				EF9E220E1884760700A68FD5 /* spaarksViewController.m in Sources */,
@@ -490,7 +497,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */,
-				EF4FFCFF188FE2EA002A1B01 /* SettingsRepositoryTests.m in Sources */,
+				EF4FFCFF188FE2EA002A1B01 /* RepositoryTests.m in Sources */,
+				EFC992AE18A97E040028F367 /* WorkTimerTaskTests.m in Sources */,
 				EF9E22231884760700A68FD5 /* HelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

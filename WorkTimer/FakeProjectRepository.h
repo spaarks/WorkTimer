@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ProtocolProjectRepository.h"
-#import "SettingsRepository.h"
+#import "Repository.h"
 #import "TaskParser.h"
 #import "Helpers.h"
 

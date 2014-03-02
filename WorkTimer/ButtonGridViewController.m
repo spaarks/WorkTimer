@@ -14,16 +14,9 @@
 @synthesize parser = _parser;
 @synthesize selectedCellIndices = _selectedCellIndices;
 
-int const kCellsPerPage = 20;
+bool reparseTasks = true;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom ;
-    }
-    return self;
-}
+int const kCellsPerPage = 20;
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -36,7 +29,7 @@ int const kCellsPerPage = 20;
 
 - (void)populateGridOrShowSettings
 {
-    if(![SettingsRepository doSettingsExist])
+    if(![Repository doSettingsExist])
     {
         [self performSegueWithIdentifier:@"openSettingsSegue" sender:self];
     }
@@ -52,7 +45,9 @@ int const kCellsPerPage = 20;
         [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
         
         self.navigationItem.titleView = refreshButton;
-        [self parseWithParserType:XMLParserTypeJIRAParser];
+        
+        if(reparseTasks)
+            [self parseWithParserType:XMLParserTypeJIRAParser];
     }
 }
 
@@ -66,23 +61,26 @@ int const kCellsPerPage = 20;
     [self viewWillAppear:YES];
 }
 
--(void)reloadCells
+-(void)refreshWorkTimerTasks
 {
-    [self.workTimerTasks removeAllObjects];
-    [self.collectionView reloadData];
+    if (self.workTimerTasks == nil)
+    {
+        self.workTimerTasks = [NSMutableArray array];
+    }
+    else
+    {
+        [self.workTimerTasks removeAllObjects];
+        [self.collectionView reloadData];
+    }
 }
 
 // This method will be called repeatedly
-- (void)parseWithParserType:(XMLParserType)parserType {
-    
+- (void)parseWithParserType:(XMLParserType)parserType
+{
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-    // Allocate the array for workTimer storage, or empty the results of previous parses
-    if (self.workTimerTasks == nil) {
-        self.workTimerTasks = [NSMutableArray array];
-    } else {
-        [self reloadCells];
-    }
+    [self refreshWorkTimerTasks];
+    
     // Determine the Class for the parser
     Class parserClass = nil;
     switch (parserType) {
@@ -99,10 +97,29 @@ int const kCellsPerPage = 20;
     [self.parser start];
 }
 
+-(WorkTimerTask*)fetchWorkTimerTaskForRunningCell
+{
+    //Assume that the first cell in the array is the running cell
+    //There should only be one running timer
+    
+    if(_selectedCellIndices.count>0)
+    {
+        NSNumber *cellIndex = _selectedCellIndices.firstObject;
+        NSIndexPath *runningCellIndexPath = [NSIndexPath indexPathForRow:[cellIndex intValue] inSection:0];
+            
+        ButtonGridCell *runningCell = ((ButtonGridCell*)[self.collectionView cellForItemAtIndexPath:runningCellIndexPath]);
+    
+        return [self getRunningWorkTimerTask:runningCell];
+    }
+    
+    return nil;
+}
+
 #pragma mark - UICollectionViewDelegate
 
 
-- (void)addIndexToSelectedCells:(NSNumber*) cellIndex {
+- (void)addIndexToSelectedCells:(NSNumber*) cellIndex
+{
     NSInteger indexOfCell = [_selectedCellIndices indexOfObject:cellIndex];
     
     //Only add to array if it's not already there
@@ -198,7 +215,7 @@ int const kCellsPerPage = 20;
     FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
     [repo createTimesheetLog:start
                             :logTimeString
-                            :task.description
+                            :task.taskDescription
                             :task.taskKey];
     
     [currentCell tapCell:NO];
@@ -232,7 +249,6 @@ int const kCellsPerPage = 20;
     numberOfItemsInSection:(NSInteger)section
 {
     return [self.workTimerTasks count];
-    //return 1000;//kCellsPerPage;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
@@ -270,6 +286,21 @@ int const kCellsPerPage = 20;
     [self performSegueWithIdentifier:@"OpenStopSegue" sender:cell];
 }
 
+- (WorkTimerTask *)getRunningWorkTimerTask:(ButtonGridCell *)_currentCell
+{
+    WorkTimerTask *taskToEdit = [[WorkTimerTask alloc] init];
+    
+    NSDate *currentTime = _currentCell.clockView.currentTime;
+    NSString *currentTimeString = [Helpers getJIRATimeString:currentTime];
+    
+    taskToEdit.timeWorked = currentTimeString;
+    taskToEdit.taskDescription = _currentCell.comment;
+    
+    taskToEdit.taskKey = _currentCell.taskKeyLabel.text;
+    taskToEdit.taskSummary = _currentCell.taskSummaryLabel.text;
+    return taskToEdit;
+}
+
 // This will get called too before the view appears
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -283,16 +314,8 @@ int const kCellsPerPage = 20;
         
         editView.delegate = (id<ProtocolEditWorkLogButtonClickedDelegate>)self;
         
-        WorkTimerTask *taskToEdit = [[WorkTimerTask alloc] init];
-        
-        NSDate *currentTime = _currentCell.clockView.currentTime;
-        NSString *currentTimeString = [Helpers getJIRATimeString:currentTime];
-        
-        taskToEdit.timeWorked = currentTimeString;
-        taskToEdit.description = _currentCell.comment;
-        
-        taskToEdit.taskKey = _currentCell.taskKeyLabel.text;
-        taskToEdit.taskSummary = _currentCell.taskSummaryLabel.text;
+        WorkTimerTask *taskToEdit;
+        taskToEdit = [self getRunningWorkTimerTask:_currentCell];
         
         [editView setCurrentWorkTimerTask:taskToEdit];
         
@@ -326,8 +349,6 @@ int const kCellsPerPage = 20;
 {
     [self.workTimerTasks addObjectsFromArray:parsedWorkTimerTasks];
     
-    [self collectionView];
-    
     if (!self.collectionView.dragging && !self.collectionView.tracking && !self.collectionView.decelerating) {
         [self.collectionView reloadData];
     }
@@ -338,4 +359,50 @@ int const kCellsPerPage = 20;
     // handle errors as appropriate to your application...
     
 }
+
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super encodeRestorableStateWithCoder:coder];
+    
+    [coder encodeObject:self.workTimerTasks forKey:@"WorkTimerTasks"];
+}
+
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+
+    NSArray* tasks = [coder decodeObjectForKey:@"WorkTimerTasks"];
+    
+    if(tasks.count>0)
+        reparseTasks = false;
+    
+    [self refreshWorkTimerTasks];
+    [self.workTimerTasks addObjectsFromArray:tasks];
+    [self.collectionView reloadData];
+}
+
+#pragma mark - UIDataSourceModelAssociation
+- (NSString *)modelIdentifierForElementAtIndexPath:(NSIndexPath *)indexPath inView:(UIView *)view
+{
+    ButtonGridCell * cell = ((ButtonGridCell*)[self.collectionView cellForItemAtIndexPath:indexPath]);
+    
+    return cell.taskKeyLabel.text;
+}
+
+- (NSIndexPath *)indexPathForElementWithModelIdentifier:(NSString *)identifier inView:(UIView *)view
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"taskKey==%@",identifier];
+    NSArray *results = [self.workTimerTasks filteredArrayUsingPredicate:predicate];
+    
+    if([results count]==0)
+        return nil;
+    
+    WorkTimerTask* task = [results objectAtIndex:0];
+	NSInteger index = [self.workTimerTasks indexOfObject:task];
+    
+    NSIndexPath* path = [NSIndexPath indexPathForRow:index inSection:0];
+    
+	return path;
+}
+
 @end

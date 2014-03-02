@@ -17,7 +17,7 @@
 }
 - (NSString *)getURL:(NSInteger)parserType
 {
-    Settings* currentSettings = [SettingsRepository getSettings];
+    Settings* currentSettings = [Repository getSettings];
     
     NSString *baseURL = currentSettings.serverPath;
     NSString *userName = currentSettings.userName;
@@ -32,7 +32,7 @@
 
 - (void)setAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
 {
-    Settings* currentSettings = [SettingsRepository getSettings];
+    Settings* currentSettings = [Repository getSettings];
     NSString* token = currentSettings.authenticationToken;
     
     NSString * headerValue = [NSString stringWithFormat:@"Basic %@", token];
@@ -76,7 +76,7 @@
 {
     NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
-    Settings* currentSettings = [SettingsRepository getSettings];
+    Settings* currentSettings = [Repository getSettings];
     
     NSString* serverPath = currentSettings.serverPath;
     NSString* urlPath = [NSString stringWithFormat:@"%@/rest/api/latest/issue/%@/worklog", serverPath, taskID];

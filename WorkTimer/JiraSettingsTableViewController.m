@@ -79,7 +79,7 @@
     
     _currentSettings.parserType = XMLParserTypeJIRAParser;
     
-    [SettingsRepository saveSettings:_currentSettings];
+    [Repository saveSettings:_currentSettings];
     
     UIViewController *vc = [self presentingViewController];
     

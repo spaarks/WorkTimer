@@ -8,8 +8,8 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "Settings.h"
-#import "SettingsRepository.h"
+#import "Repository.h"
 
-@interface SettingsRepositoryTests : SenTestCase
+@interface RepositoryTests : SenTestCase
 
 @end

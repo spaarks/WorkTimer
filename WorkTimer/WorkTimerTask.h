@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WorkTimerTask : NSObject
+@interface WorkTimerTask : NSObject<NSCoding>
 
 //12229
 @property (nonatomic, copy) NSString *taskID;
@@ -19,11 +19,12 @@
 //Meeting Internal
 @property (nonatomic, copy) NSString *taskSummary;
 
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *taskDescription;
 
 @property (nonatomic, copy) NSString *timeWorked;
 
 -(BOOL)isTimeWorkedValid;
 -(BOOL)isDescriptionValid;
+- (NSString *)description;
 
 @end

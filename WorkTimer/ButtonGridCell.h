@@ -11,7 +11,7 @@
 #import "FakeProjectRepository.h"
 #import "ProtocolButtonClickedInCellDelegate.h"
 
-@interface ButtonGridCell : UICollectionViewCell
+@interface ButtonGridCell : UICollectionViewCell<NSCoding>
 
 @property (weak, nonatomic) IBOutlet UILabel *taskKeyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *taskSummaryLabel;

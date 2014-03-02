@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Settings.h"
-#import "SettingsRepository.h"
+#import "Repository.h"
 #import "TaskParser.h"
 
 @interface JiraSettingsTableViewController : UITableViewController 

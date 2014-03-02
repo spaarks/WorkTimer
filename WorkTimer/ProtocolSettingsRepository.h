@@ -16,6 +16,6 @@
 + (void) saveSettings:(Settings*) settings;
 + (BOOL) doSettingsExist;
 + (void) closeSettingsDatabase;
-+ (void) resetSettingsDatabase;
++ (void) resetDatabase;
 @end
 

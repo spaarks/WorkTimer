@@ -15,7 +15,9 @@
 #import "JiraSettingsTableViewController.h"
 
 @interface ButtonGridViewController : UICollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate, ProtocolButtonClickedInCellDelegate,ProtocolEditWorkLogButtonClickedDelegate>
+<UICollectionViewDataSource, UICollectionViewDelegate,ProtocolTaskParserDelegate, ProtocolButtonClickedInCellDelegate,ProtocolEditWorkLogButtonClickedDelegate, UIDataSourceModelAssociation
+, NSCoding
+>
 
 @property (nonatomic, strong) NSMutableArray *workTimerTasks;
 @property (nonatomic, strong) TaskParser *parser;

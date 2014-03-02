@@ -7,18 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ProtocolSettingsRepository.h"
-#import "Settings.h"
 #import <sqlite3.h>
 
-@interface SettingsRepository : NSObject<ProtocolSettingsRepository>
+#import "ProtocolSettingsRepository.h"
+#import "Settings.h"
+#import "WorkTimerTask.h"
+
+@interface Repository : NSObject<ProtocolSettingsRepository>
 
 + (Settings*) getSettings;
++ (WorkTimerTask*) getWorkTimerTask;
 
 + (void) saveSettings:(Settings*) settings;
++ (void) saveWorkTimerTask:(WorkTimerTask*) workTimerTask;
+
 + (BOOL) doSettingsExist;
 + (void) closeSettingsDatabase;
-+ (void) resetSettingsDatabase;
++ (void) resetDatabase;
 
 
 @end

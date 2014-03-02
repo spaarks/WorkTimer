@@ -34,7 +34,31 @@
 
 -(BOOL)isDescriptionValid
 {
-    return _description.length>0;
+    return _taskDescription.length>0;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat: @"WorkTimerTask: taskID=%@ taskKey='%@' taskSummary='%@' description='%@' timeWorked='%@'", _taskID, _taskKey, _taskSummary, _taskDescription, _timeWorked];
+}
+
+#pragma NSCoder
+
+- (void)encodeWithCoder: (NSCoder *)coder
+{
+    [coder encodeObject: [self taskID] forKey: @"taskID"];
+    [coder encodeObject: [self taskKey] forKey: @"taskKey"];
+    [coder encodeObject: [self taskSummary] forKey: @"taskSummary"];
+}
+
+- (id)initWithCoder: (NSCoder *)coder
+{
+    if((self = [self init]))
+    {
+        _taskID = [coder decodeObjectForKey: @"taskID"];
+        _taskKey = [coder decodeObjectForKey: @"taskKey"];
+        _taskSummary = [coder decodeObjectForKey: @"taskSummary"];
+    }
+    return self;
 }
 
 @end
