@@ -1,0 +1,175 @@
+//
+//  TimerTasksTableViewController.m
+//  WorkTimer
+//
+//  Created by martin steel on 03/03/2014.
+//  Copyright (c) 2014 martin steel. All rights reserved.
+//
+
+#import "TimerTasksTableViewController.h"
+
+@implementation TimerTasksTableViewController
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+    [self populateGridOrShowSettings];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)populateGridOrShowSettings
+{
+    if(![Repository doSettingsExist])
+    {
+        [self performSegueWithIdentifier:@"chooseSettingsSegue" sender:self];
+    }
+    else
+    {
+        //self.parentViewController.view.hidden = YES;
+
+        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [refreshButton addTarget:self
+                          action:@selector(refreshGrid)
+                forControlEvents:UIControlEventTouchUpInside];
+
+        [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+
+        self.navigationItem.titleView = refreshButton;
+
+        [self parseWithParserType:XMLParserTypeJIRAParser];
+    }
+}
+
+-(void)refreshWorkTimerTasks
+{
+    if (self.workTimerTasks == nil)
+    {
+        self.workTimerTasks = [NSMutableArray array];
+    }
+    else
+    {
+        [self.workTimerTasks removeAllObjects];
+        [self.tableView reloadData];
+    }
+}
+
+//This method will be called repeatedly
+- (void)parseWithParserType:(XMLParserType)parserType
+{
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+
+    [self refreshWorkTimerTasks];
+
+    // Determine the Class for the parser
+    Class parserClass = nil;
+    switch (parserType) {
+        case XMLParserTypeJIRAParser: {
+            parserClass = [JIRATaskParser class];
+        } break;
+        default: {
+            NSAssert1(NO, @"Unknown parser type %d", parserType);
+        } break;
+    }
+    // Create the parser, set its delegate, and start it.
+    self.parser = [[parserClass alloc] init];
+    self.parser.delegate = self;
+    [self.parser start];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_workTimerTasks count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView
+                            dequeueReusableCellWithIdentifier:@"TaskCell"];
+
+    int row = [indexPath row];
+
+    if(row<[_workTimerTasks count])
+    {
+        WorkTimerTask *task = [_workTimerTasks objectAtIndex:row];
+        cell.textLabel.text = task.taskKey;
+        cell.detailTextLabel.text = task.taskSummary;
+    }
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIAlertView *messageAlert = [[UIAlertView alloc]
+                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    // Display Alert Message
+    [messageAlert show];
+}
+
+#pragma mark - TaskParserDelegate
+
+- (void)parserDidEndParsingData:(TaskParser *)parser
+{
+    //Remove duplicates
+    NSSet *workTimerTasksSet = [NSSet setWithArray:self.workTimerTasks];
+    NSArray *noDuplicates = [workTimerTasksSet allObjects];
+
+    //Sort Alphabetically
+    NSSortDescriptor *taskKeyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"taskKey" ascending:YES];
+    NSArray *sortDescriptors = @[taskKeyDescriptor];
+    noDuplicates = [noDuplicates sortedArrayUsingDescriptors:sortDescriptors];
+
+    [self.workTimerTasks removeAllObjects];
+    [self.workTimerTasks addObjectsFromArray:noDuplicates];
+
+    [self.tableView reloadData];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.parser = nil;
+
+    self.parentViewController.view.hidden = NO;
+}
+
+- (void)parser:(TaskParser *)parser didParseWorkTimerTasks:(NSArray *)parsedWorkTimerTasks
+{
+    [self.workTimerTasks addObjectsFromArray:parsedWorkTimerTasks];
+
+    if (!self.tableView.dragging && !self.tableView.tracking && !self.tableView.decelerating)
+        [self.tableView reloadData];
+}
+
+- (void)parser:(TaskParser *)parser didFailWithError:(NSError *)error
+{
+    // handle errors as appropriate to your application...
+    
+}
+
+@end

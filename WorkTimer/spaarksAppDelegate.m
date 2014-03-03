@@ -10,27 +10,22 @@
 
 @implementation spaarksAppDelegate
 
--(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
-{
-    return YES;
-}
-
--(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
-{
-    return YES;
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after app launch.
-//    ChooseTimesheetToolViewController *settingsView =
-//        [[ChooseTimesheetToolViewController alloc]init];
-//    [self.window addSubview:settingsView.view];
-//    [self.window makeKeyAndVisible];
+//-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+//{
+////    return YES;
+//}
+//
+//-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+//{
+////    return YES;
+//}
+//
+//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+//{
+////    return YES;
 //    
-    return YES;
-}
-							
+//}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

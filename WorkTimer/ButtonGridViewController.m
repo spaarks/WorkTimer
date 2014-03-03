@@ -16,8 +16,6 @@
 
 bool reparseTasks = true;
 
-int const kCellsPerPage = 20;
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -359,6 +357,8 @@ int const kCellsPerPage = 20;
     // handle errors as appropriate to your application...
     
 }
+
+#pragma mark - NSCoding
 
 -(void)encodeRestorableStateWithCoder:(NSCoder *)coder
 {

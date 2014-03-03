@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F43389F5-6F57-4CF7-A806-F64B08D1FFDF</string>
+	<string>D34B7EF8-2410-4B45-A5A9-A565310EA88D</string>
 	<key>IDESourceControlProjectName</key>
 	<string>WorkTimer</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AB75CA09-6FA6-4EC9-AF7E-35F2446827E7</key>
+		<key>EECCF36B-26E9-4217-A681-DBB485B77B38</key>
 		<string>https://github.com/Spaarks/WorkTimer.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>WorkTimer.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AB75CA09-6FA6-4EC9-AF7E-35F2446827E7</key>
+		<key>EECCF36B-26E9-4217-A681-DBB485B77B38</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AB75CA09-6FA6-4EC9-AF7E-35F2446827E7</string>
+	<string>EECCF36B-26E9-4217-A681-DBB485B77B38</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AB75CA09-6FA6-4EC9-AF7E-35F2446827E7</string>
+			<string>EECCF36B-26E9-4217-A681-DBB485B77B38</string>
 			<key>IDESourceControlWCCName</key>
 			<string>WorkTimer</string>
 		</dict>
