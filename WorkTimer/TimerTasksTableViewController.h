@@ -12,6 +12,7 @@
 
 @interface TimerTasksTableViewController : UITableViewController<ProtocolTaskParserDelegate>
 
+
 @property (nonatomic, strong) NSMutableArray *workTimerTasks;
 @property (nonatomic, strong) TaskParser *parser;
 
