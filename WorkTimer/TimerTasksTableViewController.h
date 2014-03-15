@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "JIRATaskParser.h"
 #import "JiraSettingsTableViewController.h"
+#import "IPhoneEditWorkLogViewController.h"
 
 @interface TimerTasksTableViewController : UITableViewController<ProtocolTaskParserDelegate>
 

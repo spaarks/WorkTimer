@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "ClockView.h"
+#import "WorkTimerTask.h"
+#import "IPhoneEditWorkLogViewController.h"
+#import "ProtocolIPhoneEditWorkLogButtonClicked.h"
 
-@interface TaskTimerViewController : UIViewController
+@interface TaskTimerViewController : UIViewController <ProtocolIPhoneEditWorkLogButtonClicked>
 
 @property (weak, nonatomic) IBOutlet ClockView *clockView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UIButton *stopButton;
+
+@property (strong, nonatomic) WorkTimerTask *currentWorkTimerTask;
 
 - (IBAction)startTouchUpInside:(id)sender;
 - (IBAction)stopTouchUpInside:(id)sender;

@@ -42,9 +42,11 @@
 		EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF51884829A0091EDB1 /* FakeProjectRepository.m */; };
 		EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */; };
 		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
+		EFBFF84E18D211F80014725E /* IPhoneEditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBFF84D18D211F70014725E /* IPhoneEditWorkLogViewController.m */; };
 		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
 		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
 		EFC992AE18A97E040028F367 /* WorkTimerTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */; };
+		EFD733A018D4BA0600A243A5 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD7339F18D4BA0600A243A5 /* Clock.png */; };
 		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
 		EFF6505D18BE93680004D881 /* countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFF6505C18BE93680004D881 /* countries.plist */; };
 /* End PBXBuildFile section */
@@ -118,11 +120,15 @@
 		EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridViewController.m; sourceTree = "<group>"; };
 		EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonGridCell.h; sourceTree = "<group>"; };
 		EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridCell.m; sourceTree = "<group>"; };
+		EFAE794818D4C50200C5B553 /* ProtocolIPhoneEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolIPhoneEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
+		EFBFF84C18D211F70014725E /* IPhoneEditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPhoneEditWorkLogViewController.h; sourceTree = "<group>"; };
+		EFBFF84D18D211F70014725E /* IPhoneEditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPhoneEditWorkLogViewController.m; sourceTree = "<group>"; };
 		EFC470D118871B0E00FE9C75 /* ClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockView.h; sourceTree = "<group>"; };
 		EFC470D218871B0F00FE9C75 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTaskTests.m; sourceTree = "<group>"; };
+		EFD7339F18D4BA0600A243A5 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
 		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
 		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
 		EFF6505C18BE93680004D881 /* countries.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = countries.plist; sourceTree = "<group>"; };
@@ -212,8 +218,7 @@
 				EF9E22401884770B00A68FD5 /* Models */,
 				EF9E222D1884766000A68FD5 /* Domain */,
 				EF9E222C1884765400A68FD5 /* Parsers */,
-				EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */,
-				EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */,
+				EFAE794B18D4C51000C5B553 /* Protocols */,
 				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
 				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
 				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
@@ -222,6 +227,8 @@
 				EFC470D218871B0F00FE9C75 /* ClockView.m */,
 				EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */,
 				EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */,
+				EFBFF84C18D211F70014725E /* IPhoneEditWorkLogViewController.h */,
+				EFBFF84D18D211F70014725E /* IPhoneEditWorkLogViewController.m */,
 				EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */,
 				EF924E31188D343B0091426C /* JiraSettingsTableViewController.m */,
 				EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */,
@@ -240,6 +247,7 @@
 		EF9E21F51884760700A68FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EFD7339F18D4BA0600A243A5 /* Clock.png */,
 				EFF6505C18BE93680004D881 /* countries.plist */,
 				EF4FFD0518903522002A1B01 /* stop-icon.png */,
 				EF4FFD0318903509002A1B01 /* play-icon.png */,
@@ -333,6 +341,16 @@
 			name = Fake;
 			sourceTree = "<group>";
 		};
+		EFAE794B18D4C51000C5B553 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */,
+				EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */,
+				EFAE794818D4C50200C5B553 /* ProtocolIPhoneEditWorkLogButtonClicked.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		EFC0EED31892D4A500ECFC71 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +425,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = spaarks;
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "martin steel";
 			};
@@ -436,6 +455,7 @@
 				EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */,
 				EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */,
 				EF4FFD0418903509002A1B01 /* play-icon.png in Resources */,
+				EFD733A018D4BA0600A243A5 /* Clock.png in Resources */,
 				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
 				EF9E22011884760700A68FD5 /* Default.png in Resources */,
 				EFF6505D18BE93680004D881 /* countries.plist in Resources */,
@@ -482,6 +502,7 @@
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
 				EF871E7A188D8B9500D54493 /* Repository.m in Sources */,
 				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
+				EFBFF84E18D211F80014725E /* IPhoneEditWorkLogViewController.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
 				EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */,
 				EF871E7D188D8D2200D54493 /* Settings.m in Sources */,
@@ -580,7 +601,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -605,7 +626,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,7 +640,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -631,7 +652,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

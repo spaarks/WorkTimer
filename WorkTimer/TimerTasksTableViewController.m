@@ -126,13 +126,27 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UIAlertView *messageAlert = [[UIAlertView alloc]
-                                 initWithTitle:@"Row Selected" message:@"You've selected a row" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UITableViewCell* _currentCell = sender;
     
-    // Display Alert Message
-    [messageAlert show];
+    if ([[segue identifier] isEqualToString:@"OpenTaskTimerSegue"] && _currentCell!=nil)
+    {
+        IPhoneEditWorkLogViewController *editView = [segue destinationViewController];
+        
+        WorkTimerTask *taskToEdit;
+        
+        NSIndexPath* _cellPath = [self.tableView indexPathForCell:_currentCell];
+        int row = [_cellPath row];
+        
+        taskToEdit = [_workTimerTasks objectAtIndex:row];
+        
+        [editView setCurrentWorkTimerTask:taskToEdit];
+    }
 }
 
 #pragma mark - TaskParserDelegate

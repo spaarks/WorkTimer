@@ -67,6 +67,33 @@
     STAssertEqualObjects(expected, [Helpers getTimerString:date], @"Date string should be 01:11:59");
 }
 
+-(void) testGetHours
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+    NSDate *date  = [dateFormatter dateFromString:@"09:11:59"];
+    
+    STAssertEquals(9, [Helpers getHours:date], @"Hours should be 9");
+}
+
+-(void) testGetMinutes
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+    NSDate *date  = [dateFormatter dateFromString:@"09:11:59"];
+    
+    STAssertEquals(11, [Helpers getMinutes:date], @"Minutes should be 11");
+}
+
+-(void) testGetSeconds
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+    NSDate *date  = [dateFormatter dateFromString:@"09:11:59"];
+    
+    STAssertEquals(59, [Helpers getSeconds:date], @"Seconds should be 59");
+}
+
 - (void)testGetDateString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];

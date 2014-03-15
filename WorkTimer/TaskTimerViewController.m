@@ -10,20 +10,7 @@
 
 @implementation TaskTimerViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
+@synthesize currentWorkTimerTask = _currentWorkTimerTask;
 
 - (void)didReceiveMemoryWarning
 {
@@ -36,8 +23,6 @@
     //We've started the timer so pause to go for lunch
     if(self.clockView.isClockRunning)
     {
-        [self.clockView.activityIndicator setHidden:false];
-        
         [self.stopButton setEnabled:NO];
         [self.clockView stop];
         
@@ -46,7 +31,6 @@
     //We're back from lunch so start the timer again
     else
     {
-        [self.clockView.activityIndicator setHidden:false];
         [self.stopButton setEnabled:YES];
         
         [self.clockView start];
@@ -55,6 +39,45 @@
     }
 }
 
-- (IBAction)stopTouchUpInside:(id)sender {
+- (IBAction)stopTouchUpInside:(id)sender
+{
+    [self.clockView stop];
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    
+    [self performSegueWithIdentifier:@"OpenStopSegue" sender:self];
+}
+
+// This will get called too before the view appears
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"OpenStopSegue"])
+    {
+        IPhoneEditWorkLogViewController *editView = [segue destinationViewController];
+        
+        WorkTimerTask *taskToEdit;
+        taskToEdit = self.getRunningWorkTimerTask;
+        
+        //[self getRunningWorkTimerTask];
+        
+        [editView setCurrentWorkTimerTask:taskToEdit];
+    }
+}
+
+- (WorkTimerTask *)getRunningWorkTimerTask
+{
+    WorkTimerTask *taskToEdit = [[WorkTimerTask alloc] init];
+    
+    NSDate *currentTime = self.clockView.currentTime;
+    NSString *currentTimeString = [Helpers getJIRATimeString:currentTime];
+    
+    taskToEdit.timeWorked = currentTimeString;
+    taskToEdit.timeWorkedTime = currentTime;
+    taskToEdit.taskDescription = _currentWorkTimerTask.taskDescription;
+    taskToEdit.taskID = _currentWorkTimerTask.taskID;
+    taskToEdit.taskKey = _currentWorkTimerTask.taskKey;
+    taskToEdit.taskSummary = _currentWorkTimerTask.taskSummary;
+    
+    
+    return taskToEdit;
 }
 @end

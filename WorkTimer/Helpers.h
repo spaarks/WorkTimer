@@ -11,6 +11,9 @@
 @interface Helpers : NSObject
 +(NSString *)   getDifferenceString:(NSDate*)start :(NSDate*)end;
 +(NSString *) getTimerString:(NSDate*)current;
++(int) getHours:(NSDate*)current;
++(int) getMinutes:(NSDate*)current;
++(int) getSeconds:(NSDate*)current;
 +(NSString *) getDateString:(NSDate*) date;
 +(NSString*) getJIRATimeString:(NSDate*) current;
 +(NSString*) getStartDateString;

@@ -12,7 +12,7 @@
 @protocol ProtocolEditWorkLogButtonClickedDelegate <NSObject>
 
 -(void)commitClicked:(WorkTimerTask*)task
-                    :(ButtonGridCell*)currentCell;;
+                    :(ButtonGridCell*)currentCell;
 -(void)cancelClicked:(ButtonGridCell*)currentCell;
 -(void)deleteClicked:(WorkTimerTask*)task
                     :(ButtonGridCell*)currentCell;

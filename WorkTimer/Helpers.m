@@ -37,6 +37,27 @@ int const kSecondsInHour = 3600;
     return [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
 }
 
++(int) getHours:(NSDate*)current
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:current];
+    
+    return [components hour];
+}
+
++(int) getMinutes:(NSDate*)current
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSMinuteCalendarUnit fromDate:current];
+    
+    return [components minute];
+}
+
++(int) getSeconds:(NSDate*)current
+{
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:current];
+    
+    return [components second];
+}
+
 //Returns string in format "1h 30m"
 +(NSString*) getJIRATimeString:(NSDate*) current
 {

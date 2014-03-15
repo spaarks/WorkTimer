@@ -23,6 +23,8 @@
 
 @property (nonatomic, copy) NSString *timeWorked;
 
+@property (nonatomic, copy) NSDate *timeWorkedTime;
+
 -(BOOL)isTimeWorkedValid;
 -(BOOL)isDescriptionValid;
 - (NSString *)description;
