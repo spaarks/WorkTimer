@@ -20,23 +20,27 @@
 
 - (IBAction)startTouchUpInside:(id)sender
 {
-    //We've started the timer so pause to go for lunch
     if(self.clockView.isClockRunning)
-    {
-        [self.stopButton setEnabled:NO];
-        [self.clockView stop];
-        
-        [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
-    }
-    //We're back from lunch so start the timer again
+        [self pauseClock];
+
     else
-    {
-        [self.stopButton setEnabled:YES];
-        
-        [self.clockView start];
-        
-        [self.startButton setTitle:@"Pause" forState:UIControlStateNormal];
-    }
+        [self resumeClock];
+}
+
+//We've started the timer so pause to go for lunch
+- (void)pauseClock
+{
+    [self.stopButton setEnabled:NO];
+    [self.clockView stop];
+    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+}
+
+//We're back from lunch so start the timer again
+- (void)resumeClock
+{
+    [self.stopButton setEnabled:YES];
+    [self.clockView start];
+    [self.startButton setTitle:@"Pause" forState:UIControlStateNormal];
 }
 
 - (IBAction)stopTouchUpInside:(id)sender
@@ -53,12 +57,11 @@
     if ([[segue identifier] isEqualToString:@"OpenStopSegue"])
     {
         IPhoneEditWorkLogViewController *editView = [segue destinationViewController];
+     
+        editView.delegate = (id<ProtocolIPhoneEditWorkLogButtonClicked>)self;
         
         WorkTimerTask *taskToEdit;
         taskToEdit = self.getRunningWorkTimerTask;
-        
-        //[self getRunningWorkTimerTask];
-        
         [editView setCurrentWorkTimerTask:taskToEdit];
     }
 }
@@ -77,7 +80,37 @@
     taskToEdit.taskKey = _currentWorkTimerTask.taskKey;
     taskToEdit.taskSummary = _currentWorkTimerTask.taskSummary;
     
-    
     return taskToEdit;
+}
+
+#pragma ProtocolIPhoneEditWorkLogButtonClicked
+
+
+-(void)commitClicked:(WorkTimerTask*)task
+{
+    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    
+    NSDate * start = self.clockView.timeStarted;
+    
+    [repo createTimesheetLog:start
+                            :task.timeWorked
+                            :task.taskDescription
+                            :task.taskKey];
+    
+    [self goToParentController];
+}
+
+-(void)deleteClicked
+{
+    [self goToParentController];
+}
+
+- (void)goToParentController
+{
+    NSInteger currentIndex = [self.navigationController.viewControllers indexOfObject:self];
+    if( currentIndex-1 >= 0 )
+    {
+        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:currentIndex-1] animated:YES];
+    }
 }
 @end

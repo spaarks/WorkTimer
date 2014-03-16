@@ -17,11 +17,11 @@ int const kSecondsInHour = 3600;
 +(NSString *) getDifferenceString:(NSDate*)start :(NSDate*)end
 {
     NSTimeInterval distanceBetweenDates = [end timeIntervalSinceDate:start];
-    NSInteger hoursBetweenDates = distanceBetweenDates / kSecondsInHour;
+    int hoursBetweenDates = ((int)(distanceBetweenDates / kSecondsInHour));
     
-    NSInteger secondsMinusHours = distanceBetweenDates - (hoursBetweenDates * kSecondsInHour);
-    NSInteger minutes = secondsMinusHours / kSecondsInMinute;
-    NSInteger seconds = secondsMinusHours - minutes * kSecondsInMinute;
+    int secondsMinusHours = ((int)(distanceBetweenDates - (hoursBetweenDates * kSecondsInHour)));
+    int minutes = ((int)(secondsMinusHours / kSecondsInMinute));
+    int seconds = ((int)(secondsMinusHours - minutes * kSecondsInMinute));
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d", hoursBetweenDates, minutes, seconds];
 }
@@ -30,9 +30,9 @@ int const kSecondsInHour = 3600;
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:current];
     
-    NSInteger hour= [components hour];
-    NSInteger minute = [components minute];
-    NSInteger second = [components second];
+    int hour= (int)[components hour];
+    int minute = (int)[components minute];
+    int second = (int)[components second];
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d", hour, minute, second];
 }
@@ -41,21 +41,21 @@ int const kSecondsInHour = 3600;
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit fromDate:current];
     
-    return [components hour];
+    return (int)[components hour];
 }
 
 +(int) getMinutes:(NSDate*)current
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSMinuteCalendarUnit fromDate:current];
     
-    return [components minute];
+    return (int)[components minute];
 }
 
 +(int) getSeconds:(NSDate*)current
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:current];
     
-    return [components second];
+    return (int)[components second];
 }
 
 //Returns string in format "1h 30m"
@@ -63,8 +63,8 @@ int const kSecondsInHour = 3600;
 {
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit fromDate:current];
     
-    NSInteger hour= [components hour];
-    NSInteger minute = [components minute];
+    int hour= (int)[components hour];
+    int minute = (int)[components minute];
     
     return [NSString stringWithFormat:@"%02dh %02dm", hour, minute];
 }

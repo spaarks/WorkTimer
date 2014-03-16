@@ -120,32 +120,32 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     
     const char *userNameChar = [settings.userName cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_settings_statement, 1, userNameChar, settings.userName.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_settings_statement, 1, userNameChar, (int)settings.userName.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *passwordChar = [settings.password cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_settings_statement, 2, passwordChar, settings.password.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_settings_statement, 2, passwordChar, (int)settings.password.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *serverPath = [settings.serverPath cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_settings_statement, 3, serverPath, settings.serverPath.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_settings_statement, 3, serverPath, (int)settings.serverPath.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
-    if (sqlite3_bind_int(insert_settings_statement, 4, settings.parserType) != SQLITE_OK) {
+    if (sqlite3_bind_int(insert_settings_statement, 4, (int)settings.parserType) != SQLITE_OK) {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *authenticationChar = [settings.authenticationToken cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_settings_statement, 5, authenticationChar, settings.authenticationToken.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_settings_statement, 5, authenticationChar, (int)settings.authenticationToken.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
@@ -171,35 +171,35 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     
     const char *taskIDChar = [workTimerTask.taskID cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 1, taskIDChar, workTimerTask.taskID.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_work_timer_task_statement, 1, taskIDChar, (int)workTimerTask.taskID.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *taskKeyChar = [workTimerTask.taskKey cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 2, taskKeyChar, workTimerTask.taskKey.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_work_timer_task_statement, 2, taskKeyChar, (int)workTimerTask.taskKey.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *taskSummaryChar = [workTimerTask.taskSummary cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 3, taskSummaryChar, workTimerTask.taskSummary.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_work_timer_task_statement, 3, taskSummaryChar, (int)workTimerTask.taskSummary.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *decriptionChar = [workTimerTask.taskDescription cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 4, decriptionChar, workTimerTask.taskDescription.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_work_timer_task_statement, 4, decriptionChar, (int)workTimerTask.taskDescription.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
     
     const char *timeWorkedChar = [workTimerTask.timeWorked cStringUsingEncoding:NSASCIIStringEncoding];
     
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 5, timeWorkedChar, workTimerTask.timeWorked.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    if (sqlite3_bind_text(insert_work_timer_task_statement, 5, timeWorkedChar, (int)workTimerTask.timeWorked.length, SQLITE_TRANSIENT) != SQLITE_OK)
     {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }

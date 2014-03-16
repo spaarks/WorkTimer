@@ -97,7 +97,8 @@
 
 #pragma mark Parsing support methods
 
-static const NSUInteger kAutoreleasePoolPurgeFrequency = 20;
+//If date > 2014-01-05 (May) then delete this line
+//static const NSUInteger kAutoreleasePoolPurgeFrequency = 20;
 
 - (void)finishedTask {
     

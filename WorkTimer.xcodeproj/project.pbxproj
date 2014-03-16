@@ -76,6 +76,7 @@
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
+		EF796FDB18D5C02100CF785E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EF871E78188D8B9500D54493 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		EF871E79188D8B9500D54493 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		EF9E21ED1884760700A68FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF796FDB18D5C02100CF785E /* XCTest.framework */,
 				EF871E7E188D906000D54493 /* libsqlite3.dylib */,
 				EF9E21EE1884760700A68FD5 /* UIKit.framework */,
 				EF9E21F01884760700A68FD5 /* Foundation.framework */,
@@ -287,8 +289,8 @@
 		EF9E222C1884765400A68FD5 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */,
 				EFC0EED41892D4B700ECFC71 /* Concrete */,
-				EFC0EED31892D4A500ECFC71 /* Abstract */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -349,14 +351,6 @@
 				EFAE794818D4C50200C5B553 /* ProtocolIPhoneEditWorkLogButtonClicked.h */,
 			);
 			name = Protocols;
-			sourceTree = "<group>";
-		};
-		EFC0EED31892D4A500ECFC71 /* Abstract */ = {
-			isa = PBXGroup;
-			children = (
-				EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */,
-			);
-			name = Abstract;
 			sourceTree = "<group>";
 		};
 		EFC0EED41892D4B700ECFC71 /* Concrete */ = {
@@ -637,6 +631,10 @@
 		EF9E22271884760700A68FD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
@@ -649,6 +647,10 @@
 		EF9E22281884760700A68FD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";

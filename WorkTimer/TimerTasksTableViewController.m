@@ -114,7 +114,7 @@
     UITableViewCell *cell = [self.tableView
                             dequeueReusableCellWithIdentifier:@"TaskCell"];
 
-    int row = [indexPath row];
+    int row = (int)[indexPath row];
 
     if(row<[_workTimerTasks count])
     {
@@ -141,7 +141,7 @@
         WorkTimerTask *taskToEdit;
         
         NSIndexPath* _cellPath = [self.tableView indexPathForCell:_currentCell];
-        int row = [_cellPath row];
+        int row = (int)[_cellPath row];
         
         taskToEdit = [_workTimerTasks objectAtIndex:row];
         

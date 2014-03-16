@@ -11,6 +11,6 @@
 @protocol ProtocolIPhoneEditWorkLogButtonClicked <NSObject>
 
 -(void)commitClicked:(WorkTimerTask*)task;
--(void)deleteClicked:(WorkTimerTask*)task;
+-(void)deleteClicked;
 
 @end

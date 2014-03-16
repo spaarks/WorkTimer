@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "WorkTimerTask.h"
 #import "ButtonGridCell.h"
+#import "ProtocolIPhoneEditWorkLogButtonClicked.h"
 
-@interface IPhoneEditWorkLogViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface IPhoneEditWorkLogViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
 - (IBAction)descriptionDidEndEditing:(id)sender;
 
@@ -27,5 +28,7 @@
 
 @property (strong, nonatomic) WorkTimerTask *currentWorkTimerTask;
 @property (strong,nonatomic) ButtonGridCell *currentCell;
+
+@property (assign) id<ProtocolIPhoneEditWorkLogButtonClicked> delegate;
 
 @end

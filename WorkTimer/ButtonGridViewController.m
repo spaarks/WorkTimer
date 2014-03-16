@@ -129,7 +129,7 @@ bool reparseTasks = true;
 
 - (void)removeIndexFromSelectedCells:(NSNumber*) cellIndex {
      //= [NSNumber numberWithInt:[indexPath indexAtPosition:1]];
-    int indexOfCell = [_selectedCellIndices indexOfObject:cellIndex];
+    int indexOfCell = (int)[_selectedCellIndices indexOfObject:cellIndex];
     
     [_selectedCellIndices removeObjectAtIndex:indexOfCell];
 }
@@ -145,7 +145,7 @@ bool reparseTasks = true;
     // If you need to use the touched cell, you can retrieve it like so
     ButtonGridCell *cell = ((ButtonGridCell*)[collectionView cellForItemAtIndexPath:indexPath]);
 
-    NSNumber* indexOfCell = [NSNumber numberWithInt:[indexPath indexAtPosition:1]];
+    NSNumber* indexOfCell = [NSNumber numberWithInt:(int)[indexPath indexAtPosition:1]];
     [self removeIndexFromSelectedCells:indexOfCell];
     
     [cell tapCell:NO];
@@ -166,7 +166,7 @@ bool reparseTasks = true;
                  :(ButtonGridCell *)cell
 {
     NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:cell];
-    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:(int)[currentCellIndexPath indexAtPosition:1]];
     
     for(NSNumber *cellIndex in _selectedCellIndices)
     {
@@ -202,7 +202,7 @@ bool reparseTasks = true;
                     :(ButtonGridCell*)currentCell
 {
     NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:currentCell];
-    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:(int)[currentCellIndexPath indexAtPosition:1]];
     
     [self removeIndexFromSelectedCells:indexOfCurrentCell];
 
@@ -228,7 +228,7 @@ bool reparseTasks = true;
                     :(ButtonGridCell*)currentCell
 {
     NSIndexPath* currentCellIndexPath = [self.collectionView indexPathForCell:currentCell];
-    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:[currentCellIndexPath indexAtPosition:1]];
+    NSNumber *indexOfCurrentCell = [NSNumber numberWithInt:(int)[currentCellIndexPath indexAtPosition:1]];
     
     [self removeIndexFromSelectedCells:indexOfCurrentCell];
     
@@ -258,7 +258,7 @@ bool reparseTasks = true;
     
     gridCell.delegate = (id<ProtocolButtonClickedInCellDelegate>)self;
     
-    int row = [indexPath row];
+    int row = (int)[indexPath row];
     
     if(row<[_workTimerTasks count]){
         WorkTimerTask *task = [_workTimerTasks objectAtIndex:row];

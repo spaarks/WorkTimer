@@ -27,17 +27,11 @@ UIPickerView* timePicker;
 {
     [super viewWillAppear:animated];
     
+    [self.descriptionTextField setDelegate:self];
+    
     self.taskCodeLabel.text = _currentWorkTimerTask.taskKey;
     self.taskSummaryLabel.text = _currentWorkTimerTask.taskSummary;
     self.descriptionTextField.text = _currentWorkTimerTask.taskDescription;
-}
-
-- (void)setTimePickerComponentValue
-                                    :(int)compenentIndex
-                                    :(int)value
-{
-    [timePicker selectRow:value inComponent:compenentIndex animated:YES];
-    [timePicker reloadComponent:compenentIndex];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -50,21 +44,6 @@ UIPickerView* timePicker;
         [self setTimePickerComponentValue:1:[Helpers getMinutes:_currentWorkTimerTask.timeWorkedTime]];
         [self setTimePickerComponentValue:2:[Helpers getSeconds:_currentWorkTimerTask.timeWorkedTime]];
     }
-}
-
-- (CGRect)getFrameForPickerLabel:(int)index
-{
-    return CGRectMake([self getXPositionOfPickerLabel:index], [self getYPositionOfPickerLabel], 75, 30);
-}
-
-- (int)getXPositionOfPickerLabel:(int)pickerIndex
-{
-    return 42 + (timePicker.frame.size.width / 3) * pickerIndex;
-}
-
-- (int)getYPositionOfPickerLabel
-{
-    return timePicker.frame.size.height / 2 - 15;
 }
 
 // assumes you conform to UIPickerViewDelegate and UIPickerViewDataSource in your .h
@@ -90,6 +69,37 @@ UIPickerView* timePicker;
     
     [self.timePickerView addSubview:timePicker];
 }
+
+- (void)setTimePickerComponentValue
+                                    :(int)compenentIndex
+                                    :(int)value
+{
+    [timePicker selectRow:value inComponent:compenentIndex animated:YES];
+    [timePicker reloadComponent:compenentIndex];
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.descriptionTextField resignFirstResponder];
+    return YES;
+}
+
+- (CGRect)getFrameForPickerLabel:(int)index
+{
+    return CGRectMake([self getXPositionOfPickerLabel:index], [self getYPositionOfPickerLabel], 75, 30);
+}
+
+- (int)getXPositionOfPickerLabel:(int)pickerIndex
+{
+    return 42 + (timePicker.frame.size.width / 3) * pickerIndex;
+}
+
+- (int)getYPositionOfPickerLabel
+{
+    return timePicker.frame.size.height / 2 - 15;
+}
+
+
 
 #pragma PickerViewDelegate and PickerViewDatasource
 
@@ -149,18 +159,13 @@ UIPickerView* timePicker;
 {
     if(![self validateAllFields])
         return;
-
-    //COMMIT!!!!
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.delegate commitClicked:_currentWorkTimerTask];
 }
 
 - (IBAction)deleteTouchUpInside:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
-    
-//    long indexOfParent = self.navigationController.viewControllers.count-1;
-//    UIViewController* parent = [self.navigationController.viewControllers objectAtIndex:indexOfParent];
-//    [self.navigationController popToViewController:parent animated:YES];
+    [self.delegate deleteClicked];
 }
 
 @end
