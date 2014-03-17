@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeString;
 @property (nonatomic,strong) NSDate *currentTime;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property BOOL started;
+@property BOOL isStarted;
 @property BOOL isClockRunning;
 @property (nonatomic,strong) NSDate *timeStarted;
 

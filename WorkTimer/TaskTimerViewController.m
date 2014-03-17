@@ -109,8 +109,29 @@
 {
     NSInteger currentIndex = [self.navigationController.viewControllers indexOfObject:self];
     if( currentIndex-1 >= 0 )
-    {
         [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:currentIndex-1] animated:YES];
-    }
+}
+
+#pragma NSCoder
+
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    BOOL running = self.clockView.isClockRunning;
+    [coder encodeBool:running forKey:@"IsClockRunning"];
+    [coder encodeObject:_currentWorkTimerTask forKey:@"CurrentTask"];
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+
+    _currentWorkTimerTask=[coder decodeObjectForKey:@"CurrentTask"];
+    
+    BOOL running = [coder decodeBoolForKey:@"IsClockRunning"];
+    
+    if(running)
+       [self.startButton setTitle:@"Pause" forState:UIControlStateNormal];
 }
 @end

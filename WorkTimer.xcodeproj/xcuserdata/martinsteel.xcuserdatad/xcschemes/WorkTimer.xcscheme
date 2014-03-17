@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EF9E22131884760700A68FD5"
-               BuildableName = "WorkTimerTests.octest"
+               BuildableName = "WorkTimerTests.xctest"
                BlueprintName = "WorkTimerTests"
                ReferencedContainer = "container:WorkTimer.xcodeproj">
             </BuildableReference>

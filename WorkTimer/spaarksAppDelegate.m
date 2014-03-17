@@ -10,15 +10,16 @@
 
 @implementation spaarksAppDelegate
 
-//-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
-//{
-////    return YES;
-//}
-//
-//-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
-//{
-////    return YES;
-//}
+-(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
+-(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
+{
+    return YES;
+}
+
 //
 //- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 //{
@@ -31,24 +32,6 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
-
-//-(ButtonGridViewController*)GetButtonGridViewController
-//{
-//UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-//MasterViewController *result;
-//
-////check to see if navbar "get" worked
-//if (navigationController.viewControllers)
-//
-////look for the nav controller in tab bar views
-//for (UINavigationController *view in navigationController.viewControllers) {
-//    
-//    //when found, do the same thing to find the MasterViewController under the nav controller
-//    if ([view isKindOfClass:[UINavigationController class]])
-//        for (UIViewController *view2 in view.viewControllers)
-//            if ([view2 isKindOfClass:[MasterViewController class]])
-//                result = (MasterViewController *) view2;
-//}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {

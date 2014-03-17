@@ -14,6 +14,7 @@
 		EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0518903522002A1B01 /* stop-icon.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
+		EF5AF77618D5CE9F000903E7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF796FDB18D5C02100CF785E /* XCTest.framework */; };
 		EF871E7A188D8B9500D54493 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* Repository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
@@ -31,7 +32,6 @@
 		EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22041884760700A68FD5 /* Default-568h@2x.png */; };
 		EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22061884760700A68FD5 /* MainStoryboard_iPhone.storyboard */; };
 		EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22091884760700A68FD5 /* MainStoryboard_iPad.storyboard */; };
-		EF9E22161884760700A68FD5 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E22151884760700A68FD5 /* SenTestingKit.framework */; };
 		EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21EE1884760700A68FD5 /* UIKit.framework */; };
 		EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F01884760700A68FD5 /* Foundation.framework */; };
 		EF9E22201884760700A68FD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9E221E1884760700A68FD5 /* InfoPlist.strings */; };
@@ -45,7 +45,6 @@
 		EFBFF84E18D211F80014725E /* IPhoneEditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFBFF84D18D211F70014725E /* IPhoneEditWorkLogViewController.m */; };
 		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
 		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
-		EFC992AE18A97E040028F367 /* WorkTimerTaskTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */; };
 		EFD733A018D4BA0600A243A5 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD7339F18D4BA0600A243A5 /* Clock.png */; };
 		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
 		EFF6505D18BE93680004D881 /* countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFF6505C18BE93680004D881 /* countries.plist */; };
@@ -67,12 +66,10 @@
 		EF186FD218C4EF0A00224917 /* TaskTimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskTimerViewController.h; sourceTree = "<group>"; };
 		EF186FD318C4EF0A00224917 /* TaskTimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskTimerViewController.m; sourceTree = "<group>"; };
 		EF21E3D51891810500A81347 /* ProtocolButtonClickedInCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolButtonClickedInCellDelegate.h; sourceTree = "<group>"; };
-		EF4FFCFD188FE2EA002A1B01 /* RepositoryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepositoryTests.h; sourceTree = "<group>"; };
 		EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTests.m; sourceTree = "<group>"; };
 		EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTaskParserDelegate.h; sourceTree = "<group>"; };
 		EF4FFD0318903509002A1B01 /* play-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "play-icon.png"; sourceTree = "<group>"; };
 		EF4FFD0518903522002A1B01 /* stop-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stop-icon.png"; sourceTree = "<group>"; };
-		EF589C67188EE2B500D3E4BA /* SettingsTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTests.h; sourceTree = "<group>"; };
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
@@ -102,11 +99,9 @@
 		EF9E22041884760700A68FD5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF9E22071884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		EF9E220A1884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		EF9E22141884760700A68FD5 /* WorkTimerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkTimerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF9E22151884760700A68FD5 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		EF9E22141884760700A68FD5 /* WorkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9E221D1884760700A68FD5 /* WorkTimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WorkTimerTests-Info.plist"; sourceTree = "<group>"; };
 		EF9E221F1884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EF9E22211884760700A68FD5 /* HelperTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelperTests.h; sourceTree = "<group>"; };
 		EF9E22221884760700A68FD5 /* HelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelperTests.m; sourceTree = "<group>"; };
 		EF9E22301884768D00A68FD5 /* JIRATaskParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = JIRATaskParser.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EF9E22311884768D00A68FD5 /* JIRATaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = JIRATaskParser.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
@@ -128,7 +123,6 @@
 		EFC470D218871B0F00FE9C75 /* ClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockView.m; sourceTree = "<group>"; };
 		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
-		EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTaskTests.m; sourceTree = "<group>"; };
 		EFD7339F18D4BA0600A243A5 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
 		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
 		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
@@ -140,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF5AF77618D5CE9F000903E7 /* XCTest.framework in Frameworks */,
 				EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */,
 				EF9E21EF1884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E21F11884760700A68FD5 /* Foundation.framework in Frameworks */,
@@ -151,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF9E22161884760700A68FD5 /* SenTestingKit.framework in Frameworks */,
 				EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */,
 			);
@@ -163,11 +157,8 @@
 		EF4FFCFB188FE2A1002A1B01 /* Unit Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22211884760700A68FD5 /* HelperTests.h */,
 				EF9E22221884760700A68FD5 /* HelperTests.m */,
-				EF589C67188EE2B500D3E4BA /* SettingsTests.h */,
 				EF589C68188EE2B500D3E4BA /* SettingsTests.m */,
-				EFC992AD18A97E040028F367 /* WorkTimerTaskTests.m */,
 			);
 			name = "Unit Tests";
 			sourceTree = "<group>";
@@ -175,7 +166,6 @@
 		EF4FFCFC188FE2A8002A1B01 /* Integration Tests */ = {
 			isa = PBXGroup;
 			children = (
-				EF4FFCFD188FE2EA002A1B01 /* RepositoryTests.h */,
 				EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */,
 			);
 			name = "Integration Tests";
@@ -195,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				EF9E21EB1884760700A68FD5 /* WorkTimer.app */,
-				EF9E22141884760700A68FD5 /* WorkTimerTests.octest */,
+				EF9E22141884760700A68FD5 /* WorkTimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,7 +198,6 @@
 				EF9E21EE1884760700A68FD5 /* UIKit.framework */,
 				EF9E21F01884760700A68FD5 /* Foundation.framework */,
 				EF9E21F21884760700A68FD5 /* CoreGraphics.framework */,
-				EF9E22151884760700A68FD5 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -409,8 +398,8 @@
 			);
 			name = WorkTimerTests;
 			productName = WorkTimerTests;
-			productReference = EF9E22141884760700A68FD5 /* WorkTimerTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = EF9E22141884760700A68FD5 /* WorkTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -519,7 +508,6 @@
 			files = (
 				EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */,
 				EF4FFCFF188FE2EA002A1B01 /* RepositoryTests.m in Sources */,
-				EFC992AE18A97E040028F367 /* WorkTimerTaskTests.m in Sources */,
 				EF9E22231884760700A68FD5 /* HelperTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -640,6 +629,7 @@
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -648,6 +638,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
@@ -656,6 +647,7 @@
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -665,15 +657,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorkTimer.app/WorkTimer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimerTests/WorkTimerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -682,15 +674,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorkTimer.app/WorkTimer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimerTests/WorkTimerTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

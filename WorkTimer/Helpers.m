@@ -14,6 +14,14 @@ int const kSecondsInMinute = 60;
 int const kMinutesInHour = 60;
 int const kSecondsInHour = 3600;
 
+//TOTEST!!!
++(NSDate *) getTimeFromString:(NSString*)timeString
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"HH:mm:ss";
+    return [dateFormatter dateFromString:timeString];
+}
+
 +(NSString *) getDifferenceString:(NSDate*)start :(NSDate*)end
 {
     NSTimeInterval distanceBetweenDates = [end timeIntervalSinceDate:start];
@@ -67,6 +75,19 @@ int const kSecondsInHour = 3600;
     int minute = (int)[components minute];
     
     return [NSString stringWithFormat:@"%02dh %02dm", hour, minute];
+}
+
+//TOTEST!!!
++(NSDate*) getDateFromComponents:(int)hours
+                                :(int)minutes
+                                :(int)seconds
+{
+    NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];
+    [tempFormatter setDateFormat: @"HH:mm:ss"];
+    
+    NSString *dateAsString = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    
+    return [tempFormatter dateFromString:dateAsString];
 }
 
 //Returns date as string in format 2014-01-16T10:30:18.932+0530

@@ -12,7 +12,7 @@
 #import "IPhoneEditWorkLogViewController.h"
 #import "ProtocolIPhoneEditWorkLogButtonClicked.h"
 
-@interface TaskTimerViewController : UIViewController <ProtocolIPhoneEditWorkLogButtonClicked>
+@interface TaskTimerViewController : UIViewController <ProtocolIPhoneEditWorkLogButtonClicked, NSCoding>
 
 @property (weak, nonatomic) IBOutlet ClockView *clockView;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;

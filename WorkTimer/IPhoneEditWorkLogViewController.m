@@ -99,8 +99,6 @@ UIPickerView* timePicker;
     return timePicker.frame.size.height / 2 - 15;
 }
 
-
-
 #pragma PickerViewDelegate and PickerViewDatasource
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -155,10 +153,24 @@ UIPickerView* timePicker;
     return [_currentWorkTimerTask isTimeWorkedValid] && [_currentWorkTimerTask isDescriptionValid];
 }
 
+-(void)updateWorkTimerTask
+{
+    int hours = (int)[timePicker selectedRowInComponent:0];
+    int minutes = (int)[timePicker selectedRowInComponent:1];
+    int seconds = (int)[timePicker selectedRowInComponent:2];
+    
+    _currentWorkTimerTask.timeWorkedTime = [Helpers getDateFromComponents:hours:minutes:seconds];
+    
+    NSString* jiraTimeString = [Helpers getJIRATimeString:_currentWorkTimerTask.timeWorkedTime];
+    _currentWorkTimerTask.timeWorked = jiraTimeString;
+}
+
 - (IBAction)commitTouchUpInside:(id)sender
 {
     if(![self validateAllFields])
         return;
+    
+    [self updateWorkTimerTask];
     
     [self.delegate commitClicked:_currentWorkTimerTask];
 }

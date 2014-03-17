@@ -4,7 +4,7 @@
 
 @synthesize timeString=_timeString;
 @synthesize currentTime=_currentTime;
-@synthesize started=_started;
+@synthesize isStarted=_isStarted;
 @synthesize isClockRunning=_isClockRunning;
 @synthesize timeStarted=_timeStarted;
 @synthesize activityIndicator=_activityIndicator;
@@ -27,23 +27,19 @@
 - (void) reset
 {
     _timeString.text=@"";
-    _started=NO;
+    _isStarted=NO;
 }
 
 - (void)initializeTimer
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateFormat = @"HH:mm:ss";
-    NSDate *dateTimer  = [dateFormatter dateFromString:@"00:00:00"];
-    
-    _currentTime = dateTimer;
+    _currentTime = [Helpers getTimeFromString:@"00:00:00"];
     _timeStarted = [NSDate date];
-    _started=YES;
+    _isStarted=YES;
 }
 
 - (void) tick:(id)sender
 {
-    if(_started)
+    if(_isStarted)
         _currentTime = [_currentTime dateByAddingTimeInterval:1];
     else
         [self initializeTimer];
@@ -58,35 +54,37 @@
 
 #pragma NSCoder
 
-//-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
-//{
-//    //[coder encodeObject:self.workTimerTasks forKey:@"WorkTimerTasks"];
-//    [coder encodeObject:_timeStarted forKey:@"TimeStarted"];
-//    [coder encodeBool:_isClockRunning forKey:@"IsClockRunning"];
-//    [coder encodeObject:_currentTime forKey:@"CurrentTime"];
-//    [coder encodeBool:_started forKey:@"Started"];
-//    
-//    BOOL isActivityIndicaterAnimating = [_activityIndicator isAnimating];
-//    [coder encodeBool:isActivityIndicaterAnimating forKey:@"ActivityAnimating"];
-//
-//    [super encodeRestorableStateWithCoder:coder];
-//}
-//
-//-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
-//{
-//    [super decodeRestorableStateWithCoder:coder];
-//
-//    _timeStarted = [coder decodeObjectForKey:@"TimeStarted"];
-//    _isClockRunning = [coder decodeBoolForKey:@"IsClockRunning"];
-//    _currentTime = [coder decodeObjectForKey:@"CurrentTime"];
-//    _started = [coder decodeBoolForKey:@"Started"];
-//    
-//    BOOL animating = [coder decodeBoolForKey:@"ActivityAnimating"];
-//    
-//    if(animating)
-//        [_activityIndicator startAnimating];
-//    else
-//        [_activityIndicator stopAnimating];
-//}
+-(void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    //[coder encodeObject:self.workTimerTasks forKey:@"WorkTimerTasks"];
+    [coder encodeObject:_timeStarted forKey:@"TimeStarted"];
+    [coder encodeBool:_isClockRunning forKey:@"IsClockRunning"];
+    [coder encodeObject:_currentTime forKey:@"CurrentTime"];
+    [coder encodeBool:_isStarted forKey:@"IsStarted"];
+    
+    [super encodeRestorableStateWithCoder:coder];
+}
+
+-(void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+
+    _timeStarted = [coder decodeObjectForKey:@"TimeStarted"];
+    _isClockRunning = [coder decodeBoolForKey:@"IsClockRunning"];
+    _isStarted = [coder decodeBoolForKey:@"IsStarted"];
+    
+    if(_isClockRunning)
+    {
+        NSString* timeNowString = [Helpers getDifferenceString:_timeStarted :[NSDate date]];
+        _currentTime = [Helpers getTimeFromString:timeNowString];
+        [self tick:nil];
+    }
+    else
+    {
+        _currentTime = [coder decodeObjectForKey:@"CurrentTime"];
+    }
+        
+    _timeString.text = [Helpers getTimerString:_currentTime];    
+}
 
 @end
