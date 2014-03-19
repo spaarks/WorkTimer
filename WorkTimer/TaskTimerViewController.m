@@ -38,7 +38,7 @@
 //We've started the timer so pause to go for lunch
 - (void)pauseClock
 {
-    [self.stopButton setEnabled:NO];
+    //[self.stopButton setEnabled:NO];
     [self.clockView stop];
     [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
 }
@@ -46,7 +46,7 @@
 //We're back from lunch so start the timer again
 - (void)resumeClock
 {
-    [self.stopButton setEnabled:YES];
+    //[self.stopButton setEnabled:YES];
     [self.clockView start];
     [self.startButton setTitle:@"Pause" forState:UIControlStateNormal];
 }

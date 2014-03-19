@@ -9,6 +9,21 @@
 @synthesize timeStarted=_timeStarted;
 @synthesize activityIndicator=_activityIndicator;
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        //We need this so that the clock will be correct if the app is minimised and maximised again.
+        //decodeRestorableStateWithCoder is not called in this instance only if the app is shutdown.
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(calcCurrentTime)
+                                                     name:@"appEnteredForeground"
+                                                   object:nil];
+    }
+    return self;
+}
+
 - (void) start
 {
     [_activityIndicator startAnimating];
@@ -65,6 +80,12 @@
     [super encodeRestorableStateWithCoder:coder];
 }
 
+- (void)calcCurrentTime
+{
+    NSString* timeNowString = [Helpers getDifferenceString:_timeStarted :[NSDate date]];
+    _currentTime = [Helpers getTimeFromString:timeNowString];
+}
+
 -(void)decodeRestorableStateWithCoder:(NSCoder *)coder
 {
     [super decodeRestorableStateWithCoder:coder];
@@ -75,8 +96,7 @@
     
     if(_isClockRunning)
     {
-        NSString* timeNowString = [Helpers getDifferenceString:_timeStarted :[NSDate date]];
-        _currentTime = [Helpers getTimeFromString:timeNowString];
+        [self calcCurrentTime];
         [self tick:nil];
     }
     else
