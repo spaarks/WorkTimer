@@ -12,7 +12,11 @@
 @protocol ProtocolProjectRepository <NSObject>
 
 //Fetch Tasks from the last number of days excluding today.
-- (NSMutableArray *)getMyTasks:(NSInteger)numberOfDays;
 - (NSString *)getURL:(NSInteger)parserType;
+
+- (void)createTimesheetLog:(NSDate*) timeStarted
+                          :(NSString*) logTime
+                          :(NSString*) comment
+                          :(NSString*) taskKey;
 @end
 

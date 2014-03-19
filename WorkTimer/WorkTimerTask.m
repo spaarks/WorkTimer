@@ -48,6 +48,9 @@
     [coder encodeObject: [self taskID] forKey: @"taskID"];
     [coder encodeObject: [self taskKey] forKey: @"taskKey"];
     [coder encodeObject: [self taskSummary] forKey: @"taskSummary"];
+    [coder encodeObject: [self timeWorked] forKey: @"timeWorked"];
+    [coder encodeObject: [self timeWorkedTime] forKey: @"timeWorkedTime"];
+    
 }
 
 - (id)initWithCoder: (NSCoder *)coder
@@ -57,6 +60,8 @@
         _taskID = [coder decodeObjectForKey: @"taskID"];
         _taskKey = [coder decodeObjectForKey: @"taskKey"];
         _taskSummary = [coder decodeObjectForKey: @"taskSummary"];
+        _timeWorked = [coder decodeObjectForKey: @"timeWorked"];
+        _timeWorkedTime = [coder decodeObjectForKey: @"timeWorkedTime"];
     }
     return self;
 }

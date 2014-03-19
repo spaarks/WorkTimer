@@ -28,6 +28,15 @@
 {
     [super viewDidAppear:animated];
 
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [refreshButton addTarget:self
+                      action:@selector(refreshGrid)
+            forControlEvents:UIControlEventTouchUpInside];
+    
+    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+    
+    self.navigationItem.titleView = refreshButton;
+    
     [self populateGridOrShowSettings];
 }
 
@@ -41,24 +50,14 @@
 - (void)populateGridOrShowSettings
 {
     if(![Repository doSettingsExist])
-    {
         [self performSegueWithIdentifier:@"chooseSettingsSegue" sender:self];
-    }
-    else
-    {
-        //self.parentViewController.view.hidden = YES;
-
-        UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [refreshButton addTarget:self
-                          action:@selector(refreshGrid)
-                forControlEvents:UIControlEventTouchUpInside];
-
-        [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
-
-        self.navigationItem.titleView = refreshButton;
-
+    else if([self isTasksListEmpty])
         [self parseWithParserType:XMLParserTypeJIRAParser];
-    }
+}
+
+- (BOOL)isTasksListEmpty
+{
+    return self.workTimerTasks == nil || self.workTimerTasks.count==0;
 }
 
 -(void)refreshWorkTimerTasks
@@ -97,6 +96,11 @@
     [self.parser start];
 }
 
+- (IBAction)refreshGrid
+{
+    [self parseWithParserType:XMLParserTypeJIRAParser];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,10 +129,6 @@
     
     return cell;
 }
-
-//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

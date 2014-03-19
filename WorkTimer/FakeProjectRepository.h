@@ -14,8 +14,6 @@
 
 @interface FakeProjectRepository : NSObject<ProtocolProjectRepository>
 
-- (NSMutableArray *)getMyTasks:(int)numberOfDays;
-
 - (NSString *)getURL:(NSInteger)parserType;
 
 - (void)createTimesheetLog:(NSDate*) timeStarted

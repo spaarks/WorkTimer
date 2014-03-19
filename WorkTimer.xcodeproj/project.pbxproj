@@ -14,7 +14,6 @@
 		EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0518903522002A1B01 /* stop-icon.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
-		EF5AF77618D5CE9F000903E7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF796FDB18D5C02100CF785E /* XCTest.framework */; };
 		EF871E7A188D8B9500D54493 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* Repository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
@@ -48,6 +47,7 @@
 		EFD733A018D4BA0600A243A5 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD7339F18D4BA0600A243A5 /* Clock.png */; };
 		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
 		EFF6505D18BE93680004D881 /* countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFF6505C18BE93680004D881 /* countries.plist */; };
+		EFF702B918D7A02400FE9D1E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF702B818D7A02400FE9D1E /* XCTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,6 @@
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
-		EF796FDB18D5C02100CF785E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EF871E78188D8B9500D54493 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		EF871E79188D8B9500D54493 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -127,6 +126,7 @@
 		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
 		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
 		EFF6505C18BE93680004D881 /* countries.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = countries.plist; sourceTree = "<group>"; };
+		EFF702B818D7A02400FE9D1E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,7 +134,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF5AF77618D5CE9F000903E7 /* XCTest.framework in Frameworks */,
 				EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */,
 				EF9E21EF1884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E21F11884760700A68FD5 /* Foundation.framework in Frameworks */,
@@ -146,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFF702B918D7A02400FE9D1E /* XCTest.framework in Frameworks */,
 				EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */,
 			);
@@ -171,6 +171,19 @@
 			name = "Integration Tests";
 			sourceTree = "<group>";
 		};
+		EF7B026218D85190000D9FEB /* IPad Archive */ = {
+			isa = PBXGroup;
+			children = (
+				EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */,
+				EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */,
+				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
+				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
+				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
+				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
+			);
+			name = "IPad Archive";
+			sourceTree = "<group>";
+		};
 		EF9E21E21884760700A68FD5 = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +206,7 @@
 		EF9E21ED1884760700A68FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EF796FDB18D5C02100CF785E /* XCTest.framework */,
+				EFF702B818D7A02400FE9D1E /* XCTest.framework */,
 				EF871E7E188D906000D54493 /* libsqlite3.dylib */,
 				EF9E21EE1884760700A68FD5 /* UIKit.framework */,
 				EF9E21F01884760700A68FD5 /* Foundation.framework */,
@@ -205,19 +218,14 @@
 		EF9E21F41884760700A68FD5 /* WorkTimer */ = {
 			isa = PBXGroup;
 			children = (
+				EF7B026218D85190000D9FEB /* IPad Archive */,
 				EFC470D418872F6700FE9C75 /* Generic */,
 				EF9E22401884770B00A68FD5 /* Models */,
 				EF9E222D1884766000A68FD5 /* Domain */,
 				EF9E222C1884765400A68FD5 /* Parsers */,
 				EFAE794B18D4C51000C5B553 /* Protocols */,
-				EFA9AFFA1884A0B00091EDB1 /* ButtonGridCell.h */,
-				EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */,
-				EF924E28188AD5430091426C /* ButtonGridViewController.h */,
-				EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */,
 				EFC470D118871B0E00FE9C75 /* ClockView.h */,
 				EFC470D218871B0F00FE9C75 /* ClockView.m */,
-				EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */,
-				EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */,
 				EFBFF84C18D211F70014725E /* IPhoneEditWorkLogViewController.h */,
 				EFBFF84D18D211F70014725E /* IPhoneEditWorkLogViewController.m */,
 				EF924E30188D343B0091426C /* JiraSettingsTableViewController.h */,
@@ -619,11 +627,7 @@
 		EF9E22271884760700A68FD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
@@ -637,11 +641,7 @@
 		EF9E22281884760700A68FD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
@@ -657,9 +657,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorkTimer.app/WorkTimer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
@@ -674,9 +675,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/WorkTimer.app/WorkTimer";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";

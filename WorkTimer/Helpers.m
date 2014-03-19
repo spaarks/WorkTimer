@@ -14,7 +14,6 @@ int const kSecondsInMinute = 60;
 int const kMinutesInHour = 60;
 int const kSecondsInHour = 3600;
 
-//TOTEST!!!
 +(NSDate *) getTimeFromString:(NSString*)timeString
 {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];

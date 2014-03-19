@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "WorkTimerTask.h"
-#import "ButtonGridCell.h"
 #import "ProtocolIPhoneEditWorkLogButtonClicked.h"
+#import "Helpers.h"
+#import "FakeProjectRepository.h"
 
 @interface IPhoneEditWorkLogViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
@@ -25,9 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *descriptionInvalidImage;
 @property (weak, nonatomic) IBOutlet UIView *timePickerView;
 
-
 @property (strong, nonatomic) WorkTimerTask *currentWorkTimerTask;
-@property (strong,nonatomic) ButtonGridCell *currentCell;
 
 @property (assign) id<ProtocolIPhoneEditWorkLogButtonClicked> delegate;
 

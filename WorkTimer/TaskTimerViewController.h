@@ -20,7 +20,12 @@
 
 @property (strong, nonatomic) WorkTimerTask *currentWorkTimerTask;
 
+@property (weak, nonatomic) IBOutlet UITextView *taskSummaryTextView;
+@property (weak, nonatomic) IBOutlet UILabel *taskCodeLabel;
+
+
 - (IBAction)startTouchUpInside:(id)sender;
 - (IBAction)stopTouchUpInside:(id)sender;
+
 
 @end

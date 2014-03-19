@@ -10,11 +10,6 @@
 
 @implementation FakeProjectRepository
 
-- (NSMutableArray *)getMyTasks:(int)numberOfDays;
-{
-    NSMutableArray * dummy = [[NSMutableArray alloc] init];
-    return dummy;
-}
 - (NSString *)getURL:(NSInteger)parserType
 {
     Settings* currentSettings = [Repository getSettings];

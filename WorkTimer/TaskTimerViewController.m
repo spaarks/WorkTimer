@@ -12,6 +12,14 @@
 
 @synthesize currentWorkTimerTask = _currentWorkTimerTask;
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
+    self.taskCodeLabel.text = _currentWorkTimerTask.taskKey;
+    self.taskSummaryTextView.text = _currentWorkTimerTask.taskSummary;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -118,7 +126,9 @@
 {
     BOOL running = self.clockView.isClockRunning;
     [coder encodeBool:running forKey:@"IsClockRunning"];
-    [coder encodeObject:_currentWorkTimerTask forKey:@"CurrentTask"];
+    
+    WorkTimerTask* runningTask = [self getRunningWorkTimerTask];
+    [coder encodeObject:runningTask forKey:@"CurrentTask"];
     
     [super encodeRestorableStateWithCoder:coder];
 }
@@ -128,6 +138,9 @@
     [super decodeRestorableStateWithCoder:coder];
 
     _currentWorkTimerTask=[coder decodeObjectForKey:@"CurrentTask"];
+    
+    self.taskCodeLabel.text = _currentWorkTimerTask.taskKey;
+    self.taskSummaryTextView.text = _currentWorkTimerTask.taskSummary;
     
     BOOL running = [coder decodeBoolForKey:@"IsClockRunning"];
     

@@ -9,8 +9,8 @@
 #import "IPhoneEditWorkLogViewController.h"
 
 @implementation IPhoneEditWorkLogViewController
+
 @synthesize currentWorkTimerTask = _currentWorkTimerTask;
-@synthesize currentCell = _currentCell;
 UIPickerView* timePicker;
 
 - (id)initWithCoder:(NSCoder*)aDecoder
