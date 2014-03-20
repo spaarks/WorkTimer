@@ -103,4 +103,9 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 70;
+}
+
 @end
