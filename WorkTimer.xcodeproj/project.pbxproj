@@ -14,6 +14,40 @@
 		EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4FFD0518903522002A1B01 /* stop-icon.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
+		EF7B028B18DB055A000D9FEB /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026618DB055A000D9FEB /* FUIAlertView.m */; };
+		EF7B028C18DB055A000D9FEB /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026818DB055A000D9FEB /* FUIButton.m */; };
+		EF7B028D18DB055A000D9FEB /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026A18DB055A000D9FEB /* FUICellBackgroundView.m */; };
+		EF7B028E18DB055A000D9FEB /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026C18DB055A000D9FEB /* FUIPopoverBackgroundView.m */; };
+		EF7B028F18DB055A000D9FEB /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026E18DB055A000D9FEB /* FUISegmentedControl.m */; };
+		EF7B029018DB055A000D9FEB /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027018DB055A000D9FEB /* FUISwitch.m */; };
+		EF7B029118DB055A000D9FEB /* FUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027218DB055A000D9FEB /* FUITextField.m */; };
+		EF7B029218DB055A000D9FEB /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027418DB055A000D9FEB /* UIBarButtonItem+FlatUI.m */; };
+		EF7B029318DB055A000D9FEB /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027618DB055A000D9FEB /* UIColor+FlatUI.m */; };
+		EF7B029418DB055A000D9FEB /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027818DB055A000D9FEB /* UIFont+FlatUI.m */; };
+		EF7B029518DB055A000D9FEB /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027A18DB055A000D9FEB /* UIImage+FlatUI.m */; };
+		EF7B029618DB055A000D9FEB /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027C18DB055A000D9FEB /* UINavigationBar+FlatUI.m */; };
+		EF7B029718DB055A000D9FEB /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B027E18DB055A000D9FEB /* UIPopoverController+FlatUI.m */; };
+		EF7B029818DB055A000D9FEB /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028018DB055A000D9FEB /* UIProgressView+FlatUI.m */; };
+		EF7B029918DB055A000D9FEB /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028218DB055A000D9FEB /* UISlider+FlatUI.m */; };
+		EF7B029A18DB055A000D9FEB /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028418DB055A000D9FEB /* UIStepper+FlatUI.m */; };
+		EF7B029B18DB055A000D9FEB /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028618DB055A000D9FEB /* UITabBar+FlatUI.m */; };
+		EF7B029C18DB055A000D9FEB /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028818DB055A000D9FEB /* UITableViewCell+FlatUI.m */; };
+		EF7B029D18DB055A000D9FEB /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B028A18DB055A000D9FEB /* UIToolbar+FlatUI.m */; };
+		EF7B029F18DB079A000D9FEB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7B029E18DB079A000D9FEB /* CoreText.framework */; };
+		EF7B02A018DB07E6000D9FEB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21F21884760700A68FD5 /* CoreGraphics.framework */; };
+		EF7B02A118DB0A11000D9FEB /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF7B029E18DB079A000D9FEB /* CoreText.framework */; };
+		EF7B02A418DB0DB0000D9FEB /* styling.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B02A318DB0DB0000D9FEB /* styling.m */; };
+		EF7B02A618DB0E5A000D9FEB /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF7B02A518DB0E5A000D9FEB /* Styles.plist */; };
+		EF7B036A18DB349C000D9FEB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036018DB349C000D9FEB /* Lato-Black.ttf */; };
+		EF7B036B18DB349C000D9FEB /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036118DB349C000D9FEB /* Lato-BlackItalic.ttf */; };
+		EF7B036C18DB349C000D9FEB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036218DB349C000D9FEB /* Lato-Bold.ttf */; };
+		EF7B036D18DB349C000D9FEB /* Lato-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036318DB349C000D9FEB /* Lato-BoldItalic.ttf */; };
+		EF7B036E18DB349C000D9FEB /* Lato-Hairline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036418DB349C000D9FEB /* Lato-Hairline.ttf */; };
+		EF7B036F18DB349C000D9FEB /* Lato-HairlineItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036518DB349C000D9FEB /* Lato-HairlineItalic.ttf */; };
+		EF7B037018DB349C000D9FEB /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036618DB349C000D9FEB /* Lato-Italic.ttf */; };
+		EF7B037118DB349C000D9FEB /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036718DB349C000D9FEB /* Lato-Light.ttf */; };
+		EF7B037218DB349C000D9FEB /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036818DB349C000D9FEB /* Lato-LightItalic.ttf */; };
+		EF7B037318DB349C000D9FEB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */; };
 		EF871E7A188D8B9500D54493 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* Repository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
@@ -73,6 +107,59 @@
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
+		EF7B026418DB055A000D9FEB /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
+		EF7B026518DB055A000D9FEB /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		EF7B026618DB055A000D9FEB /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		EF7B026718DB055A000D9FEB /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		EF7B026818DB055A000D9FEB /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		EF7B026918DB055A000D9FEB /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
+		EF7B026A18DB055A000D9FEB /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
+		EF7B026B18DB055A000D9FEB /* FUIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		EF7B026C18DB055A000D9FEB /* FUIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverBackgroundView.m; sourceTree = "<group>"; };
+		EF7B026D18DB055A000D9FEB /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
+		EF7B026E18DB055A000D9FEB /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
+		EF7B026F18DB055A000D9FEB /* FUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISwitch.h; sourceTree = "<group>"; };
+		EF7B027018DB055A000D9FEB /* FUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISwitch.m; sourceTree = "<group>"; };
+		EF7B027118DB055A000D9FEB /* FUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUITextField.h; sourceTree = "<group>"; };
+		EF7B027218DB055A000D9FEB /* FUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUITextField.m; sourceTree = "<group>"; };
+		EF7B027318DB055A000D9FEB /* UIBarButtonItem+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027418DB055A000D9FEB /* UIBarButtonItem+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027518DB055A000D9FEB /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027618DB055A000D9FEB /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027718DB055A000D9FEB /* UIFont+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027818DB055A000D9FEB /* UIFont+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027918DB055A000D9FEB /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027A18DB055A000D9FEB /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027B18DB055A000D9FEB /* UINavigationBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027C18DB055A000D9FEB /* UINavigationBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027D18DB055A000D9FEB /* UIPopoverController+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B027E18DB055A000D9FEB /* UIPopoverController+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B027F18DB055A000D9FEB /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028018DB055A000D9FEB /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B028118DB055A000D9FEB /* UISlider+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028218DB055A000D9FEB /* UISlider+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B028318DB055A000D9FEB /* UIStepper+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028418DB055A000D9FEB /* UIStepper+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B028518DB055A000D9FEB /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028618DB055A000D9FEB /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B028718DB055A000D9FEB /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028818DB055A000D9FEB /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B028918DB055A000D9FEB /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
+		EF7B028A18DB055A000D9FEB /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
+		EF7B029E18DB079A000D9FEB /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		EF7B02A218DB0DB0000D9FEB /* styling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = styling.h; sourceTree = "<group>"; };
+		EF7B02A318DB0DB0000D9FEB /* styling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = styling.m; sourceTree = "<group>"; };
+		EF7B02A518DB0E5A000D9FEB /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
+		EF7B036018DB349C000D9FEB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		EF7B036118DB349C000D9FEB /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		EF7B036218DB349C000D9FEB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		EF7B036318DB349C000D9FEB /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		EF7B036418DB349C000D9FEB /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		EF7B036518DB349C000D9FEB /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		EF7B036618DB349C000D9FEB /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		EF7B036718DB349C000D9FEB /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		EF7B036818DB349C000D9FEB /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		EF871E78188D8B9500D54493 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		EF871E79188D8B9500D54493 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -134,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7B02A118DB0A11000D9FEB /* CoreText.framework in Frameworks */,
 				EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */,
 				EF9E21EF1884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E21F11884760700A68FD5 /* Foundation.framework in Frameworks */,
@@ -145,9 +233,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7B029F18DB079A000D9FEB /* CoreText.framework in Frameworks */,
 				EFF702B918D7A02400FE9D1E /* XCTest.framework in Frameworks */,
 				EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */,
 				EF9E22181884760700A68FD5 /* Foundation.framework in Frameworks */,
+				EF7B02A018DB07E6000D9FEB /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,13 +274,80 @@
 			name = "IPad Archive";
 			sourceTree = "<group>";
 		};
+		EF7B026318DB055A000D9FEB /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				EF7B026418DB055A000D9FEB /* FlatUIKit.h */,
+				EF7B026518DB055A000D9FEB /* FUIAlertView.h */,
+				EF7B026618DB055A000D9FEB /* FUIAlertView.m */,
+				EF7B026718DB055A000D9FEB /* FUIButton.h */,
+				EF7B026818DB055A000D9FEB /* FUIButton.m */,
+				EF7B026918DB055A000D9FEB /* FUICellBackgroundView.h */,
+				EF7B026A18DB055A000D9FEB /* FUICellBackgroundView.m */,
+				EF7B026B18DB055A000D9FEB /* FUIPopoverBackgroundView.h */,
+				EF7B026C18DB055A000D9FEB /* FUIPopoverBackgroundView.m */,
+				EF7B026D18DB055A000D9FEB /* FUISegmentedControl.h */,
+				EF7B026E18DB055A000D9FEB /* FUISegmentedControl.m */,
+				EF7B026F18DB055A000D9FEB /* FUISwitch.h */,
+				EF7B027018DB055A000D9FEB /* FUISwitch.m */,
+				EF7B027118DB055A000D9FEB /* FUITextField.h */,
+				EF7B027218DB055A000D9FEB /* FUITextField.m */,
+				EF7B027318DB055A000D9FEB /* UIBarButtonItem+FlatUI.h */,
+				EF7B027418DB055A000D9FEB /* UIBarButtonItem+FlatUI.m */,
+				EF7B027518DB055A000D9FEB /* UIColor+FlatUI.h */,
+				EF7B027618DB055A000D9FEB /* UIColor+FlatUI.m */,
+				EF7B027718DB055A000D9FEB /* UIFont+FlatUI.h */,
+				EF7B027818DB055A000D9FEB /* UIFont+FlatUI.m */,
+				EF7B027918DB055A000D9FEB /* UIImage+FlatUI.h */,
+				EF7B027A18DB055A000D9FEB /* UIImage+FlatUI.m */,
+				EF7B027B18DB055A000D9FEB /* UINavigationBar+FlatUI.h */,
+				EF7B027C18DB055A000D9FEB /* UINavigationBar+FlatUI.m */,
+				EF7B027D18DB055A000D9FEB /* UIPopoverController+FlatUI.h */,
+				EF7B027E18DB055A000D9FEB /* UIPopoverController+FlatUI.m */,
+				EF7B027F18DB055A000D9FEB /* UIProgressView+FlatUI.h */,
+				EF7B028018DB055A000D9FEB /* UIProgressView+FlatUI.m */,
+				EF7B028118DB055A000D9FEB /* UISlider+FlatUI.h */,
+				EF7B028218DB055A000D9FEB /* UISlider+FlatUI.m */,
+				EF7B028318DB055A000D9FEB /* UIStepper+FlatUI.h */,
+				EF7B028418DB055A000D9FEB /* UIStepper+FlatUI.m */,
+				EF7B028518DB055A000D9FEB /* UITabBar+FlatUI.h */,
+				EF7B028618DB055A000D9FEB /* UITabBar+FlatUI.m */,
+				EF7B028718DB055A000D9FEB /* UITableViewCell+FlatUI.h */,
+				EF7B028818DB055A000D9FEB /* UITableViewCell+FlatUI.m */,
+				EF7B028918DB055A000D9FEB /* UIToolbar+FlatUI.h */,
+				EF7B028A18DB055A000D9FEB /* UIToolbar+FlatUI.m */,
+			);
+			name = FlatUIKit;
+			path = WorkTimer/FlatUIKit;
+			sourceTree = "<group>";
+		};
+		EF7B035F18DB349C000D9FEB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EF7B036018DB349C000D9FEB /* Lato-Black.ttf */,
+				EF7B036118DB349C000D9FEB /* Lato-BlackItalic.ttf */,
+				EF7B036218DB349C000D9FEB /* Lato-Bold.ttf */,
+				EF7B036318DB349C000D9FEB /* Lato-BoldItalic.ttf */,
+				EF7B036418DB349C000D9FEB /* Lato-Hairline.ttf */,
+				EF7B036518DB349C000D9FEB /* Lato-HairlineItalic.ttf */,
+				EF7B036618DB349C000D9FEB /* Lato-Italic.ttf */,
+				EF7B036718DB349C000D9FEB /* Lato-Light.ttf */,
+				EF7B036818DB349C000D9FEB /* Lato-LightItalic.ttf */,
+				EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */,
+			);
+			name = Resources;
+			path = WorkTimer/Resources;
+			sourceTree = "<group>";
+		};
 		EF9E21E21884760700A68FD5 = {
 			isa = PBXGroup;
 			children = (
+				EF7B026318DB055A000D9FEB /* FlatUIKit */,
 				EF9E21F41884760700A68FD5 /* WorkTimer */,
 				EF9E221B1884760700A68FD5 /* WorkTimerTests */,
 				EF9E21ED1884760700A68FD5 /* Frameworks */,
 				EF9E21EC1884760700A68FD5 /* Products */,
+				EF7B035F18DB349C000D9FEB /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +363,7 @@
 		EF9E21ED1884760700A68FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EF7B029E18DB079A000D9FEB /* CoreText.framework */,
 				EFF702B818D7A02400FE9D1E /* XCTest.framework */,
 				EF871E7E188D906000D54493 /* libsqlite3.dylib */,
 				EF9E21EE1884760700A68FD5 /* UIKit.framework */,
@@ -260,6 +418,7 @@
 				EF9E22001884760700A68FD5 /* Default.png */,
 				EF9E22021884760700A68FD5 /* Default@2x.png */,
 				EF9E22041884760700A68FD5 /* Default-568h@2x.png */,
+				EF7B02A518DB0E5A000D9FEB /* Styles.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -366,6 +525,8 @@
 			children = (
 				EFC470D518872F8600FE9C75 /* Helpers.h */,
 				EFC470D618872F8600FE9C75 /* Helpers.m */,
+				EF7B02A218DB0DB0000D9FEB /* styling.h */,
+				EF7B02A318DB0DB0000D9FEB /* styling.m */,
 			);
 			name = Generic;
 			sourceTree = "<group>";
@@ -443,18 +604,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF7B036B18DB349C000D9FEB /* Lato-BlackItalic.ttf in Resources */,
+				EF7B037018DB349C000D9FEB /* Lato-Italic.ttf in Resources */,
+				EF7B036E18DB349C000D9FEB /* Lato-Hairline.ttf in Resources */,
+				EF7B037118DB349C000D9FEB /* Lato-Light.ttf in Resources */,
+				EF7B036F18DB349C000D9FEB /* Lato-HairlineItalic.ttf in Resources */,
 				EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */,
 				EF924E2F188D328C0091426C /* harvest-logo-capsule-600px.png in Resources */,
+				EF7B036D18DB349C000D9FEB /* Lato-BoldItalic.ttf in Resources */,
 				EF4FFD0418903509002A1B01 /* play-icon.png in Resources */,
 				EFD733A018D4BA0600A243A5 /* Clock.png in Resources */,
 				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
 				EF9E22011884760700A68FD5 /* Default.png in Resources */,
 				EFF6505D18BE93680004D881 /* countries.plist in Resources */,
 				EF9E22031884760700A68FD5 /* Default@2x.png in Resources */,
+				EF7B02A618DB0E5A000D9FEB /* Styles.plist in Resources */,
 				EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */,
+				EF7B036C18DB349C000D9FEB /* Lato-Bold.ttf in Resources */,
 				EF4FFD0618903522002A1B01 /* stop-icon.png in Resources */,
 				EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */,
+				EF7B037318DB349C000D9FEB /* Lato-Regular.ttf in Resources */,
+				EF7B037218DB349C000D9FEB /* Lato-LightItalic.ttf in Resources */,
 				EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */,
+				EF7B036A18DB349C000D9FEB /* Lato-Black.ttf in Resources */,
 				EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,20 +664,40 @@
 			files = (
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
 				EF871E7A188D8B9500D54493 /* Repository.m in Sources */,
+				EF7B029618DB055A000D9FEB /* UINavigationBar+FlatUI.m in Sources */,
 				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
+				EF7B029718DB055A000D9FEB /* UIPopoverController+FlatUI.m in Sources */,
 				EFBFF84E18D211F80014725E /* IPhoneEditWorkLogViewController.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
+				EF7B029C18DB055A000D9FEB /* UITableViewCell+FlatUI.m in Sources */,
+				EF7B028F18DB055A000D9FEB /* FUISegmentedControl.m in Sources */,
+				EF7B029118DB055A000D9FEB /* FUITextField.m in Sources */,
+				EF7B029018DB055A000D9FEB /* FUISwitch.m in Sources */,
+				EF7B02A418DB0DB0000D9FEB /* styling.m in Sources */,
+				EF7B029518DB055A000D9FEB /* UIImage+FlatUI.m in Sources */,
 				EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */,
 				EF871E7D188D8D2200D54493 /* Settings.m in Sources */,
+				EF7B029D18DB055A000D9FEB /* UIToolbar+FlatUI.m in Sources */,
 				EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */,
 				EF186FD418C4EF0A00224917 /* TaskTimerViewController.m in Sources */,
 				EF186FD118C4DDCF00224917 /* TimerTasksTableViewController.m in Sources */,
 				EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */,
+				EF7B029418DB055A000D9FEB /* UIFont+FlatUI.m in Sources */,
+				EF7B029218DB055A000D9FEB /* UIBarButtonItem+FlatUI.m in Sources */,
 				EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */,
+				EF7B029318DB055A000D9FEB /* UIColor+FlatUI.m in Sources */,
+				EF7B028E18DB055A000D9FEB /* FUIPopoverBackgroundView.m in Sources */,
 				EFA9AFF61884829A0091EDB1 /* FakeProjectRepository.m in Sources */,
 				EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */,
+				EF7B029818DB055A000D9FEB /* UIProgressView+FlatUI.m in Sources */,
+				EF7B029A18DB055A000D9FEB /* UIStepper+FlatUI.m in Sources */,
+				EF7B029B18DB055A000D9FEB /* UITabBar+FlatUI.m in Sources */,
+				EF7B028B18DB055A000D9FEB /* FUIAlertView.m in Sources */,
 				EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */,
 				EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */,
+				EF7B028D18DB055A000D9FEB /* FUICellBackgroundView.m in Sources */,
+				EF7B029918DB055A000D9FEB /* UISlider+FlatUI.m in Sources */,
+				EF7B028C18DB055A000D9FEB /* FUIButton.m in Sources */,
 				EFC470D718872F8600FE9C75 /* Helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

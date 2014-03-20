@@ -20,12 +20,11 @@
     return YES;
 }
 
-//
-//- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-//{
-////    return YES;
-//    
-//}
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    return YES;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

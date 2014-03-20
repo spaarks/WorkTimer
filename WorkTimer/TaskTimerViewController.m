@@ -18,6 +18,20 @@
 
     self.taskCodeLabel.text = _currentWorkTimerTask.taskKey;
     self.taskSummaryTextView.text = _currentWorkTimerTask.taskSummary;
+    
+    [styling setPrimaryButtonStyling:self.startButton];
+    [styling setPrimaryButtonStyling:self.stopButton];
+    
+    UIFont* clockFont = [styling getFont:@"FontLight":60];
+    self.clockView.timeString.font = clockFont;
+    
+    [styling setHeaderLabelStyling:self.taskCodeHeaderLabel];
+    [styling setHeaderLabelStyling:self.taskSummaryHeaderLabel];
+    
+    [styling setContentLabelStyling:self.taskCodeLabel];
+    [styling setContentTextViewStyling:self.taskSummaryTextView];
+    
+    [styling setSecondaryBackground:self.clockViewBackground];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,23 +52,23 @@
 //We've started the timer so pause to go for lunch
 - (void)pauseClock
 {
-    //[self.stopButton setEnabled:NO];
     [self.clockView stop];
-    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.startButton setTitle:@"START" forState:UIControlStateNormal];
+    [styling setPrimaryButtonStyling:self.startButton];
 }
 
 //We're back from lunch so start the timer again
 - (void)resumeClock
 {
-    //[self.stopButton setEnabled:YES];
     [self.clockView start];
-    [self.startButton setTitle:@"Pause" forState:UIControlStateNormal];
+    [self.startButton setTitle:@"PAUSE" forState:UIControlStateNormal];
+    [styling setSecondaryButtonStyling:self.startButton];
 }
 
 - (IBAction)stopTouchUpInside:(id)sender
 {
     [self.clockView stop];
-    [self.startButton setTitle:@"Start" forState:UIControlStateNormal];
+    [self.startButton setTitle:@"START" forState:UIControlStateNormal];
     
     [self performSegueWithIdentifier:@"OpenStopSegue" sender:self];
 }
@@ -79,6 +93,9 @@
     WorkTimerTask *taskToEdit = [[WorkTimerTask alloc] init];
     
     NSDate *currentTime = self.clockView.currentTime;
+
+    currentTime = [Helpers roundDate:currentTime];
+    
     NSString *currentTimeString = [Helpers getJIRATimeString:currentTime];
     
     taskToEdit.timeWorked = currentTimeString;

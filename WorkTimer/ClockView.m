@@ -11,8 +11,10 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-
     self = [super initWithCoder:aDecoder];
+    
+    [self initializeTimer];
+    
     if (self) {
         //We need this so that the clock will be correct if the app is minimised and maximised again.
         //decodeRestorableStateWithCoder is not called in this instance only if the app is shutdown.
@@ -56,8 +58,7 @@
 {
     if(_isStarted)
         _currentTime = [_currentTime dateByAddingTimeInterval:1];
-    else
-        [self initializeTimer];
+
     
     _timeString.text = [Helpers getTimerString:_currentTime];
     

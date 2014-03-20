@@ -21,6 +21,18 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [styling setPrimaryButtonStyling:self.doneButton];
+    [styling setPrimaryButtonStyling:self.cancelButton];
+    
+    [styling setHeaderLabelStyling:self.userNameLabel];
+    [styling setHeaderLabelStyling:self.passwordLabel];
+    [styling setHeaderLabelStyling:self.serverLabel];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

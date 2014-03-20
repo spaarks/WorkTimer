@@ -107,6 +107,17 @@
     XCTAssertEqualObjects(expected, [Helpers getJIRATimeString:date], @"Date string should be 13h 30m");
 }
 
+- (void)testGetDateFromComponents
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss zzz";
+    NSDate *expected  = [dateFormatter dateFromString:@"2000-01-01 13:30:15 000"];
+    
+    NSDate* actual = [Helpers getDateFromComponents:13 :30 :15];
+    
+    XCTAssertEqualObjects(expected, actual, @"Date should be 13h 30m 15s");
+}
+
 //TODO - figure out how to test methods which use current date
 /*
 +(NSString*) getStartDateString;
@@ -119,5 +130,25 @@
     NSString *expected = @"bWFydGluLnN0ZWVsQHNwYWFya3MuY29tOlllbGxvdzEy";
     XCTAssertEqualObjects(expected, [Helpers encodeString:data],
                          @"Encoded string should be bWFydGluLnN0ZWVsQHNwYWFya3MuY29tOlllbGxvdzEy");
+}
+
+-(void)testRoundDateMinutesOnly
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss zzz";
+    NSDate *initial  = [dateFormatter dateFromString:@"2000-01-01 00:28:00 000"];
+    NSDate *expected  = [dateFormatter dateFromString:@"2000-01-01 00:30:00 000"];
+    
+    XCTAssertEqualObjects(expected, [Helpers roundDate:initial], @"Date should be 00h 30m 0s");
+}
+
+-(void)testRoundDateGreaterThanAnHour
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss zzz";
+    NSDate *initial  = [dateFormatter dateFromString:@"2000-01-01 01:28:00 000"];
+    NSDate *expected  = [dateFormatter dateFromString:@"2000-01-01 01:30:00 000"];
+    
+    XCTAssertEqualObjects(expected, [Helpers roundDate:initial], @"Date should be 01h 30m 0s");
 }
 @end

@@ -22,6 +22,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [styling setNavigationBarStyling:self.navigationController.navigationBar];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -125,6 +127,9 @@
         WorkTimerTask *task = [_workTimerTasks objectAtIndex:row];
         cell.textLabel.text = task.taskKey;
         cell.detailTextLabel.text = task.taskSummary;
+        
+        [styling setTableTextLabelStyling:cell.textLabel];
+        [styling setTableDetailTextLabelStyling:cell.detailTextLabel];
     }
     
     return cell;

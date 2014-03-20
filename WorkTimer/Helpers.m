@@ -76,7 +76,6 @@ int const kSecondsInHour = 3600;
     return [NSString stringWithFormat:@"%02dh %02dm", hour, minute];
 }
 
-//TOTEST!!!
 +(NSDate*) getDateFromComponents:(int)hours
                                 :(int)minutes
                                 :(int)seconds
@@ -158,5 +157,24 @@ static char *alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
     NSString *s = [NSString stringWithUTF8String:(const char *)output];
     free(output);
     return s;
+}
+
++(NSDate*)roundDate:(NSDate*)unrounded
+{
+    int hours = [Helpers getHours:unrounded];
+    int minutes = [Helpers getMinutes:unrounded];
+    
+    int remainder = minutes % 15;
+    int baseMinutes = minutes - remainder;
+    
+    if(baseMinutes==0)
+        minutes = 15;
+    else if(remainder>7)
+        minutes = baseMinutes + 15;
+    else minutes = baseMinutes;
+    
+    int seconds = 0;
+    
+    return [Helpers getDateFromComponents:hours:minutes:seconds];
 }
 @end

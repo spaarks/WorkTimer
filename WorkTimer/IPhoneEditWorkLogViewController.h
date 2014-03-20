@@ -11,6 +11,8 @@
 #import "ProtocolIPhoneEditWorkLogButtonClicked.h"
 #import "Helpers.h"
 #import "FakeProjectRepository.h"
+#import "styling.h"
+#import "FUIButton.h"
 
 @interface IPhoneEditWorkLogViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 
@@ -18,6 +20,13 @@
 
 - (IBAction)commitTouchUpInside:(id)sender;
 - (IBAction)deleteTouchUpInside:(id)sender;
+
+@property (weak, nonatomic) IBOutlet FUIButton *commitButton;
+@property (weak, nonatomic) IBOutlet FUIButton *deleteButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *taskCodeHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *taskSummaryHeaderLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionHeaderLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *taskCodeLabel;
 @property (weak, nonatomic) IBOutlet UITextView *taskSummaryLabel;

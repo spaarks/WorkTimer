@@ -32,6 +32,16 @@ UIPickerView* timePicker;
     self.taskCodeLabel.text = _currentWorkTimerTask.taskKey;
     self.taskSummaryLabel.text = _currentWorkTimerTask.taskSummary;
     self.descriptionTextField.text = _currentWorkTimerTask.taskDescription;
+    
+    [styling setPrimaryButtonStyling:self.commitButton];
+    [styling setPrimaryButtonStyling:self.deleteButton];
+
+    [styling setHeaderLabelStyling:self.taskCodeHeaderLabel];
+    [styling setHeaderLabelStyling:self.taskSummaryHeaderLabel];
+    [styling setHeaderLabelStyling:self.descriptionHeaderLabel];
+     
+    [styling setContentLabelStyling:self.taskCodeLabel];
+    [styling setContentTextViewStyling:self.taskSummaryLabel];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,14 +67,18 @@ UIPickerView* timePicker;
     
     UILabel *hourLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:0]];
     hourLabel.text = @"hour";
+    [styling setSecondaryContentLabelStyling:hourLabel];
+    
     [timePicker addSubview:hourLabel];
     
     UILabel *minsLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:1]];
     minsLabel.text = @"min";
+    [styling setSecondaryContentLabelStyling:minsLabel];
     [timePicker addSubview:minsLabel];
     
     UILabel *secsLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:2]];
     secsLabel.text = @"sec";
+    [styling setSecondaryContentLabelStyling:secsLabel];
     [timePicker addSubview:secsLabel];
     
     [self.timePickerView addSubview:timePicker];
@@ -141,9 +155,11 @@ UIPickerView* timePicker;
 
 -(void)checkDescription
 {
+    
     _currentWorkTimerTask.taskDescription = self.descriptionTextField.text;
     
-    self.descriptionInvalidImage.hidden = [_currentWorkTimerTask isDescriptionValid];
+    if(![_currentWorkTimerTask isDescriptionValid])
+        _currentWorkTimerTask.taskDescription = _currentWorkTimerTask.taskKey;
 }
 
 -(BOOL)validateAllFields

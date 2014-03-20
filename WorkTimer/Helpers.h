@@ -23,4 +23,5 @@
 +(NSString*) getStartDateString;
 +(NSString*) getEndDateString;
 +(NSString *)encodeString:(NSString *)data;
++(NSDate*)roundDate:(NSDate*)unrounded;
 @end
