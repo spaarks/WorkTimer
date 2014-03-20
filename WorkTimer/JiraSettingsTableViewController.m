@@ -21,6 +21,13 @@
     return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [styling setNavigationBarStyling:self.navigationController.navigationBar];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -39,6 +46,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+//-(UIView*) tableView
+//            :(UITableView *)tableView viewForHeaderInSection
+//            :(NSInteger)section
+//{
+//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
+//	tableView.sectionHeaderHeight = headerView.frame.size.height;
+//	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, headerView.frame.size.width - 20, 22)];
+//	label.text = [self tableView:tableView titleForHeaderInSection:section];
+//	label.font = [UIFont boldSystemFontOfSize:16.0];
+//    
+//	label.textColor = [UIColor whiteColor];
+//    
+//	[headerView addSubview:label];
+//	return headerView;
+//}
 
 - (IBAction)userNameDidEndEditing:(id)sender
 {
