@@ -13,6 +13,7 @@
 #import "FakeProjectRepository.h"
 #import "styling.h"
 #import "FUIButton.h"
+#import "UIHelpers.h"
 
 @interface IPhoneEditWorkLogViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 

@@ -92,10 +92,30 @@ UIPickerView* timePicker;
     [timePicker reloadComponent:compenentIndex];
 }
 
+#pragma textfield methods
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self.descriptionTextField resignFirstResponder];
     return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [UIHelpers animateTextField : self.view
+                                : textField
+                                : YES
+                                : 80
+                                : 0.3f];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [UIHelpers animateTextField : self.view
+                                : textField
+                                : NO
+                                : 80
+                                : 0.3f];
 }
 
 - (CGRect)getFrameForPickerLabel:(int)index

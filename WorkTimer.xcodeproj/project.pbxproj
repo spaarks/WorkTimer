@@ -48,6 +48,7 @@
 		EF7B037118DB349C000D9FEB /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036718DB349C000D9FEB /* Lato-Light.ttf */; };
 		EF7B037218DB349C000D9FEB /* Lato-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036818DB349C000D9FEB /* Lato-LightItalic.ttf */; };
 		EF7B037318DB349C000D9FEB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */; };
+		EF7B037618DC4A2F000D9FEB /* UIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B037518DC4A2F000D9FEB /* UIHelpers.m */; };
 		EF871E7A188D8B9500D54493 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* Repository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
@@ -160,6 +161,8 @@
 		EF7B036718DB349C000D9FEB /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		EF7B036818DB349C000D9FEB /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
 		EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		EF7B037418DC4A2F000D9FEB /* UIHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIHelpers.h; sourceTree = "<group>"; };
+		EF7B037518DC4A2F000D9FEB /* UIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelpers.m; sourceTree = "<group>"; };
 		EF871E78188D8B9500D54493 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Repository.h; sourceTree = "<group>"; };
 		EF871E79188D8B9500D54493 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Repository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
@@ -527,6 +530,8 @@
 				EFC470D618872F8600FE9C75 /* Helpers.m */,
 				EF7B02A218DB0DB0000D9FEB /* styling.h */,
 				EF7B02A318DB0DB0000D9FEB /* styling.m */,
+				EF7B037418DC4A2F000D9FEB /* UIHelpers.h */,
+				EF7B037518DC4A2F000D9FEB /* UIHelpers.m */,
 			);
 			name = Generic;
 			sourceTree = "<group>";
@@ -667,6 +672,7 @@
 				EF7B029618DB055A000D9FEB /* UINavigationBar+FlatUI.m in Sources */,
 				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
 				EF7B029718DB055A000D9FEB /* UIPopoverController+FlatUI.m in Sources */,
+				EF7B037618DC4A2F000D9FEB /* UIHelpers.m in Sources */,
 				EFBFF84E18D211F80014725E /* IPhoneEditWorkLogViewController.m in Sources */,
 				EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */,
 				EF7B029C18DB055A000D9FEB /* UITableViewCell+FlatUI.m in Sources */,
