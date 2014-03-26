@@ -113,7 +113,7 @@
 
 -(void)commitClicked:(WorkTimerTask*)task
 {
-    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    JIRAProjectRepository *repo = [[JIRAProjectRepository alloc] init];
     
     NSDate * start = self.clockView.timeStarted;
     
@@ -122,19 +122,12 @@
                             :task.taskDescription
                             :task.taskKey];
     
-    [self goToParentController];
+    [UIHelpers goToParentController:self];
 }
 
 -(void)deleteClicked
 {
-    [self goToParentController];
-}
-
-- (void)goToParentController
-{
-    NSInteger currentIndex = [self.navigationController.viewControllers indexOfObject:self];
-    if( currentIndex-1 >= 0 )
-        [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:currentIndex-1] animated:YES];
+    [UIHelpers goToParentController:self];
 }
 
 #pragma NSCoder

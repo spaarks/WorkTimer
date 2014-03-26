@@ -10,7 +10,7 @@
 #import "WorkTimerTask.h"
 #import "ProtocolIPhoneEditWorkLogButtonClicked.h"
 #import "Helpers.h"
-#import "FakeProjectRepository.h"
+#import "JIRAProjectRepository.h"
 #import "styling.h"
 #import "FUIButton.h"
 #import "UIHelpers.h"

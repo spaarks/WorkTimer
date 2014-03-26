@@ -13,7 +13,7 @@
 #import "Settings.h"
 #import "WorkTimerTask.h"
 
-@interface Repository : NSObject<ProtocolSettingsRepository>
+@interface SettingsRepository : NSObject<ProtocolSettingsRepository>
 
 + (Settings*) getSettings;
 + (WorkTimerTask*) getWorkTimerTask;

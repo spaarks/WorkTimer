@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WorkTimerTask.h"
-#import "FakeProjectRepository.h"
+#import "JIRAProjectRepository.h"
 #import "ProtocolTaskParserDelegate.h"
 
 typedef enum {

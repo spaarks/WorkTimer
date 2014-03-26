@@ -28,7 +28,7 @@ static NSUInteger kCountForNotification = 10;
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
     self.parsedWorkTimerTasks = [NSMutableArray array];
  
-    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    JIRAProjectRepository *repo = [[JIRAProjectRepository alloc] init];
     
     NSString* urlString = [repo getURL:XMLParserTypeJIRAParser];
     

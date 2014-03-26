@@ -67,6 +67,25 @@
     XCTAssertFalse(result, @"Server should be invalid");
 }
 
+- (void)testValidateTempoTokenValid
+{
+    Settings* settings = [[Settings alloc]init];
+    settings.tempoToken = @"c39f740a-69dd-4ccc-a21e-820ae0f9d7f2";
+    
+    BOOL result = [settings isTempoTokenValid];
+    XCTAssertTrue(result, @"TempoToken should be valid");
+}
+
+- (void)testValidateTempoTokenInvalid
+{
+    Settings* settings = [[Settings alloc]init];
+    settings.tempoToken = @"";
+    
+    BOOL result = [settings isTempoTokenValid];
+    XCTAssertFalse(result, @"TempoToken should be invalid");
+}
+
+
 - (void)testValidateServerMissingHTTP
 {
     Settings* settings = [[Settings alloc]init];

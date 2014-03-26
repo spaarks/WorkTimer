@@ -15,4 +15,8 @@
                           : (BOOL) up
                           : (int) distance
                           : (float) duration;
+
++ (void)goToParentController:(UIViewController*) currentViewController;
++ (void)goToGrandParentController:(UIViewController*) currentViewController;
+
 @end

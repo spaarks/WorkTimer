@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Repository.h"
+#import "SettingsRepository.h"
 
 @interface spaarksAppDelegate : UIResponder <UIApplicationDelegate>
 

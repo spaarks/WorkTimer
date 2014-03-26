@@ -14,6 +14,7 @@ NSString* _userName;
 NSString* _password;
 @synthesize serverPath = _serverPath;
 @synthesize authenticationToken = _authenticationToken;
+@synthesize tempoToken = _tempoToken;
 
 -(NSString*)calculateAuthenticationToken
 {
@@ -47,11 +48,11 @@ NSString* _password;
         [self calculateAuthenticationToken];
 }
 
-//TODO refactor this method out so that tempo token is no longer used
-- (NSString *) getToken
-{
-    return @"c39f740a-69dd-4ccc-a21e-820ae0f9d7f2";
-}
+////TODO refactor this method out so that tempo token is no longer used
+//- (NSString *) getToken
+//{
+//    return @"^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$";
+//}
 
 -(BOOL)isUserNameValid
 {
@@ -72,11 +73,21 @@ NSString* _password;
     return result;
 }
 
+-(BOOL)isTempoTokenValid
+{
+    NSString *urlRegEx =
+    @"^[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}$";
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+    BOOL result= [urlTest evaluateWithObject:_tempoToken];
+    return result;
+}
+
 -(BOOL)areSettingsValid
 {
     return
         [self isUserNameValid] &&
         [self isPasswordValid] &&
-        [self isServerValid];
+        [self isServerValid] &&
+        [self isTempoTokenValid];
  }
 @end

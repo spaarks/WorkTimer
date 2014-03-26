@@ -45,17 +45,10 @@
             titleTextAttributes = [NSMutableDictionary dictionary];
         }
 
-        if ([[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] != NSOrderedAscending) {
-            // iOS6+ methods
-            NSShadow *shadow = [[NSShadow alloc] init];
-            [shadow setShadowOffset:CGSizeZero];
-            [shadow setShadowColor:[UIColor clearColor]];
-            [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
-        } else {
-            // Pre-iOS6 methods
-            [titleTextAttributes setValue:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
-            [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
-        }
+        NSShadow *shadow = [[NSShadow alloc] init];
+        [shadow setShadowOffset:CGSizeZero];
+        [shadow setShadowColor:[UIColor clearColor]];
+        [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
         
         [self setTitleTextAttributes:titleTextAttributes forState:controlState];
     }

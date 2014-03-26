@@ -25,11 +25,6 @@
         [shadow setShadowOffset:CGSizeZero];
         [shadow setShadowColor:[UIColor clearColor]];
         [titleTextAttributes setObject:shadow forKey:NSShadowAttributeName];
-    } else {
-        // Pre-iOS6 methods
-        [titleTextAttributes setValue:[UIColor clearColor] forKey:UITextAttributeTextShadowColor];
-        [titleTextAttributes setValue:[NSValue valueWithUIOffset:UIOffsetZero] forKey:UITextAttributeTextShadowOffset];
-
     }
     
     [self setTitleTextAttributes:titleTextAttributes];

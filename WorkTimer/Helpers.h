@@ -24,4 +24,6 @@
 +(NSString*) getEndDateString;
 +(NSString *)encodeString:(NSString *)data;
 +(NSDate*)roundDate:(NSDate*)unrounded;
++(NSArray*)sortArrayAlphabetically:(NSArray*)unsorted
+                                  :(NSString*)descriptorKey;
 @end

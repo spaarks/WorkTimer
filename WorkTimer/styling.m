@@ -9,7 +9,12 @@
 #import "styling.h"
 
 @implementation styling
- 
+
++(UIColor*)getTitleColor
+{
+    return [self getUIColorFromPList:@"TitleColor"];
+}
+
 +(void)setTableTextLabelStyling:(UILabel*)label
 {
     label.textColor = [self getUIColorFromPList:@"PrimaryContentColor"];

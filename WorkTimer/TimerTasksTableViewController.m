@@ -30,14 +30,8 @@
 {
     [super viewDidAppear:animated];
 
-    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [refreshButton addTarget:self
-                      action:@selector(refreshGrid)
-            forControlEvents:UIControlEventTouchUpInside];
-    
-    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
-    
-    self.navigationItem.titleView = refreshButton;
+    self.navigationItem.titleView = [self getRefreshButton];
+    self.navigationItem.rightBarButtonItem = [self getSettingsButton];
     
     [self populateGridOrShowSettings];
 }
@@ -49,9 +43,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(UIBarButtonItem*) getSettingsButton
+{
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+                                                                       style:UIBarButtonItemStyleBordered
+                                                                      target:self
+                                                                      action:@selector(goToSettings)];
+    
+    return settingsButton;
+}
+
+-(UIButton*) getRefreshButton
+{
+    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [refreshButton addTarget:self
+                  action:@selector(refreshGrid)
+        forControlEvents:UIControlEventTouchUpInside];
+
+    [refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
+    
+    return refreshButton;
+}
+
 - (void)populateGridOrShowSettings
 {
-    if(![Repository doSettingsExist])
+    if(![SettingsRepository doSettingsExist])
         [self performSegueWithIdentifier:@"chooseSettingsSegue" sender:self];
     else if([self isTasksListEmpty])
         [self parseWithParserType:XMLParserTypeJIRAParser];
@@ -135,6 +151,11 @@
     return cell;
 }
 
+- (void)goToSettings
+{
+    [self performSegueWithIdentifier:@"chooseSettingsSegue" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UITableViewCell* _currentCell = sender;
@@ -162,11 +183,9 @@
     NSSet *workTimerTasksSet = [NSSet setWithArray:self.workTimerTasks];
     NSArray *noDuplicates = [workTimerTasksSet allObjects];
 
-    //Sort Alphabetically
-    NSSortDescriptor *taskKeyDescriptor = [[NSSortDescriptor alloc] initWithKey:@"taskKey" ascending:YES];
-    NSArray *sortDescriptors = @[taskKeyDescriptor];
-    noDuplicates = [noDuplicates sortedArrayUsingDescriptors:sortDescriptors];
-
+    //Sort Alphabetically   
+    noDuplicates = [Helpers sortArrayAlphabetically:noDuplicates :@"taskKey"];
+    
     [self.workTimerTasks removeAllObjects];
     [self.workTimerTasks addObjectsFromArray:noDuplicates];
 

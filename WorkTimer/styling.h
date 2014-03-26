@@ -12,6 +12,7 @@
 
 @interface styling : NSObject
 
++(UIColor*)getTitleColor;
 +(void) setPrimaryButtonStyling:(FUIButton*)button;
 +(void) setSecondaryButtonStyling:(FUIButton*)button;
 +(UIFont*)getFont:(NSString*)fontName

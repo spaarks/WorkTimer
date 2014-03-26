@@ -177,4 +177,16 @@ static char *alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012
     
     return [Helpers getDateFromComponents:hours:minutes:seconds];
 }
+
++(NSArray*)sortArrayAlphabetically:(NSArray*)unsorted
+                                 :(NSString*)descriptorKey
+{
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:descriptorKey ascending:YES comparator:^(NSString *obj1, NSString *obj2) {
+        
+        return [obj1 compare:obj2 options:NSNumericSearch | NSCaseInsensitiveSearch];
+        
+    }];
+    
+    return [unsorted sortedArrayUsingDescriptors:@[descriptor]];
+}
 @end

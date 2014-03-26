@@ -14,13 +14,14 @@
 @property (nonatomic, copy) NSString *userName;
 @property (nonatomic, copy) NSString *password;
 @property (nonatomic, copy) NSString *serverPath;
+@property (nonatomic, copy) NSString *tempoToken;
+
 @property NSInteger parserType;
 @property (nonatomic, copy) NSString *authenticationToken;
 
 -(BOOL)isUserNameValid;
 -(BOOL)isPasswordValid;
 -(BOOL)isServerValid;
+-(BOOL)isTempoTokenValid;
 
-//TODO refactor this method out so that tempo token is no longer used
-- (NSString *) getToken;
 @end

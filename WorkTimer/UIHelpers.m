@@ -26,4 +26,22 @@
     [UIView commitAnimations];
 }
 
++ (void)gotoParentByIndex :(UIViewController*) currentViewController
+                          :(int) index
+{
+    NSInteger currentIndex = [currentViewController.navigationController.viewControllers indexOfObject:currentViewController];
+    if( currentIndex-index >= 0 )
+        [currentViewController.navigationController popToViewController:[currentViewController.navigationController.viewControllers objectAtIndex:currentIndex-index] animated:YES];
+}
+
++ (void)goToParentController:(UIViewController*) currentViewController
+{
+    [UIHelpers gotoParentByIndex:currentViewController:1];
+}
+
++ (void)goToGrandParentController:(UIViewController*) currentViewController
+{
+    [UIHelpers gotoParentByIndex:currentViewController:2];
+}
+
 @end

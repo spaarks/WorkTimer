@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Helpers.h"
+#import "WorkTimerTask.h"
 
 @interface HelperTests : XCTestCase
 @end
@@ -151,4 +152,22 @@
     
     XCTAssertEqualObjects(expected, [Helpers roundDate:initial], @"Date should be 01h 30m 0s");
 }
+
+-(void)testSortArrayAlphabetically
+{
+    WorkTimerTask* one = [[WorkTimerTask alloc] init];
+    one.taskKey =@"Second 0";
+    WorkTimerTask* two = [[WorkTimerTask alloc] init];
+    two.taskKey = @"First 1";
+    WorkTimerTask* three = [[WorkTimerTask alloc] init];
+    three.taskKey = @"First 2";
+    WorkTimerTask* four = [[WorkTimerTask alloc] init];
+    four.taskKey = @"First 10";
+
+    NSArray *arr =  [[NSArray alloc] initWithObjects:one,two,three,four, nil];
+    NSArray *expected = [[NSArray alloc] initWithObjects:two,three,four,one,nil];
+    
+    XCTAssertEqualObjects(expected, [Helpers sortArrayAlphabetically:arr :@"taskKey"], @"Arrays should be in the same order");
+}
+
 @end

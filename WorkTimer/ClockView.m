@@ -26,6 +26,13 @@
     return self;
 }
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                 name:@"appEnteredForeground"
+                                               object:nil];
+}
+
 - (void) start
 {
     [_activityIndicator startAnimating];
@@ -83,8 +90,11 @@
 
 - (void)calcCurrentTime
 {
-    NSString* timeNowString = [Helpers getDifferenceString:_timeStarted :[NSDate date]];
-    _currentTime = [Helpers getTimeFromString:timeNowString];
+    if(_isClockRunning)
+    {
+        NSString* timeNowString = [Helpers getDifferenceString:_timeStarted :[NSDate date]];
+        _currentTime = [Helpers getTimeFromString:timeNowString];
+    }
 }
 
 -(void)decodeRestorableStateWithCoder:(NSCoder *)coder

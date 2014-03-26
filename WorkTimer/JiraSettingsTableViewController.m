@@ -25,7 +25,12 @@
 {
     [super viewDidLoad];
     
-    [styling setNavigationBarStyling:self.navigationController.navigationBar];
+    self.navigationItem.title = @"Settings";
+    
+    UIColor* titleColor = [styling getTitleColor];
+    [[[self navigationController] navigationBar] setTitleTextAttributes:@{NSForegroundColorAttributeName: titleColor}];
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -38,6 +43,12 @@
     [styling setHeaderLabelStyling:self.userNameLabel];
     [styling setHeaderLabelStyling:self.passwordLabel];
     [styling setHeaderLabelStyling:self.serverLabel];
+    [styling setHeaderLabelStyling:self.tempoTokenLabel];
+    
+    [self.userNameTextField setDelegate:self];
+    [self.passwordTextField setDelegate:self];
+    [self.serverTextField setDelegate:self];
+    [self.tempoTokenTextField setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,21 +57,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-//-(UIView*) tableView
-//            :(UITableView *)tableView viewForHeaderInSection
-//            :(NSInteger)section
-//{
-//    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 40)];
-//	tableView.sectionHeaderHeight = headerView.frame.size.height;
-//	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, headerView.frame.size.width - 20, 22)];
-//	label.text = [self tableView:tableView titleForHeaderInSection:section];
-//	label.font = [UIFont boldSystemFontOfSize:16.0];
-//    
-//	label.textColor = [UIColor whiteColor];
-//    
-//	[headerView addSubview:label];
-//	return headerView;
-//}
+#pragma textfield methods
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (IBAction)userNameDidEndEditing:(id)sender
 {
@@ -95,39 +98,74 @@
     self.serverInvalidImage.hidden = [_currentSettings isServerValid];
 }
 
+- (IBAction)tempoTokenDidEndEditing:(id)sender
+{
+    [self checkTempoToken];
+}
+
+- (void)showInvalidIcon:(UITextField *)field
+{
+    if (![_currentSettings isTempoTokenValid])
+    {
+        field.rightViewMode = UITextFieldViewModeAlways;
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
+        imageView.image = [UIImage imageNamed:@"Error.ico"];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        field.rightView = imageView;
+    }
+    else
+    {
+        field.rightViewMode = UITextFieldViewModeNever;
+        field.rightView = nil;
+    }
+}
+
+-(void)checkTempoToken
+{
+    _currentSettings.tempoToken = self.tempoTokenTextField.text;
+
+    UITextField* field = self.tempoTokenTextField;
+    
+    [self showInvalidIcon:field];
+}
+
 -(BOOL)validateAllFields
 {
     [self checkUserName];
     [self checkPassword];
     [self checkServerPath];
+    [self checkTempoToken];
     
     return [_currentSettings isUserNameValid] &&
     [_currentSettings isPasswordValid] &&
-    [_currentSettings isServerValid];
+    [_currentSettings isServerValid] &&
+    [_currentSettings isTempoTokenValid];
 }
 
 - (IBAction)doneTouchUpInside:(id)sender
 {
     if(![self validateAllFields])
+    {
+        [self showWarningAlert];
         return;
+    }
     
     _currentSettings.parserType = XMLParserTypeJIRAParser;
     
-    [Repository saveSettings:_currentSettings];
+    [SettingsRepository saveSettings:_currentSettings];
     
-    UIViewController *vc = [self presentingViewController];
-    
-    [self dismissViewControllerAnimated:NO completion:nil];
-    [vc dismissViewControllerAnimated:YES completion:nil];
+    [UIHelpers goToGrandParentController:self];
 }
 
 - (IBAction)cancelTouchUpInside:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [UIHelpers goToParentController:self];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 70;
+-(void)showWarningAlert
+{
+    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please enter a valid value for all fields" delegate:self cancelButtonTitle:@"Hide" otherButtonTitles:nil];
+    [alert show];
 }
 
 @end

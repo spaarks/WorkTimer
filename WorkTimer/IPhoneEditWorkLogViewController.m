@@ -64,24 +64,21 @@ UIPickerView* timePicker;
     timePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
     timePicker.dataSource = self;
     timePicker.delegate = self;
-    
-    UILabel *hourLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:0]];
-    hourLabel.text = @"hour";
-    [styling setSecondaryContentLabelStyling:hourLabel];
-    
-    [timePicker addSubview:hourLabel];
-    
-    UILabel *minsLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:1]];
-    minsLabel.text = @"min";
-    [styling setSecondaryContentLabelStyling:minsLabel];
-    [timePicker addSubview:minsLabel];
-    
-    UILabel *secsLabel = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:2]];
-    secsLabel.text = @"sec";
-    [styling setSecondaryContentLabelStyling:secsLabel];
-    [timePicker addSubview:secsLabel];
+
+    [self addPickerLabel:@"hour":0];
+    [self addPickerLabel:@"min":1];
+    [self addPickerLabel:@"secs":2];
     
     [self.timePickerView addSubview:timePicker];
+}
+
+- (void)addPickerLabel:(NSString*)labelText
+                      :(int)pickerIndex
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:[self getFrameForPickerLabel:pickerIndex]];
+    label.text = labelText;
+    [styling setSecondaryContentLabelStyling:label];
+    [timePicker addSubview:label];
 }
 
 - (void)setTimePickerComponentValue

@@ -2,24 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>TitleColorRed</key>
+	<integer>255</integer>
+	<key>TitleColorGreen</key>
+	<integer>255</integer>
+	<key>TitleColorBlue</key>
+	<integer>255</integer>
 	<key>SecondaryContentColorRed</key>
-	<string>245</string>
+	<integer>199</integer>
 	<key>SecondaryContentColorGreen</key>
-	<string>133</string>
+	<integer>0</integer>
 	<key>SecondaryContentColorBlue</key>
-	<string>7</string>
+	<integer>70</integer>
 	<key>NavigationBarTintColorRed</key>
-	<integer>255</integer>
+	<integer>196</integer>
 	<key>NavigationBarTintColorGreen</key>
-	<integer>255</integer>
+	<integer>202</integer>
 	<key>NavigationBarTintColorBlue</key>
-	<integer>255</integer>
+	<integer>207</integer>
 	<key>NavigationBarColorRed</key>
-	<integer>68</integer>
+	<integer>69</integer>
 	<key>NavigationBarColorGreen</key>
-	<integer>52</integer>
+	<integer>84</integer>
 	<key>NavigationBarColorBlue</key>
-	<integer>52</integer>
+	<integer>95</integer>
 	<key>SecondaryBackgroundColorRed</key>
 	<integer>246</integer>
 	<key>SecondaryBackgroundColorGreen</key>
@@ -53,11 +59,11 @@
 	<key>HeaderLabelColorBlue</key>
 	<integer>174</integer>
 	<key>ButtonColorRed</key>
-	<integer>245</integer>
+	<integer>246</integer>
 	<key>ButtonColorGreen</key>
-	<integer>133</integer>
+	<integer>153</integer>
 	<key>ButtonColorBlue</key>
-	<integer>7</integer>
+	<integer>1</integer>
 	<key>ButtonSecondaryColorRed</key>
 	<integer>227</integer>
 	<key>ButtonSecondaryColorGreen</key>

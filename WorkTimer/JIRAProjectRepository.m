@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 martin steel. All rights reserved.
 //
 
-#import "FakeProjectRepository.h"
+#import "JIRAProjectRepository.h"
 
-@implementation FakeProjectRepository
+@implementation JIRAProjectRepository
 
 - (NSString *)getURL:(NSInteger)parserType
 {
-    Settings* currentSettings = [Repository getSettings];
+    Settings* currentSettings = [SettingsRepository getSettings];
     
     NSString *baseURL = currentSettings.serverPath;
     NSString *userName = currentSettings.userName;
-    NSString *token = currentSettings.getToken;
+    NSString *token = currentSettings.tempoToken;
     
     NSString *startDateString = [Helpers getStartDateString];
     NSString *endDateString = [Helpers getEndDateString];
@@ -27,7 +27,7 @@
 
 - (void)setAuthenticationType:(NSInteger)parserType request:(NSMutableURLRequest *)request
 {
-    Settings* currentSettings = [Repository getSettings];
+    Settings* currentSettings = [SettingsRepository getSettings];
     NSString* token = currentSettings.authenticationToken;
     
     NSString * headerValue = [NSString stringWithFormat:@"Basic %@", token];
@@ -54,7 +54,7 @@
                           :(NSString*) comment
                           :(NSString*) taskKey
 {
-    FakeProjectRepository *repo = [[FakeProjectRepository alloc] init];
+    JIRAProjectRepository *repo = [[JIRAProjectRepository alloc] init];
     
     [repo updateTask:taskKey
                     :XMLParserTypeJIRAParser
@@ -71,7 +71,7 @@
 {
     NSData *jsonData = [self getJSONDataForRequest:_timeStarted :comment:timeToLog];
 
-    Settings* currentSettings = [Repository getSettings];
+    Settings* currentSettings = [SettingsRepository getSettings];
     
     NSString* serverPath = currentSettings.serverPath;
     NSString* urlPath = [NSString stringWithFormat:@"%@/rest/api/latest/issue/%@/worklog", serverPath, taskID];

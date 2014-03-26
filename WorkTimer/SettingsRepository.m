@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 martin steel. All rights reserved.
 //
 
-#import "Repository.h"
+#import "SettingsRepository.h"
 
-@implementation Repository
+@implementation SettingsRepository
 
 static sqlite3 *database = NULL;
 static sqlite3_stmt *create_settings_statement = NULL;
@@ -28,6 +28,8 @@ static sqlite3_stmt *reset_worktimertasks_statement = NULL;
 static sqlite3_stmt *getSettings_statement = NULL;
 static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
 
+static sqlite3_stmt *delete_settings_statement = NULL;
+
 + (Settings*) getSettings
 {
     sqlite3 *db = Database();
@@ -42,8 +44,9 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     NSString* userName = @"";
     NSString* password = @"";
     NSString* serverPath = @"";
-    NSString* authToken = @"";
     NSInteger parserType = 0;
+    NSString* authToken = @"";
+    NSString* tempoToken = @"";
     
     if (success == SQLITE_ROW) {
         userName = [NSString stringWithFormat:@"%s",(char*)sqlite3_column_text(getSettings_statement, 0)];
@@ -51,6 +54,7 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
         serverPath = [NSString stringWithFormat:@"%s",(char*)sqlite3_column_text(getSettings_statement, 2)];
         parserType = sqlite3_column_int(getSettings_statement, 3);
         authToken = [NSString stringWithFormat:@"%s",(char*)sqlite3_column_text(getSettings_statement, 4)];
+        tempoToken = [NSString stringWithFormat:@"%s",(char*)sqlite3_column_text(getSettings_statement, 5)];
     } else {
         NSCAssert1(0, @"Error: failed to execute query with message '%s'.", sqlite3_errmsg(db));
     }
@@ -63,6 +67,7 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     currentSettings.serverPath = serverPath;
     currentSettings.authenticationToken = authToken;
     currentSettings.parserType = parserType;
+    currentSettings.tempoToken = tempoToken;
     
     return currentSettings;
 }
@@ -106,49 +111,57 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     return taskToEdit;
 }
 
++(void) deleteSettings:(sqlite3*) db
+{
+    if (delete_settings_statement == NULL) {
+        static const char *sql = "DELETE FROM Settings;";
+        if (sqlite3_prepare_v2(db, sql, -1, &delete_settings_statement, NULL) != SQLITE_OK) {
+            NSLog(@"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
+        }
+    }
+    
+    sqlite3_step(delete_settings_statement);
+    
+    // Reset the query for the next use.
+    sqlite3_reset(delete_settings_statement);
+}
+
++ (void)bindStringVariable:(sqlite3 *)db
+                            :(int)bindingIndex
+                            :(sqlite3_stmt*)insertStatement
+                            :(NSString*)property
+{
+    const char *currentChar = [property cStringUsingEncoding:NSASCIIStringEncoding];
+    
+    if (sqlite3_bind_text(insertStatement, bindingIndex, currentChar, (int)property.length, SQLITE_TRANSIENT) != SQLITE_OK)
+    {
+        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
+    }
+}
 
 + (void) saveSettings:(Settings*) settings
 {
     NSCAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
     sqlite3 *db = Database();
     if (insert_settings_statement == NULL) {
-        static const char *sql = "INSERT INTO Settings (UserName, Password, ServerPath, ParserType, AuthenticationToken) VALUES(?, ?, ?, ?, ?)";
+        static const char *sql = "INSERT INTO Settings (UserName, Password, ServerPath, ParserType, AuthenticationToken, TempoToken) VALUES(?, ?, ?, ?, ?, ?)";
         if (sqlite3_prepare_v2(db, sql, -1, &insert_settings_statement, NULL) != SQLITE_OK) {
             NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
         }
     }
     
-    const char *userNameChar = [settings.userName cStringUsingEncoding:NSASCIIStringEncoding];
+    [SettingsRepository deleteSettings:db];
     
-    if (sqlite3_bind_text(insert_settings_statement, 1, userNameChar, (int)settings.userName.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *passwordChar = [settings.password cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_settings_statement, 2, passwordChar, (int)settings.password.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *serverPath = [settings.serverPath cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_settings_statement, 3, serverPath, (int)settings.serverPath.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
+    [self bindStringVariable:db:1:insert_settings_statement:settings.userName];
+    [self bindStringVariable:db:2:insert_settings_statement:settings.password];
+    [self bindStringVariable:db:3:insert_settings_statement:settings.serverPath];
     
     if (sqlite3_bind_int(insert_settings_statement, 4, (int)settings.parserType) != SQLITE_OK) {
         NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
     }
-    
-    const char *authenticationChar = [settings.authenticationToken cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_settings_statement, 5, authenticationChar, (int)settings.authenticationToken.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
+
+    [self bindStringVariable:db:5:insert_settings_statement:settings.authenticationToken];
+    [self bindStringVariable:db:6:insert_settings_statement:settings.tempoToken];
     
     int result = sqlite3_step(insert_settings_statement);
     sqlite3_reset(insert_settings_statement);
@@ -163,46 +176,17 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     NSCAssert2([NSThread isMainThread], @"%s at line %d called on secondary thread", __FUNCTION__, __LINE__);
     sqlite3 *db = Database();
     if (insert_work_timer_task_statement == NULL) {
-        static const char *sql = "INSERT INTO WorkTimerTask (TaskID, TaskKey, TaskSummary, taskDescription, TimeWorked) VALUES(?, ?, ?, ?, ?)";
+        static const char *sql = "INSERT INTO WorkTimerTask (TaskID, TaskKey, TaskSummary, TaskDescription, TimeWorked) VALUES(?, ?, ?, ?, ?)";
         if (sqlite3_prepare_v2(db, sql, -1, &insert_work_timer_task_statement, NULL) != SQLITE_OK) {
             NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
         }
     }
     
-    const char *taskIDChar = [workTimerTask.taskID cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 1, taskIDChar, (int)workTimerTask.taskID.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *taskKeyChar = [workTimerTask.taskKey cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 2, taskKeyChar, (int)workTimerTask.taskKey.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *taskSummaryChar = [workTimerTask.taskSummary cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 3, taskSummaryChar, (int)workTimerTask.taskSummary.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *decriptionChar = [workTimerTask.taskDescription cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 4, decriptionChar, (int)workTimerTask.taskDescription.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
-    
-    const char *timeWorkedChar = [workTimerTask.timeWorked cStringUsingEncoding:NSASCIIStringEncoding];
-    
-    if (sqlite3_bind_text(insert_work_timer_task_statement, 5, timeWorkedChar, (int)workTimerTask.timeWorked.length, SQLITE_TRANSIENT) != SQLITE_OK)
-    {
-        NSCAssert1(0, @"Error: failed to bind variable with message '%s'.", sqlite3_errmsg(db));
-    }
+    [self bindStringVariable:db:1:insert_work_timer_task_statement:workTimerTask.taskID];
+    [self bindStringVariable:db:2:insert_work_timer_task_statement:workTimerTask.taskKey];
+    [self bindStringVariable:db:3:insert_work_timer_task_statement:workTimerTask.taskSummary];
+    [self bindStringVariable:db:4:insert_work_timer_task_statement:workTimerTask.taskDescription];
+    [self bindStringVariable:db:5:insert_work_timer_task_statement:workTimerTask.timeWorked];
     
     int result = sqlite3_step(insert_work_timer_task_statement);
     sqlite3_reset(insert_work_timer_task_statement);
@@ -220,7 +204,8 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
                                                              Password TEXT NOT NULL,\
                                                              ServerPath TEXT NOT NULL,\
                                                              ParserType INT NOT NULL,\
-                                                             AuthenticationToken TEXT NOT NULL\
+                                                             AuthenticationToken TEXT NOT NULL,\
+                                                             TempoToken TEXT NOT NULL\
                                                          )";
         if (sqlite3_prepare_v2(db, sql, -1, &create_settings_statement, NULL) != SQLITE_OK) {
             NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
@@ -275,6 +260,33 @@ static sqlite3_stmt *getWorkTimerTasks_statement = NULL;
     }
     // Reset the query for the next use.
     sqlite3_reset(count_settings_table_statement);
+    return numberOfRows>0;
+}
+
++ (BOOL) doesTableExistInDatabase:(sqlite3*) db WithTableName:(NSString*)tableName
+{
+    if (count_worktimertask_table_statement == NULL) {
+        // Prepare (compile) the SQL statement.
+        
+        NSString* strSQL = [NSString stringWithFormat:@"SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='%@'",tableName];
+        //static const char *sql = [strSQL UTF8String];
+        const char *sql = [strSQL UTF8String];
+
+        if (sqlite3_prepare_v2(db, sql, -1, &count_worktimertask_table_statement, NULL) != SQLITE_OK) {
+            NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
+        }
+    }
+    
+    int success = sqlite3_step(count_worktimertask_table_statement);
+    NSUInteger numberOfRows = 0;
+    if (success == SQLITE_ROW) {
+        // Store the value of the first and only column for return.
+        numberOfRows = sqlite3_column_int(count_worktimertask_table_statement, 0);
+    } else {
+        NSCAssert1(0, @"Error: failed to execute query with message '%s'.", sqlite3_errmsg(db));
+    }
+    // Reset the query for the next use.
+    sqlite3_reset(count_worktimertask_table_statement);
     return numberOfRows>0;
 }
 
@@ -344,16 +356,18 @@ sqlite3 *Database(void)
         }
     }
     
-    if(![Repository doesSettingsTableExist:database])
+    if(![SettingsRepository doesTableExistInDatabase:database WithTableName:@"Settings"])
     {
-        [Repository createSettingsTable:database];
+        [SettingsRepository createSettingsTable:database];
     }
-    
-    if(![Repository doesWorkTimerTaskTableExist:database])
+
+    if(![SettingsRepository doesWorkTimerTaskTableExist:database])
+
+    //if(![SettingsRepository doesTableExistInDatabase:database WithTableName:@"WorkTimerTask"])
     {
-        [Repository createWorkTimerTaskTable:database];
+        [SettingsRepository createWorkTimerTaskTable:database];
     }
-    
+
     return database;
 }
 
@@ -383,6 +397,8 @@ sqlite3 *Database(void)
     
     [self deleteStatement:getSettings_statement];
     [self deleteStatement:getWorkTimerTasks_statement];
+    
+    [self deleteStatement:delete_settings_statement];
 
     if (database == NULL) return;
     
