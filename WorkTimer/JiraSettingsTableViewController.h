@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Settings.h"
-#import "SettingsRepository.h"
+#import "LocalRepository.h"
 #import "TaskParser.h"
 #import "FUIButton.h"
 #import "styling.h"

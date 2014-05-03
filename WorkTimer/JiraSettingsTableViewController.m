@@ -152,9 +152,10 @@
     
     _currentSettings.parserType = XMLParserTypeJIRAParser;
     
-    [SettingsRepository saveSettings:_currentSettings];
+    [LocalRepository saveSettings:_currentSettings];
     
-    [UIHelpers goToGrandParentController:self];
+    [UIHelpers goToParentController:self];
+    //[UIHelpers goToGrandParentController:self];
 }
 
 - (IBAction)cancelTouchUpInside:(id)sender

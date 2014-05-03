@@ -12,7 +12,8 @@
 
 -(BOOL)application:(UIApplication *)application shouldRestoreApplicationState:(NSCoder *)coder
 {
-    return YES;
+    return NO;
+    //return YES;
 }
 
 -(BOOL)application:(UIApplication *)application shouldSaveApplicationState:(NSCoder *)coder
@@ -23,6 +24,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    [NSThread sleepForTimeInterval:2];
+    
     return YES;
 }
 
@@ -62,7 +66,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [SettingsRepository closeSettingsDatabase];
+    [LocalRepository closeSettingsDatabase];
 }
 
 @end

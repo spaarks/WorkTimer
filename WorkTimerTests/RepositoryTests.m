@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "Settings.h"
-#import "SettingsRepository.h"
+#import "LocalRepository.h"
 
 @interface RepositoryTests : XCTestCase
 
@@ -36,11 +36,11 @@
     //Check results
     //Reset database
     
-    [SettingsRepository resetDatabase];
+    [LocalRepository resetDatabase];
     Settings* testSettings = [self getSettings];
-    [SettingsRepository saveSettings:testSettings];
+    [LocalRepository saveSettings:testSettings];
     
-    Settings* retrievedSettings = [SettingsRepository getSettings];
+    Settings* retrievedSettings = [LocalRepository getSettings];
 
     XCTAssertEqualObjects(testSettings.userName, retrievedSettings.userName, @"User name should be First.last@company.com");
     XCTAssertEqualObjects(testSettings.password, retrievedSettings.password, @"Password should be P4ssw0rd1#");
@@ -50,7 +50,7 @@
     
     XCTAssertEqualObjects(testSettings.tempoToken, retrievedSettings.tempoToken, @"tempo token should be c39f740a-69dd-4ccc-a21e-820ae0f9d7f2");
 
-    [SettingsRepository resetDatabase];
+    [LocalRepository resetDatabase];
 }
 
 -(WorkTimerTask*)getWorkTimerTask
@@ -73,11 +73,11 @@
     //Check results
     //Reset database
     
-    [SettingsRepository resetDatabase];
+    [LocalRepository resetDatabase];
     WorkTimerTask* testSaveWorkTimerTask = [self getWorkTimerTask];
-    [SettingsRepository saveWorkTimerTask:testSaveWorkTimerTask];
+    [LocalRepository saveWorkTimerTask:testSaveWorkTimerTask];
     
-    WorkTimerTask* retrievedWorkTimerTask = [SettingsRepository getWorkTimerTask];
+    WorkTimerTask* retrievedWorkTimerTask = [LocalRepository getWorkTimerTask];
     
     XCTAssertEqualObjects(testSaveWorkTimerTask.taskID, retrievedWorkTimerTask.taskID, @"TaskID should be 12229");
     XCTAssertEqualObjects(testSaveWorkTimerTask.taskKey, retrievedWorkTimerTask.taskKey, @"TaskKey should be BMSCCHANGE-33");
@@ -85,7 +85,7 @@
     XCTAssertEqualObjects(testSaveWorkTimerTask.taskDescription, retrievedWorkTimerTask.taskDescription, @"Description should be 'Did some work'");
     XCTAssertEqualObjects(testSaveWorkTimerTask.timeWorked, retrievedWorkTimerTask.timeWorked, @"Time worked should be 01h 35m");
     
-    [SettingsRepository resetDatabase];
+    [LocalRepository resetDatabase];
 }
 
 

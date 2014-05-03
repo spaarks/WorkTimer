@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Settings.h"
 
-@protocol ProtocolSettingsRepository <NSObject>
+@protocol ProtocolLocalRepository <NSObject>
 
 + (Settings*) getSettings;
 

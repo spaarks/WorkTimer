@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <sqlite3.h>
 
-#import "ProtocolSettingsRepository.h"
+#import "ProtocolLocalRepository.h"
 #import "Settings.h"
 #import "WorkTimerTask.h"
 
-@interface SettingsRepository : NSObject<ProtocolSettingsRepository>
+@interface LocalRepository : NSObject<ProtocolLocalRepository>
 
 + (Settings*) getSettings;
 + (WorkTimerTask*) getWorkTimerTask;

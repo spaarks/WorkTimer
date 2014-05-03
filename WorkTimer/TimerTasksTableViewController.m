@@ -67,7 +67,7 @@
 
 - (void)populateGridOrShowSettings
 {
-    if(![SettingsRepository doSettingsExist])
+    if(![LocalRepository doSettingsExist])
         [self performSegueWithIdentifier:@"chooseSettingsSegue" sender:self];
     else if([self isTasksListEmpty])
         [self parseWithParserType:XMLParserTypeJIRAParser];

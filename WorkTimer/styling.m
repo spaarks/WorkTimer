@@ -18,13 +18,13 @@
 +(void)setTableTextLabelStyling:(UILabel*)label
 {
     label.textColor = [self getUIColorFromPList:@"PrimaryContentColor"];
-    label.font = [styling getFont:@"FontPlain":12];
+    label.font = [styling getFont:@"FontPlain":16];
 }
 
 +(void)setTableDetailTextLabelStyling:(UILabel*)label
 {
     label.textColor = [self getUIColorFromPList:@"SecondaryContentColor"];
-    label.font = [styling getFont:@"FontPlain":12];
+    label.font = [styling getFont:@"FontPlain":14];
 }
 
 +(void) setHeaderLabelStyling:(UILabel*)label
@@ -136,7 +136,7 @@
                                           format:&format
                                           errorDescription:&errorDesc];
     if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        NSLog(@"Error reading plist: %@, format: %d", errorDesc, (int)format);
     }
     
     return temp;

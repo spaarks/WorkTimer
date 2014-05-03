@@ -9,11 +9,11 @@
 	<key>TitleColorBlue</key>
 	<integer>255</integer>
 	<key>SecondaryContentColorRed</key>
-	<integer>199</integer>
+	<integer>246</integer>
 	<key>SecondaryContentColorGreen</key>
-	<integer>0</integer>
+	<integer>153</integer>
 	<key>SecondaryContentColorBlue</key>
-	<integer>70</integer>
+	<integer>1</integer>
 	<key>NavigationBarTintColorRed</key>
 	<integer>196</integer>
 	<key>NavigationBarTintColorGreen</key>

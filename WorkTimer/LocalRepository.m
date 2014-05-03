@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 martin steel. All rights reserved.
 //
 
-#import "SettingsRepository.h"
+#import "LocalRepository.h"
 
-@implementation SettingsRepository
+@implementation LocalRepository
 
 static sqlite3 *database = NULL;
 static sqlite3_stmt *create_settings_statement = NULL;
@@ -150,7 +150,7 @@ static sqlite3_stmt *delete_settings_statement = NULL;
         }
     }
     
-    [SettingsRepository deleteSettings:db];
+    [LocalRepository deleteSettings:db];
     
     [self bindStringVariable:db:1:insert_settings_statement:settings.userName];
     [self bindStringVariable:db:2:insert_settings_statement:settings.password];
@@ -196,120 +196,50 @@ static sqlite3_stmt *delete_settings_statement = NULL;
     }
 }
 
-+ (void) createSettingsTable:(sqlite3*) db
-{   
-    if (create_settings_statement == NULL) {
-        static const char *sql = "CREATE TABLE Settings (\
-                                                             UserName TEXT NOT NULL,\
-                                                             Password TEXT NOT NULL,\
-                                                             ServerPath TEXT NOT NULL,\
-                                                             ParserType INT NOT NULL,\
-                                                             AuthenticationToken TEXT NOT NULL,\
-                                                             TempoToken TEXT NOT NULL\
-                                                         )";
-        if (sqlite3_prepare_v2(db, sql, -1, &create_settings_statement, NULL) != SQLITE_OK) {
-            NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
-        }
-    }
-
-    sqlite3_step(create_settings_statement);
-
-    // Reset the query for the next use.
-    sqlite3_reset(create_settings_statement);
-}
-
-+ (void) createWorkTimerTaskTable:(sqlite3*) db
++ (void) createTable:(sqlite3*) db
+                    :(NSString*) sqlString
+                    :(sqlite3_stmt*) createStatement
 {
-    if (create_worktimertask_statement == NULL) {
-        static const char *sql = "CREATE TABLE WorkTimerTask (\
-        TaskID TEXT NOT NULL,\
-        TaskKey TEXT NOT NULL,\
-        TaskSummary TEXT NOT NULL,\
-        TaskDescription TEXT NOT NULL,\
-        TimeWorked TEXT NOT NULL\
-        )";
+    if (createStatement == NULL)
+    {
+        const char *sql = [sqlString UTF8String];
         
-        if (sqlite3_prepare_v2(db, sql, -1, &create_worktimertask_statement, NULL) != SQLITE_OK) {
+        if (sqlite3_prepare_v2(db, sql, -1, &createStatement, NULL) != SQLITE_OK)
+        {
             NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
         }
     }
     
-    sqlite3_step(create_worktimertask_statement);
+    sqlite3_step(createStatement);
     
     // Reset the query for the next use.
-    sqlite3_reset(create_worktimertask_statement);
+    sqlite3_reset(createStatement);
 }
 
-+ (BOOL) doesSettingsTableExist:(sqlite3*) db
-{
-    if (count_settings_table_statement == NULL) {
-        // Prepare (compile) the SQL statement.
-        static const char *sql = "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='Settings'";
-        if (sqlite3_prepare_v2(db, sql, -1, &count_settings_table_statement, NULL) != SQLITE_OK) {
-            NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
-        }
-    }
-
-    int success = sqlite3_step(count_settings_table_statement);
-    NSUInteger numberOfRows = 0;
-    if (success == SQLITE_ROW) {
-        // Store the value of the first and only column for return.
-        numberOfRows = sqlite3_column_int(count_settings_table_statement, 0);
-    } else {
-        NSCAssert1(0, @"Error: failed to execute query with message '%s'.", sqlite3_errmsg(db));
-    }
-    // Reset the query for the next use.
-    sqlite3_reset(count_settings_table_statement);
-    return numberOfRows>0;
-}
-
-+ (BOOL) doesTableExistInDatabase:(sqlite3*) db WithTableName:(NSString*)tableName
++ (BOOL) doesTableExistInDatabase:(sqlite3*) db WithTableName
+                                 :(NSString*)tableName
+                                 :(sqlite3_stmt*)count_statement
 {
     if (count_worktimertask_table_statement == NULL) {
         // Prepare (compile) the SQL statement.
-        
         NSString* strSQL = [NSString stringWithFormat:@"SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='%@'",tableName];
-        //static const char *sql = [strSQL UTF8String];
         const char *sql = [strSQL UTF8String];
 
-        if (sqlite3_prepare_v2(db, sql, -1, &count_worktimertask_table_statement, NULL) != SQLITE_OK) {
+        if (sqlite3_prepare_v2(db, sql, -1, &count_statement, NULL) != SQLITE_OK) {
             NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
         }
     }
     
-    int success = sqlite3_step(count_worktimertask_table_statement);
+    int success = sqlite3_step(count_statement);
     NSUInteger numberOfRows = 0;
     if (success == SQLITE_ROW) {
         // Store the value of the first and only column for return.
-        numberOfRows = sqlite3_column_int(count_worktimertask_table_statement, 0);
+        numberOfRows = sqlite3_column_int(count_statement, 0);
     } else {
         NSCAssert1(0, @"Error: failed to execute query with message '%s'.", sqlite3_errmsg(db));
     }
     // Reset the query for the next use.
-    sqlite3_reset(count_worktimertask_table_statement);
-    return numberOfRows>0;
-}
-
-+ (BOOL) doesWorkTimerTaskTableExist:(sqlite3*) db
-{
-    if (count_worktimertask_table_statement == NULL) {
-        // Prepare (compile) the SQL statement.
-        static const char *sql = "SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name='WorkTimerTask'";
-        if (sqlite3_prepare_v2(db, sql, -1, &count_worktimertask_table_statement, NULL) != SQLITE_OK) {
-            NSCAssert1(0, @"Error: failed to prepare statement with message '%s'.", sqlite3_errmsg(db));
-        }
-    }
-    
-    int success = sqlite3_step(count_worktimertask_table_statement);
-    NSUInteger numberOfRows = 0;
-    if (success == SQLITE_ROW) {
-        // Store the value of the first and only column for return.
-        numberOfRows = sqlite3_column_int(count_worktimertask_table_statement, 0);
-    } else {
-        NSCAssert1(0, @"Error: failed to execute query with message '%s'.", sqlite3_errmsg(db));
-    }
-    // Reset the query for the next use.
-    sqlite3_reset(count_worktimertask_table_statement);
+    sqlite3_reset(count_statement);
     return numberOfRows>0;
 }
 
@@ -356,18 +286,38 @@ sqlite3 *Database(void)
         }
     }
     
-    if(![SettingsRepository doesTableExistInDatabase:database WithTableName:@"Settings"])
+    if(![LocalRepository doesTableExistInDatabase:database WithTableName:@"Settings":count_settings_table_statement])
     {
-        [SettingsRepository createSettingsTable:database];
+        
+        NSString* sqlStatement = @"CREATE TABLE Settings (\
+                                  UserName TEXT NOT NULL,\
+                                  Password TEXT NOT NULL,\
+                                  ServerPath TEXT NOT NULL,\
+                                  ParserType INT NOT NULL,\
+                                  AuthenticationToken TEXT NOT NULL,\
+                                  TempoToken TEXT NOT NULL\
+                                )";
+    
+        [LocalRepository createTable:database
+                                    :sqlStatement
+                                    :create_settings_statement];
     }
 
-    if(![SettingsRepository doesWorkTimerTaskTableExist:database])
-
-    //if(![SettingsRepository doesTableExistInDatabase:database WithTableName:@"WorkTimerTask"])
+    if(![LocalRepository doesTableExistInDatabase:database WithTableName:@"WorkTimerTask":count_worktimertask_table_statement])
     {
-        [SettingsRepository createWorkTimerTaskTable:database];
+        NSString* sqlStatement = @"CREATE TABLE WorkTimerTask (\
+                               TaskID TEXT NOT NULL,\
+                               TaskKey TEXT NOT NULL,\
+                               TaskSummary TEXT NOT NULL,\
+                               TaskDescription TEXT NOT NULL,\
+                               TimeWorked TEXT NOT NULL\
+                             )";
+        
+        [LocalRepository createTable:database
+                                    :sqlStatement
+                                    :create_worktimertask_statement];
     }
-
+    
     return database;
 }
 
@@ -402,8 +352,14 @@ sqlite3 *Database(void)
 
     if (database == NULL) return;
     
-    // Close the database.
+    //-1 here to make sure the database isn't locked
+    //sqlite3_busy_timeout(database, -1);
+    
     if (sqlite3_close(database) != SQLITE_OK) {
+        //NSString* errorString = [NSString stringWithUTF8String:sqlite3_errmsg(database)];
+        
+        //NSLog(@"Error whilst trying to close the database:%@", errorString);
+        //NSLog(@"Error whilst trying to close the database:%d", sqlite3_close(database));
         NSCAssert1(0, @"Error: failed to close database with message '%s'.", sqlite3_errmsg(database));
     }
     database = NULL;

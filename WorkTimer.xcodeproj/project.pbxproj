@@ -11,8 +11,13 @@
 		EF186FD418C4EF0A00224917 /* TaskTimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF186FD318C4EF0A00224917 /* TaskTimerViewController.m */; };
 		EF34DAF518E0D5F3009ADC24 /* Error.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF34DAF418E0D5F3009ADC24 /* Error.ico */; };
 		EF4FFCFF188FE2EA002A1B01 /* RepositoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */; };
+		EF55382318EB466000A86A98 /* Default@.png in Resources */ = {isa = PBXBuildFile; fileRef = EF55382218EB466000A86A98 /* Default@.png */; };
+		EF55382718EB492A00A86A98 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF55382618EB492A00A86A98 /* Default@2x.png */; };
 		EF589C69188EE2B500D3E4BA /* SettingsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF589C68188EE2B500D3E4BA /* SettingsTests.m */; };
 		EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */ = {isa = PBXBuildFile; fileRef = EF589C6A188F0D6700D3E4BA /* Warning.ico */; };
+		EF62317918EA027300DFD5B8 /* Clock120.png in Resources */ = {isa = PBXBuildFile; fileRef = EF62317818EA027300DFD5B8 /* Clock120.png */; };
+		EF62317B18EA0D0400DFD5B8 /* Clock80.png in Resources */ = {isa = PBXBuildFile; fileRef = EF62317A18EA0D0400DFD5B8 /* Clock80.png */; };
+		EF62317D18EA0D3600DFD5B8 /* Clock58.png in Resources */ = {isa = PBXBuildFile; fileRef = EF62317C18EA0D3600DFD5B8 /* Clock58.png */; };
 		EF7B028B18DB055A000D9FEB /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026618DB055A000D9FEB /* FUIAlertView.m */; };
 		EF7B028C18DB055A000D9FEB /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026818DB055A000D9FEB /* FUIButton.m */; };
 		EF7B028D18DB055A000D9FEB /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B026A18DB055A000D9FEB /* FUICellBackgroundView.m */; };
@@ -49,7 +54,7 @@
 		EF7B037318DB349C000D9FEB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EF7B036918DB349C000D9FEB /* Lato-Regular.ttf */; };
 		EF7B037618DC4A2F000D9FEB /* UIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B037518DC4A2F000D9FEB /* UIHelpers.m */; };
 		EF7B037918DC5198000D9FEB /* ChooseTimesheetToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7B037818DC5198000D9FEB /* ChooseTimesheetToolViewController.m */; };
-		EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* SettingsRepository.m */; };
+		EF871E7A188D8B9500D54493 /* LocalRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E79188D8B9500D54493 /* LocalRepository.m */; };
 		EF871E7D188D8D2200D54493 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF871E7C188D8D2200D54493 /* Settings.m */; };
 		EF871E7F188D906000D54493 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EF871E7E188D906000D54493 /* libsqlite3.dylib */; };
 		EF924E2D188D30670091426C /* logoJIRA.png in Resources */ = {isa = PBXBuildFile; fileRef = EF924E2C188D30670091426C /* logoJIRA.png */; };
@@ -61,9 +66,6 @@
 		EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF9E21F71884760700A68FD5 /* InfoPlist.strings */; };
 		EF9E21FB1884760700A68FD5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E21FA1884760700A68FD5 /* main.m */; };
 		EF9E21FF1884760700A68FD5 /* spaarksAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E21FE1884760700A68FD5 /* spaarksAppDelegate.m */; };
-		EF9E22011884760700A68FD5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22001884760700A68FD5 /* Default.png */; };
-		EF9E22031884760700A68FD5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22021884760700A68FD5 /* Default@2x.png */; };
-		EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22041884760700A68FD5 /* Default-568h@2x.png */; };
 		EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22061884760700A68FD5 /* MainStoryboard_iPhone.storyboard */; };
 		EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF9E22091884760700A68FD5 /* MainStoryboard_iPad.storyboard */; };
 		EF9E22171884760700A68FD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9E21EE1884760700A68FD5 /* UIKit.framework */; };
@@ -73,6 +75,7 @@
 		EF9E223B1884768D00A68FD5 /* JIRATaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22311884768D00A68FD5 /* JIRATaskParser.m */; };
 		EF9E223C1884768D00A68FD5 /* TaskParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E22341884768D00A68FD5 /* TaskParser.m */; };
 		EF9E223F1884768D00A68FD5 /* WorkTimerTask.m in Sources */ = {isa = PBXBuildFile; fileRef = EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */; };
+		EF9F2BBA18E697E800EF5C87 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF9F2BB918E697E800EF5C87 /* Images.xcassets */; };
 		EFA9AFF61884829A0091EDB1 /* JIRAProjectRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF51884829A0091EDB1 /* JIRAProjectRepository.m */; };
 		EFA9AFF918849FF00091EDB1 /* ButtonGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */; };
 		EFA9AFFC1884A0B00091EDB1 /* ButtonGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFA9AFFB1884A0B00091EDB1 /* ButtonGridCell.m */; };
@@ -80,7 +83,6 @@
 		EFC470D318871B0F00FE9C75 /* ClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D218871B0F00FE9C75 /* ClockView.m */; };
 		EFC470D718872F8600FE9C75 /* Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC470D618872F8600FE9C75 /* Helpers.m */; };
 		EFD733A018D4BA0600A243A5 /* Clock.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD7339F18D4BA0600A243A5 /* Clock.png */; };
-		EFD7DFFE18DF651C0049C3B5 /* Launch in Resources */ = {isa = PBXBuildFile; fileRef = EFD7DFFD18DF651C0049C3B5 /* Launch */; };
 		EFDC8D6A189AB81C00A27D47 /* EditWorkLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */; };
 		EFF6505D18BE93680004D881 /* countries.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFF6505C18BE93680004D881 /* countries.plist */; };
 		EFF702B918D7A02400FE9D1E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFF702B818D7A02400FE9D1E /* XCTest.framework */; };
@@ -105,9 +107,14 @@
 		EF34DAF418E0D5F3009ADC24 /* Error.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Error.ico; sourceTree = "<group>"; };
 		EF4FFCFE188FE2EA002A1B01 /* RepositoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryTests.m; sourceTree = "<group>"; };
 		EF4FFD0018902F45002A1B01 /* ProtocolTaskParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTaskParserDelegate.h; sourceTree = "<group>"; };
+		EF55382218EB466000A86A98 /* Default@.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@.png"; sourceTree = "<group>"; };
+		EF55382618EB492A00A86A98 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EF589C68188EE2B500D3E4BA /* SettingsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTests.m; sourceTree = "<group>"; };
 		EF589C6A188F0D6700D3E4BA /* Warning.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = Warning.ico; sourceTree = "<group>"; };
 		EF5C0450189D50FB006D8084 /* ProtocolEditWorkLogButtonClicked.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProtocolEditWorkLogButtonClicked.h; sourceTree = "<group>"; };
+		EF62317818EA027300DFD5B8 /* Clock120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock120.png; sourceTree = "<group>"; };
+		EF62317A18EA0D0400DFD5B8 /* Clock80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock80.png; sourceTree = "<group>"; };
+		EF62317C18EA0D3600DFD5B8 /* Clock58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock58.png; sourceTree = "<group>"; };
 		EF7B026418DB055A000D9FEB /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
 		EF7B026518DB055A000D9FEB /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
 		EF7B026618DB055A000D9FEB /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
@@ -165,8 +172,8 @@
 		EF7B037518DC4A2F000D9FEB /* UIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIHelpers.m; sourceTree = "<group>"; };
 		EF7B037718DC5198000D9FEB /* ChooseTimesheetToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseTimesheetToolViewController.h; sourceTree = "<group>"; };
 		EF7B037818DC5198000D9FEB /* ChooseTimesheetToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseTimesheetToolViewController.m; sourceTree = "<group>"; };
-		EF871E78188D8B9500D54493 /* SettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsRepository.h; sourceTree = "<group>"; };
-		EF871E79188D8B9500D54493 /* SettingsRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsRepository.m; sourceTree = "<group>"; };
+		EF871E78188D8B9500D54493 /* LocalRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalRepository.h; sourceTree = "<group>"; };
+		EF871E79188D8B9500D54493 /* LocalRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalRepository.m; sourceTree = "<group>"; };
 		EF871E7B188D8D2200D54493 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		EF871E7C188D8D2200D54493 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		EF871E7E188D906000D54493 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -185,9 +192,6 @@
 		EF9E21FC1884760700A68FD5 /* WorkTimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WorkTimer-Prefix.pch"; sourceTree = "<group>"; };
 		EF9E21FD1884760700A68FD5 /* spaarksAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = spaarksAppDelegate.h; sourceTree = "<group>"; };
 		EF9E21FE1884760700A68FD5 /* spaarksAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = spaarksAppDelegate.m; sourceTree = "<group>"; };
-		EF9E22001884760700A68FD5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EF9E22021884760700A68FD5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		EF9E22041884760700A68FD5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EF9E22071884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		EF9E220A1884760700A68FD5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		EF9E22141884760700A68FD5 /* WorkTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,7 +205,8 @@
 		EF9E22341884768D00A68FD5 /* TaskParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskParser.m; sourceTree = "<group>"; };
 		EF9E22391884768D00A68FD5 /* WorkTimerTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTimerTask.h; sourceTree = "<group>"; };
 		EF9E223A1884768D00A68FD5 /* WorkTimerTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTimerTask.m; sourceTree = "<group>"; };
-		EF9E22491884805400A68FD5 /* ProtocolSettingsRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolSettingsRepository.h; sourceTree = "<group>"; };
+		EF9E22491884805400A68FD5 /* ProtocolLocalRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolLocalRepository.h; sourceTree = "<group>"; };
+		EF9F2BB918E697E800EF5C87 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EFA9AFF41884829A0091EDB1 /* JIRAProjectRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JIRAProjectRepository.h; sourceTree = "<group>"; };
 		EFA9AFF51884829A0091EDB1 /* JIRAProjectRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JIRAProjectRepository.m; sourceTree = "<group>"; };
 		EFA9AFF818849FF00091EDB1 /* ButtonGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonGridViewController.m; sourceTree = "<group>"; };
@@ -215,7 +220,6 @@
 		EFC470D518872F8600FE9C75 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
 		EFC470D618872F8600FE9C75 /* Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helpers.m; sourceTree = "<group>"; };
 		EFD7339F18D4BA0600A243A5 /* Clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clock.png; sourceTree = "<group>"; };
-		EFD7DFFD18DF651C0049C3B5 /* Launch */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Launch; sourceTree = "<group>"; };
 		EFDC8D68189AB81C00A27D47 /* EditWorkLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWorkLogViewController.h; sourceTree = "<group>"; };
 		EFDC8D69189AB81C00A27D47 /* EditWorkLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWorkLogViewController.m; sourceTree = "<group>"; };
 		EFF6505C18BE93680004D881 /* countries.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = countries.plist; sourceTree = "<group>"; };
@@ -404,6 +408,7 @@
 				EF186FD318C4EF0A00224917 /* TaskTimerViewController.m */,
 				EF186FCF18C4DDCE00224917 /* TimerTasksTableViewController.h */,
 				EF186FD018C4DDCF00224917 /* TimerTasksTableViewController.m */,
+				EF9F2BB918E697E800EF5C87 /* Images.xcassets */,
 				EF9E21F51884760700A68FD5 /* Supporting Files */,
 			);
 			path = WorkTimer;
@@ -412,7 +417,11 @@
 		EF9E21F51884760700A68FD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EFD7DFFD18DF651C0049C3B5 /* Launch */,
+				EF55382618EB492A00A86A98 /* Default@2x.png */,
+				EF55382218EB466000A86A98 /* Default@.png */,
+				EF62317C18EA0D3600DFD5B8 /* Clock58.png */,
+				EF62317A18EA0D0400DFD5B8 /* Clock80.png */,
+				EF62317818EA027300DFD5B8 /* Clock120.png */,
 				EFD7339F18D4BA0600A243A5 /* Clock.png */,
 				EFF6505C18BE93680004D881 /* countries.plist */,
 				EF34DAF418E0D5F3009ADC24 /* Error.ico */,
@@ -423,9 +432,6 @@
 				EF9E21F71884760700A68FD5 /* InfoPlist.strings */,
 				EF9E21FA1884760700A68FD5 /* main.m */,
 				EF9E21FC1884760700A68FD5 /* WorkTimer-Prefix.pch */,
-				EF9E22001884760700A68FD5 /* Default.png */,
-				EF9E22021884760700A68FD5 /* Default@2x.png */,
-				EF9E22041884760700A68FD5 /* Default-568h@2x.png */,
 				EF7B02A518DB0E5A000D9FEB /* Styles.plist */,
 			);
 			name = "Supporting Files";
@@ -472,7 +478,7 @@
 		EF9E222E1884766900A68FD5 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
-				EF9E22491884805400A68FD5 /* ProtocolSettingsRepository.h */,
+				EF9E22491884805400A68FD5 /* ProtocolLocalRepository.h */,
 				EF9E22321884768D00A68FD5 /* ProtocolProjectRepository.h */,
 			);
 			name = Abstract;
@@ -483,8 +489,8 @@
 			children = (
 				EFA9AFF41884829A0091EDB1 /* JIRAProjectRepository.h */,
 				EFA9AFF51884829A0091EDB1 /* JIRAProjectRepository.m */,
-				EF871E78188D8B9500D54493 /* SettingsRepository.h */,
-				EF871E79188D8B9500D54493 /* SettingsRepository.m */,
+				EF871E78188D8B9500D54493 /* LocalRepository.h */,
+				EF871E79188D8B9500D54493 /* LocalRepository.m */,
 			);
 			name = Concrete;
 			sourceTree = "<group>";
@@ -620,8 +626,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF7B036B18DB349C000D9FEB /* Lato-BlackItalic.ttf in Resources */,
+				EF9F2BBA18E697E800EF5C87 /* Images.xcassets in Resources */,
 				EF7B037018DB349C000D9FEB /* Lato-Italic.ttf in Resources */,
 				EF7B036E18DB349C000D9FEB /* Lato-Hairline.ttf in Resources */,
+				EF55382718EB492A00A86A98 /* Default@2x.png in Resources */,
 				EF7B037118DB349C000D9FEB /* Lato-Light.ttf in Resources */,
 				EF7B036F18DB349C000D9FEB /* Lato-HairlineItalic.ttf in Resources */,
 				EF9E21F91884760700A68FD5 /* InfoPlist.strings in Resources */,
@@ -629,20 +637,20 @@
 				EF7B036D18DB349C000D9FEB /* Lato-BoldItalic.ttf in Resources */,
 				EFD733A018D4BA0600A243A5 /* Clock.png in Resources */,
 				EF924E2D188D30670091426C /* logoJIRA.png in Resources */,
-				EF9E22011884760700A68FD5 /* Default.png in Resources */,
 				EFF6505D18BE93680004D881 /* countries.plist in Resources */,
+				EF55382318EB466000A86A98 /* Default@.png in Resources */,
 				EF34DAF518E0D5F3009ADC24 /* Error.ico in Resources */,
-				EF9E22031884760700A68FD5 /* Default@2x.png in Resources */,
+				EF62317D18EA0D3600DFD5B8 /* Clock58.png in Resources */,
 				EF7B02A618DB0E5A000D9FEB /* Styles.plist in Resources */,
-				EF9E22051884760700A68FD5 /* Default-568h@2x.png in Resources */,
+				EF62317B18EA0D0400DFD5B8 /* Clock80.png in Resources */,
 				EF7B036C18DB349C000D9FEB /* Lato-Bold.ttf in Resources */,
 				EF9E22081884760700A68FD5 /* MainStoryboard_iPhone.storyboard in Resources */,
-				EFD7DFFE18DF651C0049C3B5 /* Launch in Resources */,
 				EF7B037318DB349C000D9FEB /* Lato-Regular.ttf in Resources */,
 				EF7B037218DB349C000D9FEB /* Lato-LightItalic.ttf in Resources */,
 				EF9E220B1884760700A68FD5 /* MainStoryboard_iPad.storyboard in Resources */,
 				EF7B036A18DB349C000D9FEB /* Lato-Black.ttf in Resources */,
 				EF589C6B188F0D6700D3E4BA /* Warning.ico in Resources */,
+				EF62317918EA027300DFD5B8 /* Clock120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,7 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF9E21FB1884760700A68FD5 /* main.m in Sources */,
-				EF871E7A188D8B9500D54493 /* SettingsRepository.m in Sources */,
+				EF871E7A188D8B9500D54493 /* LocalRepository.m in Sources */,
 				EF7B029618DB055A000D9FEB /* UINavigationBar+FlatUI.m in Sources */,
 				EF924E32188D343B0091426C /* JiraSettingsTableViewController.m in Sources */,
 				EF7B029718DB055A000D9FEB /* UIPopoverController+FlatUI.m in Sources */,
@@ -836,12 +844,14 @@
 		EF9E22271884760700A68FD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -851,12 +861,14 @@
 		EF9E22281884760700A68FD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-3";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WorkTimer/WorkTimer-Prefix.pch";
 				INFOPLIST_FILE = "WorkTimer/WorkTimer-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
